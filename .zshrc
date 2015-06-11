@@ -1,0 +1,1 @@
+/Users/seiyayoshitaka/.zprezto/runcoms/zshrc
