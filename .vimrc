@@ -1,5 +1,5 @@
 " ====================
-" 基本設定
+" Basic Settings
 " ====================
 " インデントの設定
 " augroup : autocmdでvimが自動的に読み込む処理をグループ化し重複を避ける
@@ -51,6 +51,9 @@ set wrapscan
 
 " コマンド補完の強化
 set wildmenu
+
+" ステータスの表示
+set laststatus=2
 
 " クリップボードを共有
 set clipboard=unnamed
@@ -114,20 +117,6 @@ noremap <silent>cp :let @+=expand("%:p")<CR>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
-
-
-" ====================
-" COLOR SCHEME
-" ====================
-syntax on
-set t_Co=256
-set laststatus=2
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans = 1
-" let g:solarized_visibility="high"
-let g:solarized_contrast="high"
-colorscheme solarized
 
 
 " ====================
@@ -385,6 +374,20 @@ NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
 call neobundle#end()
 " Required:
 filetype plugin indent on
+
+" ====================
+" COLOR SCHEME
+" ====================
+NeoBundle 'altercation/vim-colors-solarized'
+syntax enable
+set t_Co=256
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans = 1
+" let g:solarized_visibility="high"
+" let g:solarized_contrast="high"
+colorscheme solarized
+
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck

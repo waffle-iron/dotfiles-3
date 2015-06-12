@@ -1,1 +1,0 @@
-/Users/seiyayoshitaka/.zprezto/runcoms/zprofile
