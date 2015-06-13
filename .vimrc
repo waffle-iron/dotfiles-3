@@ -233,7 +233,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 set guifont=Inconsolate\ Regular\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
-let g:airline_theme='laederon'
+let g:airline_theme='gotham'
 let g:airline_left_sep = '⮀'
 let g:airline_right_sep = '⮂'
 " let g:airline_linecolumn_prefix = '⭡'
@@ -378,16 +378,17 @@ filetype plugin indent on
 " ====================
 " COLOR SCHEME
 " ====================
-NeoBundle 'altercation/vim-colors-solarized'
+" NeoBundle 'altercation/vim-colors-solarized'
+" let g:solarized_termcolors=256
+" let g:solarized_termtrans = 1
+" colorscheme solarized
+
+NeoBundle 'whatyouhide/vim-gotham'
+colorscheme gotham
+" AirlineTheme gotham256
+
 syntax enable
 set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans = 1
-" let g:solarized_visibility="high"
-" let g:solarized_contrast="high"
-colorscheme solarized
-
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
