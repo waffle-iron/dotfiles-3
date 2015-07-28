@@ -12,8 +12,7 @@ fi
 
 # Customize to your needs...
 
-alias rm="trash"
-alias {tm,tmx}='tmux'
+alias rm='trash'
 alias chrome='open -a "Google Chrome"'
 alias rb='ruby'
 alias sb='seeing_is_believing'
