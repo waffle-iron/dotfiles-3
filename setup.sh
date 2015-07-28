@@ -1,9 +1,12 @@
-#!/bin/bash
+#!/bin/sh
+if [ ! -L ~/.zprezto -a -d ~/dotfiles/prezto ]; then
+    ln -s ~/dotfiles/prezto ~/.zprezto
+fi
 
-# link files to $HOME
-DOT_FILES={.gitignore .gitconfig .gitignore_global .peco .vim .vimrc .tmux_conf}
 
-for file in ${DOT_FILES[@]}
-do
-    ln -s $HOME/dotfiles/$file $HOME/$file
+for file in .z* .gitconfig .gitignore .gitignore_global .peco .vim .vimrc .tmux.conf .jshintrc; do
+ln - s $PWD/$file ~/$file
 done
+
+# prezto
+## .z系のファイルを＄HOMEにsymlink
