@@ -1,0 +1,24 @@
+[core]
+	excludesfile = /Users/seiyayoshitaka/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = ystkme
+	email = bloom6445@gmail.com
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[github]
+	user = ystkme
+[color]
+	ui = true
+[alias]
+	co = checkout
+	st = status
+	br = branch
+	cm = commit
