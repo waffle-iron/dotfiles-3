@@ -22,3 +22,4 @@
 	st = status
 	br = branch
 	cm = commit
+	pl = !git pull && git submodule update --init
