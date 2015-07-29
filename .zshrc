@@ -12,6 +12,9 @@ fi
 
 # Customize to your needs...
 
+export EDITOR=/usr/local/bin/vim
+export VISUAL=/usr/local/bin/vim
+
 alias rm='trash'
 alias chrome='open -a "Google Chrome"'
 alias rb='ruby'
