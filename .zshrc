@@ -36,6 +36,16 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+# gibo
+_gibo()
+{
+    local_repo="$HOME/.gitignore-boilerplates"
+    if [ -e "$local_repo" ]; then
+        compadd -M 'm:{[:lower:]}={[:upper:]}' $( find "$local_repo" -name "*.gitignore" -exec basename \{\} .gitignore \; )
+    fi
+}
+compdef _gibo gibo
+
 # rbenvの設定
 if which rbenv > /dev/null; then
     eval "$(rbenv init -)";
