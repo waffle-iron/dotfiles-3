@@ -71,6 +71,9 @@ NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'moll/vim-node'
+NeoBundle '1995eaton/vim-better-javascript-completion'
+let g:vimjs#casesensitive = 0
+let g:vimjs#smartcomplete = 1
 NeoBundle 'mattn/jscomplete-vim'
 autocmd FileType javascript
     \ :setl omnifunc=jscomplete#CompleteJS
@@ -288,7 +291,7 @@ inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " --------------------
-" COLOR SCHEME
+" Appearance
 " --------------------
 colorscheme gotham
 syntax enable
@@ -448,3 +451,5 @@ function! s:dash(...)
   call system(printf("open dash://'%s'", word))
 endfunction
 command! -nargs=* Dash call <SID>dash(<f-args>)
+
+highlight Comment cterm=italic gui=italic
