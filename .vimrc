@@ -74,10 +74,10 @@ NeoBundle 'moll/vim-node'
 NeoBundle '1995eaton/vim-better-javascript-completion'
 let g:vimjs#casesensitive = 0
 let g:vimjs#smartcomplete = 1
-NeoBundle 'mattn/jscomplete-vim'
-autocmd FileType javascript
-    \ :setl omnifunc=jscomplete#CompleteJS
-let g:jscomplete_use = ['dom', 'moz', 'es6th']
+" NeoBundle 'mattn/jscomplete-vim'
+" autocmd FileType javascript
+"     \ :setl omnifunc=jscomplete#CompleteJS
+" let g:jscomplete_use = ['dom', 'moz', 'es6th']
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'szw/vim-tags'
 NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
@@ -280,7 +280,7 @@ if has("autocmd")
   autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType xml        setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
   autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType zsh        setlocal sw=2 sts=2 ts=2 et
   " autocmd FileType markdown   setlocal sw=4 sts=4 ts=4 et
