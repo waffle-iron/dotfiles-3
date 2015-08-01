@@ -1,12 +1,13 @@
 #!/bin/sh
+
+# symlink prezto
 if [ ! -L ~/.zprezto -a -d ~/dotfiles/prezto ]; then
     ln -s ~/dotfiles/prezto ~/.zprezto
 fi
 
+for file in .??*
+do
+  [ "$file" = ".git" ] && continue
 
-for file in .z* .gitconfig .gitignore .gitignore_global .peco .vim .vimrc .tmux.conf .jshintrc; do
-ln - s $PWD/$file ~/$file
+    ln -sv "$HOME/dotfiles/$file" "$HOME/$file"
 done
-
-# prezto
-## .z系のファイルを＄HOMEにsymlink
