@@ -16,6 +16,7 @@ export VISUAL=/usr/local/bin/vim
 
 alias rm='trash'
 alias chrome='open -a "Google Chrome"'
+alias gi='git'
 alias rb='ruby'
 alias sb='seeing_is_believing'
 
