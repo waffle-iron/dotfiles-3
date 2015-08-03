@@ -40,6 +40,7 @@ brew 'lua'
 brew 'macvim', args: ['override-system-vim', 'with-lua']
 brew 'mercurial'
 brew 'mongodb'
+brew 'mysql'
 brew 'nkf'
 brew 'nodebrew'
 brew 'peco'
