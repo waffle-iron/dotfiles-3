@@ -24,3 +24,5 @@
 	cm = commit
 	pl = !git pull && git submodule update --init
     graph = log --graph --date=short --pretty='%C(yellow)%h%Creset %C(cyan bold)%d%Creset %s %Cgreen[%cd]%Creset' --decorate
+[push]
+	default = simple
