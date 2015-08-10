@@ -58,6 +58,8 @@ NeoBundle 'grep.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'danro/rename.vim'
 NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'kana/vim-textobj-entire'
+NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'lfilho/cosco.vim'
 NeoBundle 'kana/vim-operator-user'
@@ -241,8 +243,6 @@ nnoremap <silent><Leader>l  :nohl<CR>
 " 画面分割
 nnoremap <silent><Leader>v :split<CR>
 nnoremap <silent><Leader>s :vsplit<CR>
-" 全行を削除
-nnoremap <silent><Leader>d :1,$d<CR>
 " コマンドライン
 nnoremap <silent><Leader>c :shell<CR>
 " ブラウザプレビュー
