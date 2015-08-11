@@ -15,6 +15,7 @@ export EDITOR=/usr/local/bin/vim
 export VISUAL=/usr/local/bin/vim
 
 alias rm='trash'
+alias op='open'
 alias chrome='open -a "Google Chrome"'
 alias gi='git'
 alias rb='ruby'
