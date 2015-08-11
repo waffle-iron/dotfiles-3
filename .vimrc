@@ -216,8 +216,8 @@ noremap <C-j> <esc>
 noremap! <C-j> <esc>
 cnoremap <C-j> <Esc>
 " すすむ/もどる
-imap <C-f> <right>
-imap <C-b> <left>
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
 " 移動を表示行単位に変える。
 nnoremap j gj
 nnoremap gj j
