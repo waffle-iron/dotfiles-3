@@ -271,7 +271,7 @@ if has("autocmd")
   autocmd FileType html       setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
   autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
-  autocmd FileType sass        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType sass        setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType stylus      setlocal sw=2 sts=2 ts=2 et
   autocmd FileType javascript setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
