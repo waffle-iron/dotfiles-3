@@ -20,6 +20,7 @@ alias chrome='open -a "Google Chrome"'
 alias gi='git'
 alias rb='ruby'
 alias sb='seeing_is_believing'
+alias slm='slimrb'
 
 # peco 設定は~/.peco/config.json
 function peco-select-history() {
