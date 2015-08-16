@@ -13,11 +13,19 @@ snippet doctypestrict
     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
+snippet html
+options indent
+	<!DOCTYPE html>
+	<html>
+		${1:TARGET}
+	</html>
+
 snippet html5
+options indent
     <!DOCTYPE html>
     <html>
         <head>
-            <meta charset="${1:utf-8}">
+            <meta http-equiv="content-type" content="text/html; charset=${1:utf-8}">
             <title>${2:TITLE}</title>
         </head>
         <body>
@@ -26,14 +34,13 @@ snippet html5
     </html>
 
 snippet head
+options indent
     <head>
-        <meta charset=${1:utf-8}">
-        <title>${2:TITLE}</title>
-    <style type="text/css">
-        ${3}
-    </style>
-        ${4}
-    </head>${5}
+        <meta http-equiv="content-type" content="text/html; charset=${1:utf-8}">
+		<title>${2:TITLE}</title>
+		<link rel="stylesheet" type="text/css" href="${3:FILE}">
+    </head>
+	${4:TARGET}
 
 snippet metaauthor
     <meta name="author" content="${1}">${2}
