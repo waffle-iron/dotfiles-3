@@ -22,6 +22,9 @@ alias rb='ruby'
 alias sb='seeing_is_believing'
 alias slm='slimrb'
 
+# hub
+eval "$(hub alias -s)"
+
 # peco 設定は~/.peco/config.json
 function peco-select-history() {
     local tac
