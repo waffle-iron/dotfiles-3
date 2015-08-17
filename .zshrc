@@ -24,6 +24,8 @@ alias slm='slimrb'
 
 # hub
 eval "$(hub alias -s)"
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit
 
 # peco 設定は~/.peco/config.json
 function peco-select-history() {
