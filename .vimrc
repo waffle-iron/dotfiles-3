@@ -48,10 +48,9 @@ NeoBundleLazy 'Shougo/neosnippet', {
   \ "autoload": {"insert": 1}}
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'mattn/vimplenote-vim'
 NeoBundle 'mattn/webapi-vim'
-let g:VimplenoteUsername = "nerdyjpn@gmail.com"
-let g:VimplenotePassword = "m4w6GvPw"
+NeoBundle 'mattn/vimplenote-vim'
+source ~/dotfiles/.simplenoterc
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'whatyouhide/vim-gotham'
