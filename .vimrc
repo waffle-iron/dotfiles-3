@@ -268,7 +268,7 @@ if has("autocmd")
   filetype indent on
 
   " et = expandtab
-  autocmd FileType html       setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType html       setlocal sw=2 sts=2 ts=2 noet
   autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
   autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType sass        setlocal sw=2 sts=2 ts=2 et
@@ -435,6 +435,11 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntstic_ruby_checkers = ["rubocop"]
 nnoremap <silent><Leader>e :Errors<CR>
 nnoremap <silent><Leader>q :lclose<CR>
+
+" open-browser.vim
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 " cosco.vim
 autocmd FileType css,javascript,coffee,db,sql nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
