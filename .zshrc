@@ -19,8 +19,8 @@ alias op='open'
 alias chrome='open -a "Google Chrome"'
 alias gi='git'
 alias rb='ruby'
-alias sb='seeing_is_believing'
 alias slm='slimrb'
+alias sb='seeing_is_believing'
 
 # hub
 eval "$(hub alias -s)"
