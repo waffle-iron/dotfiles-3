@@ -298,7 +298,7 @@ if has("autocmd")
   autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
   autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType zsh        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType markdown   setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType markdown   setlocal sw=2 sts=2 ts=2 noet
   autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
 endif " has("autocmd")
 
