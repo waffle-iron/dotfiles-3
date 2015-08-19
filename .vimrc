@@ -5,21 +5,27 @@ augroup END
 " --------------------
 " NEOBUNDLE
 " --------------------
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+ if has('vim_starting')
+   if &compatible
+     set nocompatible               " Be iMproved
+   endif
+
+   " Required:
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'gmake',
-      \    },
-      \ }
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
@@ -42,15 +48,13 @@ elseif neobundle#is_installed('neocomplcache')
   let g:neocomplcache_enable_camel_case_completion = 1
   let g:neocomplcache_enable_underbar_completion = 1
 endif
+
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 NeoBundleLazy 'Shougo/neosnippet', {
   \ "autoload": {"insert": 1}}
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/vimplenote-vim'
-source ~/dotfiles/.simplenoterc
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'whatyouhide/vim-gotham'
@@ -64,6 +68,9 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'LeafCage/yankround.vim'
+NeoBundle 'mrtazz/simplenote.vim'
+let g:SimplenoteFiletype = "markdown"
+source ~/dotfiles/.simplenoterc
 NeoBundle 'lfilho/cosco.vim'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'rhysd/vim-operator-surround'
@@ -76,16 +83,13 @@ NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'wavded/vim-stylus'
+NeoBundle 'chrisgillis/vim-bootstrap3-snippets'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'moll/vim-node'
 NeoBundle '1995eaton/vim-better-javascript-completion'
 let g:vimjs#casesensitive = 0
 let g:vimjs#smartcomplete = 1
-" NeoBundle 'mattn/jscomplete-vim'
-" autocmd FileType javascript
-"     \ :setl omnifunc=jscomplete#CompleteJS
-" let g:jscomplete_use = ['dom', 'moz', 'es6th']
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'szw/vim-tags'
 NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
@@ -96,10 +100,13 @@ let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
 NeoBundle 'hwartig/vim-seeing-is-believing'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'suan/vim-instant-markdown'
+let g:instant_markdown_autostart = 0
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
-autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
 autocmd BufRead,BufNewFile *.md  set filetype=markdown
+autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
+let g:previm_show_header = 0
 NeoBundleLazy 'mattn/emmet-vim', {
   \ "autoload": {"filetypes":['html','css']}}
 let g:user_emmet_install_global = 0
@@ -123,10 +130,11 @@ NeoBundleLazy 'lambdalisue/vim-gista', {
       \}}
 let g:gista#github_user = 'ystkme'
 
-NeoBundleCheck
 call neobundle#end()
 " Required:
 filetype plugin indent on
+NeoBundleCheck
+
 
 " --------------------
 " BASIC SETTINGS
