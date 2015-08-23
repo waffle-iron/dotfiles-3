@@ -447,7 +447,7 @@ let g:syntastic_mode_map = {
       \ 'active_filetypes' : [],
       \ 'passive_filetypes' : [] }
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntstic_ruby_checkers = ["rubocop"]
+let g:syntastic_ruby_checkers = ["rubocop"]
 nnoremap <silent><Leader>e :Errors<CR>
 nnoremap <silent><Leader>q :lclose<CR>
 
