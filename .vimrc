@@ -315,7 +315,8 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 colorscheme gotham
 syntax enable
 set t_Co=256
-
+set cursorline
+hi CursorLine ctermbg=10
 " --------------------
 " PLUGIN SETTINGS
 " --------------------
