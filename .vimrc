@@ -11,7 +11,7 @@ augroup END
    endif
 
    " Required:
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
+   set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
  endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -80,27 +80,30 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'AndrewRadev/splitjoin.vim'
-NeoBundle 'KabbAmine/vCoolor.vim'
 NeoBundle 'othree/html5.vim'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'slim-template/vim-slim'
 NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'gorodinskiy/vim-coloresque'
+NeoBundle 'KabbAmine/vCoolor.vim'
+command! Vc VCoolor
 NeoBundle 'wavded/vim-stylus'
 NeoBundle 'chrisgillis/vim-bootstrap3-snippets'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'moll/vim-node'
 NeoBundle '1995eaton/vim-better-javascript-completion'
 let g:vimjs#casesensitive = 0
 let g:vimjs#smartcomplete = 1
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'szw/vim-tags'
+NeoBundle 'moll/vim-node'
 NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
       \ 'insert' : 1,
       \ 'filetypes': 'ruby',
       \ }}
 let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
 NeoBundle 'hwartig/vim-seeing-is-believing'
-NeoBundle 'slim-template/vim-slim'
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'szw/vim-tags'
 NeoBundle 'suan/vim-instant-markdown'
 let g:instant_markdown_autostart = 0
 NeoBundle 'kannokanno/previm'
@@ -279,7 +282,6 @@ if has("autocmd")
   filetype plugin on
   filetype indent on
 
-  " et = expandtab
   autocmd FileType html       setlocal sw=2 sts=2 ts=2 noet
   autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
   autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
@@ -301,7 +303,7 @@ if has("autocmd")
   autocmd FileType zsh        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType markdown   setlocal sw=2 sts=2 ts=2 noet
   autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
-endif " has("autocmd")
+endif
 
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
