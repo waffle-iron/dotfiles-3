@@ -84,6 +84,7 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'KabbAmine/vCoolor.vim'
 command! Vc VCoolor
