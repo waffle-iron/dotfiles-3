@@ -459,7 +459,7 @@ nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
 " cosco.vim
-autocmd FileType css,javascript,coffee,db,sql nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
+autocmd FileType css,scss,javascript,coffee,db,sql nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
 
 " vim-seeing-is-believing
 autocmd FileType ruby nmap <silent>mm <Plug>(seeing-is-believing-mark)
