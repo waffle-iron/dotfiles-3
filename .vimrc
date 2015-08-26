@@ -85,6 +85,7 @@ NeoBundle 'tpope/vim-haml'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
+au BufRead,BufNewFile *.scss set filetype=sass
 NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'KabbAmine/vCoolor.vim'
 command! Vc VCoolor
@@ -113,10 +114,10 @@ autocmd BufRead,BufNewFile *.md  set filetype=markdown
 autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
 let g:previm_show_header = 0
 NeoBundleLazy 'mattn/emmet-vim', {
-  \ "autoload": {"filetypes":['html','css']}}
+  \ "autoload": {"filetypes":['html','css','eruby','scss']}}
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,php,erb EmmetInstall
-autocmd Filetype html,css imap <buffer><expr><tab>
+autocmd FileType html,css,eruby,scss EmmetInstall
+autocmd Filetype html,css,eruby,scss imap <buffer><expr><tab>
       \ emmet#isExpandable() ? "\<plug>(emmet-expand-abbr)" :
       \ "\<tab>"
 NeoBundle 'vim-scripts/vim-auto-save'
@@ -186,7 +187,7 @@ set nobackup
 set nowritebackup
 set nofoldenable " 折込を禁止
 let g:vim_markdown_folding_disabel = 1
-autocmd FileType html,css,javascript,ruby setlocal formatoptions-=ro " 改行時に自動コメント挿入しない
+autocmd FileType html,eruby,css,scss,javascript,ruby setlocal formatoptions-=ro " 改行時に自動コメント挿入しない
 set matchpairs& matchpairs+=<:> " 対応括弧に'<'と'>'のペアを追加
 " 前回のポインタの位置を記憶
 if has("autocmd")
@@ -215,6 +216,8 @@ augroup matchit
   au!
   au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
 augroup END
+" load eruby as html
+au BufRead,BufNewFile *.erb set filetype=html
 " マークダウンのファイルタイプ
 autocmd MyAutoCmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 " マークダウンでイタリックのハイライトをしない
