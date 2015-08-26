@@ -80,17 +80,16 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'AndrewRadev/splitjoin.vim'
+NeoBundle 'gorodinskiy/vim-coloresque'
+NeoBundle 'KabbAmine/vCoolor.vim'
+command! Vc VCoolor
 NeoBundle 'othree/html5.vim'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
 au BufRead,BufNewFile *.scss set filetype=sass
-NeoBundle 'gorodinskiy/vim-coloresque'
-NeoBundle 'KabbAmine/vCoolor.vim'
-command! Vc VCoolor
 NeoBundle 'wavded/vim-stylus'
-NeoBundle 'chrisgillis/vim-bootstrap3-snippets'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle '1995eaton/vim-better-javascript-completion'
@@ -456,13 +455,13 @@ let g:syntastic_ruby_checkers = ["rubocop"]
 nnoremap <silent><Leader>e :Errors<CR>
 nnoremap <silent><Leader>q :lclose<CR>
 
+" cosco.vim
+autocmd FileType css,scss,javascript,coffee,db,sql nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
+
 " open-browser.vim
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
-
-" cosco.vim
-autocmd FileType css,scss,javascript,coffee,db,sql nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
 
 " vim-seeing-is-believing
 autocmd FileType ruby nmap <silent>mm <Plug>(seeing-is-believing-mark)
