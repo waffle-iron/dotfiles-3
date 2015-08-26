@@ -120,9 +120,6 @@ autocmd Filetype html,css,eruby,scss imap <buffer><expr><tab>
       \ emmet#isExpandable() ? "\<plug>(emmet-expand-abbr)" :
       \ "\<tab>"
 NeoBundle 'vim-scripts/vim-auto-save'
-let g:auto_save_in_insert_mode = 0
-let g:auto_save_silent = 1
-let g:auto_save = 1
 NeoBundleLazy 'lambdalisue/vim-gista', {
       \ 'depends': [
       \    'Shougo/unite.vim',
@@ -391,6 +388,12 @@ function! s:incsearch_keymap()
     IncSearchNoreMap <C-d>  <Over>(incsearch-scroll-b)
     IncSearchNoreMap <C-j>  <Esc>
 endfunction
+
+" vim-auto-save
+let g:auto_save_in_insert_mode = 0
+let g:auto_save_silent = 1
+let g:auto_save = 1
+nnoremap <Leader>a :AutoSaveToggle<CR>
 
 " vim-operator-surround
 map <silent>sc <Plug>(operator-surround-append)
