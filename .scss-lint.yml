@@ -22,8 +22,5 @@ linters:
   QualifyingElement:
     enabled: false
 
-  SingleLinePerProperty:
-    allow_single_line_rule_sets: false
-
   StringQuotes:
     style: double_quotes
