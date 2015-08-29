@@ -4,10 +4,11 @@ linters:
   BemDepth:
     enabled: true
 
-  # My order rule :
-  #   1. @extend
-  #   2. normal properties(alphabetically)
-  #   3. @include
+  # Enable using color literals not only in variable declaratons
+  ColorVariable:
+    enabled: false
+
+  # My order rule : 1. @extend 2. normal properties(alphabetically) 3. @include
   DeclarationOrder:
     enabled: false
 
@@ -26,13 +27,7 @@ linters:
 
   # Allow to use elements in selectors only with attributes
   QualifyingElement:
-    allow_element_with_attribute:true
-
-  # Use hyphenated_BEM, allow '.js-' (cause it shouldn't be written in stylesheet)
-  SelectorFormat:
-    convention: hyphenated_BEM
-    class_convention: ^(?!js-).*
-    class_convention_explanation: should not be written in the form js-*
+    enabled: false
 
   # Never allow single line property
   SingleLinePerProperty:
