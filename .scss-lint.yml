@@ -1,38 +1,29 @@
 linters:
 
-  # Reports when a BEM selector contains more elements than a configurable maximum number(default: 1)
   BemDepth:
     enabled: true
 
-  # Enable using color literals not only in variable declaratons
   ColorVariable:
     enabled: false
 
-  # My order rule : 1. @extend 2. normal properties(alphabetically) 3. @include
   DeclarationOrder:
     enabled: false
 
-  # Allow unnecessary leading zero
   LeadingZero:
     enabled: false
 
-  # Allow words other than UPPER CASE
   NameFormat:
     convention: '^[a-z][-a-z0-9_]*$'
     convention-explanation: upper case should not be used
 
-  # Enable extend class, not only placeholder
   PlaceholderInExtend:
     enabled: false
 
-  # Allow to use elements in selectors only with attributes
   QualifyingElement:
     enabled: false
 
-  # Never allow single line property
   SingleLinePerProperty:
     allow_single_line_rule_sets: false
 
   StringQuotes:
-    enabled: true
     style: double_quotes
