@@ -113,7 +113,7 @@ autocmd BufRead,BufNewFile *.md  set filetype=markdown
 autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
 let g:previm_show_header = 0
 NeoBundleLazy 'mattn/emmet-vim', {
-  \ "autoload": {"filetypes":['html','css','eruby','scss']}}
+  \ "autoload": {"filetypes":['html','css','eruby','sass','scss']}}
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,eruby,scss EmmetInstall
 autocmd Filetype html,css,eruby,scss imap <buffer><expr><tab>
