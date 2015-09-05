@@ -1,26 +1,13 @@
+scss_files: "**/*.scss"
 linters:
-
-  BemDepth:
-    enabled: true
-
   ColorVariable:
     enabled: false
-
-  DeclarationOrder:
-    enabled: false
-
   LeadingZero:
     enabled: false
-
-  NameFormat:
-    convention: '^[a-z][-a-z0-9_]*$'
-    convention-explanation: upper case should not be used
-
   PlaceholderInExtend:
     enabled: false
-
   QualifyingElement:
     enabled: false
-
   StringQuotes:
+    enabled: true
     style: double_quotes
