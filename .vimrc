@@ -212,8 +212,8 @@ augroup matchit
   au!
   au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
 augroup END
-" load eruby as html
-au BufRead,BufNewFile *.erb set filetype=html
+" Hilight erb files properly
+autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 " マークダウンのファイルタイプ
 autocmd MyAutoCmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 " マークダウンでイタリックのハイライトをしない
@@ -453,9 +453,9 @@ let g:syntastic_mode_map = {
       \  'mode': 'active',
       \ 'active_filetypes' : [],
       \ 'passive_filetypes' : [] }
-let g:syntastic_scss_checkers = ["scss_lint"]
+let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_ruby_checkers = ["rubocop"]
+let g:syntastic_ruby_checkers = ['rubocop']
 nnoremap <silent><Leader>e :Errors<CR>
 nnoremap <silent><Leader>q :lclose<CR>
 
