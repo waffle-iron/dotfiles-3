@@ -8,6 +8,8 @@ linters:
     enabled: false
   QualifyingElement:
     enabled: false
+  SingleLinePerSelector:
+    enabled: false
   StringQuotes:
     enabled: true
     style: double_quotes
