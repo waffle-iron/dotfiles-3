@@ -1,5 +1,6 @@
 [core]
 	excludesfile = /Users/seiyayoshitaka/.gitignore_global
+	editor = atom --wait
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
