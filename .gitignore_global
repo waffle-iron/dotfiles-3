@@ -35,8 +35,5 @@ Session.vim
 .netrwhist
 *~
 
-# file for taking notes
-note.md
-
 # Ruby budnler gems
 /vendor
