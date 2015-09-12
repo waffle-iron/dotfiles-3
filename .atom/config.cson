@@ -1,0 +1,98 @@
+"*":
+  core:
+    disabledPackages: [
+      "wrap-guide"
+      "emmet"
+    ]
+    themes: [
+      "atom-light-ui"
+      "atom-light-syntax"
+    ]
+    packagesWithKeymapsDisabled: [
+      "emmet"
+    ]
+    openEmptyEditorOnStart: false
+  editor:
+    audioBeep: false
+    invisibles: {}
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+    scrollPastEnd: true
+    preferredLineLength: 100
+    fontFamily: "Ricty diminished"
+    showInvisibles: true
+  welcome:
+    showOnStartup: false
+  "atom-beautify":
+    _analyticsUserId: "a4134265-e650-47ca-aa99-9dd91cba36a7"
+  "atom-color-highlight":
+    scopes:
+      css: "css"
+      scss: "scss"
+      less: "less"
+      sass: "sass"
+      stylus: "stylus"
+    hideMarkersInComments: true
+    hideMarkersInStrings: true
+  "autocomplete-plus":
+    autoActivationDelay: 0
+    strictMatching: true
+    minimumWordLength: 1
+    confirmCompletion: "tab"
+  "exception-reporting":
+    userId: "b9bd8307-6a1b-1da6-3e85-434e50b7cb26"
+  "git-diff":
+    showIconsInEditorGutter: true
+  jslint:
+    validateOnChange: true
+    hideOnNoErrors: true
+  "linter-scss-lint":
+    executablePath: "/Users/seiyayoshitaka/.rbenv/shims/scss-lint"
+  pigments:
+    markerType: "dot"
+    ignoredScopes: [
+      "^(?!\\.source\\.css).*"
+    ]
+  "tabs-to-spaces":
+    onSave: "untabify"
+  "tree-view":
+    hideIgnoredNames: true
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
+  tabs:
+    enableVcsColoring: true
+  zentabs:
+    maximumOpenedTabs: 7
+    neverCloseUnsaved: true
+  minimap:
+    plugins:
+      "minimap-autohide": true
+      "git-diff": true
+  "markdown-preview":
+    useGitHubStyle: true
+  emmet: {}
+  autosave:
+    enabled: true
+  linter:
+    showErrorTabLine: true
+    statusIconScope: "File"
+    showErrorPanel: false
+  "clipboard-plus":
+    limit: 20
+  "browser-plus": {}
+  "atom-terminal":
+    surpressDirectoryArgument: false
+    app: "iTerm.app"
+  "open-terminal-here":
+    command: "open -a iTerm.app \"$PWD\""
+".basic.html.text":
+  editor:
+    preferredLineLength: 100
+    tabLength: 2
+".gfm.source":
+  editor:
+    preferredLineLength: 100
+".css.source":
+  editor:
+    preferredLineLength: 100

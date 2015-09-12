@@ -1,0 +1,37 @@
+# ctrl-m as enter
+'.select-list atom-text-editor[mini]':
+  'ctrl-m': 'core:confirm'
+'body .native-key-bindings':
+  'ctrl-m': 'native!'
+'body':
+  'ctrl-m': 'core:confirm'
+'.project-manager input':
+  'ctrl-m': 'core:confirm'
+'.tree-view':
+  'ctrl-m': 'tree-view:open-selected-entry'
+'.tree-view-dialog atom-text-editor[mini]':
+  'ctrl-m': 'core:confirm'
+
+# autocomplete
+'atom-text-editor:not(mini) .autocomplete-plus.autocomplete-suggestion-list':
+  'up': 'unset!'
+  'down': 'unset!'
+  'ctrl-p': 'autocomplete-plus:select-previous'
+  'ctrl-n': 'autocomplete-plus:select-next'
+'atom-text-editor.autocomplete-active':
+  'tab': 'unset!'
+  'ctrl-m': 'autocomplete-plus:confirm'
+
+# vim-mode (normal)
+'atom-text-editor.vim-mode':
+  'ctrl-j': 'vim-mode:reset-normal-mode'
+  'ctrl-j': 'vim-mode:activate-normal-mode'
+'.platform-darwin atom-text-editor.vim-mode:not(.insert-mode)':
+  # vim-mode-clipboard-plus
+  'ctrl-p': 'clipboard-plus:toggle'
+  # bracket-matcher
+  'tab': 'bracket-matcher:go-to-matching-bracket'
+
+# vim-mode (insert)
+'atom-text-editor.vim-mode.insert-mode:not(.autocomplete-active)':
+  'ctrl-m': 'editor:newline'

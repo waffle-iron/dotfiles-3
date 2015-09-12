@@ -1,0 +1,60 @@
+# HTML
+'.text.html':
+  'comment':
+    'prefix': 'comment'
+    'body': '<!-- $1 -->$2'
+
+  'css link':
+    'prefix': 'link'
+    'body': '<link rel="stylesheet" href="${1:style}.css">'
+
+  'js':
+    'prefix': 'script'
+    'body': '<script src="${1:js/}"></script>$2'
+
+  'html5 template':
+    'prefix': 'html'
+    'body': """
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="${1:stylesheets/style}.css">
+    <title></title>
+  </head>
+  <body>
+    $2
+  </body>
+</html>
+"""
+
+# CSS
+'.source.css':
+  'comment':
+    'prefix': 'comment'
+    'body': '/* $1 */$2'
+
+  'divider':
+    'prefix': 'divider'
+    'body': """
+/*========================================
+  $1
+========================================*/
+"""
+
+  'pc tablet media query':
+    'prefix': 'media-pc-tablet'
+    'body': """
+@media only screen and (min-width: 769px) {
+  $1
+}
+"""
+
+  'pc media query':
+    'prefix': 'media-pc'
+    'body': """
+@media only screen and (min-width: 961px) {
+  $1
+}
+"""
