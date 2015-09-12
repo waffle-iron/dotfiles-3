@@ -8,10 +8,6 @@
     'prefix': 'link'
     'body': '<link rel="stylesheet" href="${1:style}.css">'
 
-  'js':
-    'prefix': 'script'
-    'body': '<script src="${1:js/}"></script>$2'
-
   'html5 template':
     'prefix': 'html'
     'body': """
@@ -28,6 +24,14 @@
   </body>
 </html>
 """
+  'js':
+    'prefix': 'script'
+    'body': '<script src="${1:js/}"></script>$2'
+
+  'option':
+    'prefix': 'option'
+    'body': '<option value="$1">$2</option>$3'
+
 
 # CSS
 '.source.css':
