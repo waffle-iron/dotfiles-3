@@ -39,6 +39,7 @@
     strictMatching: true
     minimumWordLength: 1
     confirmCompletion: "tab"
+    useCoreMovementCommands: false
   "exception-reporting":
     userId: "b9bd8307-6a1b-1da6-3e85-434e50b7cb26"
   "git-diff":
@@ -90,9 +91,9 @@
   editor:
     preferredLineLength: 100
     tabLength: 2
-".css.source":
+".gfm.source":
   editor:
     preferredLineLength: 100
-".gfm.source":
+".css.source":
   editor:
     preferredLineLength: 100

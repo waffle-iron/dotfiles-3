@@ -1,15 +1,8 @@
-# ctrl-m as enter
-'.select-list atom-text-editor[mini]':
-  'ctrl-m': 'core:confirm'
-'body .native-key-bindings':
-  'ctrl-m': 'native!'
+# body
 'body':
   'ctrl-m': 'core:confirm'
-'.project-manager input':
-  'ctrl-m': 'core:confirm'
-'.tree-view':
-  'ctrl-m': 'tree-view:open-selected-entry'
-'.tree-view-dialog atom-text-editor[mini]':
+# select-list
+'.select-list atom-text-editor[mini]':
   'ctrl-m': 'core:confirm'
 
 # autocomplete
@@ -18,9 +11,14 @@
   'down': 'unset!'
   'ctrl-p': 'autocomplete-plus:select-previous'
   'ctrl-n': 'autocomplete-plus:select-next'
-'atom-text-editor.autocomplete-active':
-  'tab': 'unset!'
-  'ctrl-m': 'autocomplete-plus:confirm'
+  
+# project-manager
+'.project-manager input':
+  'ctrl-m': 'core:confirm'
+
+# vim-mode (insert)
+'atom-text-editor.vim-mode.insert-mode':
+  'ctrl-m': 'editor:newline'
 
 # vim-mode (normal)
 'atom-text-editor.vim-mode':
@@ -32,11 +30,16 @@
   # bracket-matcher
   'tab': 'bracket-matcher:go-to-matching-bracket'
 
-# vim-mode (insert)
-'atom-text-editor.vim-mode.insert-mode:not(.autocomplete-active)':
-  'ctrl-m': 'editor:newline'
-
 # tree-view
+'.platform-darwin':
+  'ctrl-\'': 'tree-view:toggle-focus'
+'.platform-darwin .tree-view':
+  'y y': 'tree-view:copy'
+  'p p': 'tree-view:paste'
 '.tree-view':
+  'd d': 'tree-view:remove'
   'g g': 'core:move-to-top'
   'shift-g': 'core:move-to-bottom'
+  'ctrl-m': 'tree-view:open-selected-entry'
+'.tree-view-dialog atom-text-editor[mini]':
+  'ctrl-m': 'core:confirm'
