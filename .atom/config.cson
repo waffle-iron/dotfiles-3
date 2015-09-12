@@ -39,7 +39,6 @@
     strictMatching: true
     minimumWordLength: 1
     confirmCompletion: "tab"
-    useCoreMovementCommands: false
   "exception-reporting":
     userId: "b9bd8307-6a1b-1da6-3e85-434e50b7cb26"
   "git-diff":

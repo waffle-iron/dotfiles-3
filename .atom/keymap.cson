@@ -1,6 +1,8 @@
 # body
 'body':
   'ctrl-m': 'core:confirm'
+'atom-text-editor':
+  'ctrl-k': 'unset!'
 # select-list
 '.select-list atom-text-editor[mini]':
   'ctrl-m': 'core:confirm'
@@ -11,24 +13,13 @@
   'down': 'unset!'
   'ctrl-p': 'autocomplete-plus:select-previous'
   'ctrl-n': 'autocomplete-plus:select-next'
-  
+'atom-text-editor.autocomplete-active':
+  'tab': 'unset!'
+  'ctrl-k': 'autocomplete-plus:confirm'
+
 # project-manager
 '.project-manager input':
   'ctrl-m': 'core:confirm'
-
-# vim-mode (insert)
-'atom-text-editor.vim-mode.insert-mode':
-  'ctrl-m': 'editor:newline'
-
-# vim-mode (normal)
-'atom-text-editor.vim-mode':
-  'ctrl-j': 'vim-mode:reset-normal-mode'
-  'ctrl-j': 'vim-mode:activate-normal-mode'
-'.platform-darwin atom-text-editor.vim-mode:not(.insert-mode)':
-  # vim-mode-clipboard-plus
-  'ctrl-p': 'clipboard-plus:toggle'
-  # bracket-matcher
-  'tab': 'bracket-matcher:go-to-matching-bracket'
 
 # tree-view
 '.platform-darwin':
@@ -43,3 +34,17 @@
   'ctrl-m': 'tree-view:open-selected-entry'
 '.tree-view-dialog atom-text-editor[mini]':
   'ctrl-m': 'core:confirm'
+  
+# vim-mode (insert)
+'atom-text-editor.vim-mode.insert-mode':
+  'ctrl-m': 'editor:newline'
+
+# vim-mode (normal)
+'atom-text-editor.vim-mode':
+  'ctrl-j': 'vim-mode:reset-normal-mode'
+  'ctrl-j': 'vim-mode:activate-normal-mode'
+'.platform-darwin atom-text-editor.vim-mode:not(.insert-mode)':
+  # vim-mode-clipboard-plus
+  'ctrl-p': 'clipboard-plus:toggle'
+  # bracket-matcher
+  'tab': 'bracket-matcher:go-to-matching-bracket'
