@@ -35,3 +35,8 @@
 # vim-mode (insert)
 'atom-text-editor.vim-mode.insert-mode:not(.autocomplete-active)':
   'ctrl-m': 'editor:newline'
+
+# tree-view
+'.tree-view':
+  'g g': 'core:move-to-top'
+  'shift-g': 'core:move-to-bottom'
