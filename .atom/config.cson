@@ -87,14 +87,36 @@
   "open-terminal-here":
     command: "open -a iTerm.app \"$PWD\""
   "one-light-ui": {}
+  "atom-ternjs": {}
+  "vim-surround":
+    pairs: [
+      "()"
+      "[]"
+      "{}"
+      "\"\""
+      "''"
+      "``"
+      "||"
+      "//"
+      "<>"
+    ]
 ".js.regexp.replacement.source":
+  editor:
+    preferredLineLength: 100
+".gohtml.html.text":
+  editor:
+    preferredLineLength: 100
+".js.regexp.source":
   editor:
     preferredLineLength: 100
 ".basic.html.text":
   editor:
     preferredLineLength: 100
     tabLength: 2
-".js.regexp.source":
+".gotemplate.source":
+  editor:
+    preferredLineLength: 100
+".go.source":
   editor:
     preferredLineLength: 100
 ".gfm.source":
@@ -106,3 +128,4 @@
 ".js.source":
   editor:
     preferredLineLength: 100
+    tabLength: 4

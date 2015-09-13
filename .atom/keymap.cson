@@ -4,14 +4,18 @@
 
 
 'atom-text-editor':
+  'ctrl-k': 'unset!'
   # dash
   'cmd-;': 'dash:shortcut'
   'cmd-ctrl-;': 'dash:shortcut-alt'
 
+'atom-text-editor:not([mini])':
+  # snippets
+  'ctrl-k': 'snippets:next-tab-stop'
+
 '.platform-darwin':
   # tree-view
   'ctrl-;': 'tree-view:toggle-focus'
-
 # select-list
 '.select-list atom-text-editor[mini]':
   'ctrl-m': 'core:confirm'
@@ -40,16 +44,22 @@
 '.tree-view-dialog atom-text-editor[mini]':
   'ctrl-m': 'core:confirm'
 
+# vim-mode
+'atom-text-editor.vim-mode':
+  'ctrl-j': 'vim-mode:reset-normal-mode'
+  'ctrl-j': 'vim-mode:activate-normal-mode'
+
+# vim-mode (normal)
+'atom-text-editor.vim-mode.normal-mode':
+  # bracket-matcher
+  'tab': 'bracket-matcher:go-to-matching-bracket'
+  # vim-mode-clipboard-plus
+  'ctrl-p': 'clipboard-plus:toggle'
+
 # vim-mode (insert)
 'atom-text-editor.vim-mode.insert-mode':
   'ctrl-m': 'editor:newline'
 
-# vim-mode (normal)
-'atom-text-editor.vim-mode':
-  'ctrl-j': 'vim-mode:reset-normal-mode'
-  'ctrl-j': 'vim-mode:activate-normal-mode'
-'.platform-darwin atom-text-editor.vim-mode:not(.insert-mode)':
-  # vim-mode-clipboard-plus
-  'ctrl-p': 'clipboard-plus:toggle'
-  # bracket-matcher
-  'tab': 'bracket-matcher:go-to-matching-bracket'
+# vim-mode(visual-mode)
+'atom-text-editor.vim-mode.visual-mode':
+  'ctrl-j': 'vim-mode-visual-block:escape'
