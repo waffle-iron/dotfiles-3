@@ -62,3 +62,12 @@
   $1
 }
 """
+
+# JavaScript
+'.source.js':
+  'variable':
+    'prefix': 'var'
+    'body': """
+var $1 = $2;
+$3
+"""
