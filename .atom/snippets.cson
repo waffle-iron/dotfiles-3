@@ -1,3 +1,44 @@
+# JavaScript
+'.source.js':
+  'variable':
+    'prefix': 'var'
+    'body': """
+var $1 = $2;
+$3
+"""
+
+
+# CSS
+'.source.css':
+  'comment':
+    'prefix': 'comment'
+    'body': '/* $1 */$2'
+
+  'divider':
+    'prefix': 'divider'
+    'body': """
+/*========================================
+  $1
+========================================*/
+"""
+
+  'pc tablet media query':
+    'prefix': 'media-pc-tablet'
+    'body': """
+@media only screen and (min-width: 769px) {
+  $1
+}
+"""
+
+  'pc media query':
+    'prefix': 'media-pc'
+    'body': """
+@media only screen and (min-width: 961px) {
+  $1
+}
+"""
+
+
 # HTML
 '.text.html':
   'comment':
@@ -33,41 +74,11 @@
     'body': '<option value="$1">$2</option>$3'
 
 
-# CSS
-'.source.css':
-  'comment':
-    'prefix': 'comment'
-    'body': '/* $1 */$2'
-
-  'divider':
-    'prefix': 'divider'
+# markdown
+'.source.gfm':
+  'code':
+    'prefix': 'code'
     'body': """
-/*========================================
-  $1
-========================================*/
-"""
-
-  'pc tablet media query':
-    'prefix': 'media-pc-tablet'
-    'body': """
-@media only screen and (min-width: 769px) {
-  $1
-}
-"""
-
-  'pc media query':
-    'prefix': 'media-pc'
-    'body': """
-@media only screen and (min-width: 961px) {
-  $1
-}
-"""
-
-# JavaScript
-'.source.js':
-  'variable':
-    'prefix': 'var'
-    'body': """
-var $1 = $2;
-$3
+```$1
+```
 """

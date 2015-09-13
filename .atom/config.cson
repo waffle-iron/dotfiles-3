@@ -90,19 +90,19 @@
 ".js.regexp.replacement.source":
   editor:
     preferredLineLength: 100
-".js.regexp.source":
-  editor:
-    preferredLineLength: 100
 ".basic.html.text":
   editor:
     preferredLineLength: 100
     tabLength: 2
-".js.source":
+".js.regexp.source":
+  editor:
+    preferredLineLength: 100
+".gfm.source":
   editor:
     preferredLineLength: 100
 ".css.source":
   editor:
     preferredLineLength: 100
-".gfm.source":
+".js.source":
   editor:
     preferredLineLength: 100
