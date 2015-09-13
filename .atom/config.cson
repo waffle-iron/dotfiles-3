@@ -10,6 +10,7 @@
     ]
     packagesWithKeymapsDisabled: [
       "emmet"
+      "dash"
     ]
     openEmptyEditorOnStart: false
   editor:
@@ -36,7 +37,6 @@
     hideMarkersInStrings: true
   "autocomplete-plus":
     autoActivationDelay: 0
-    strictMatching: true
     minimumWordLength: 1
     confirmCompletion: "tab"
   "exception-reporting":
@@ -86,13 +86,23 @@
     app: "iTerm.app"
   "open-terminal-here":
     command: "open -a iTerm.app \"$PWD\""
+  "one-light-ui": {}
+".js.regexp.replacement.source":
+  editor:
+    preferredLineLength: 100
 ".basic.html.text":
   editor:
     preferredLineLength: 100
     tabLength: 2
+".js.regexp.source":
+  editor:
+    preferredLineLength: 100
 ".gfm.source":
   editor:
     preferredLineLength: 100
 ".css.source":
+  editor:
+    preferredLineLength: 100
+".js.source":
   editor:
     preferredLineLength: 100
