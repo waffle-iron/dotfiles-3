@@ -1,8 +1,22 @@
 # body
 'body':
   'ctrl-m': 'core:confirm'
+
+
 'atom-text-editor':
   'ctrl-k': 'unset!'
+  # dash
+  'cmd-;': 'dash:shortcut'
+  'cmd-ctrl-;': 'dash:shortcut-alt'
+
+'atom-text-editor:not([mini])':
+  # snippets
+  'ctrl-k': 'snippets:expand'
+
+'.platform-darwin':
+  # tree-view
+  'ctrl-;': 'tree-view:toggle-focus'
+
 # select-list
 '.select-list atom-text-editor[mini]':
   'ctrl-m': 'core:confirm'
@@ -17,18 +31,12 @@
   'tab': 'unset!'
   'ctrl-k': 'autocomplete-plus:confirm'
 
-# dash
-'atom-text-editor':
-  'cmd-;': 'dash:shortcut'
-  'cmd-ctrl-;': 'dash:shortcut-alt'
 
 # project-manager
 '.project-manager input':
   'ctrl-m': 'core:confirm'
 
 # tree-view
-'.platform-darwin':
-  'ctrl-;': 'tree-view:toggle-focus'
 '.platform-darwin .tree-view':
   'y y': 'tree-view:copy'
   'p p': 'tree-view:paste'
