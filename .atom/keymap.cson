@@ -4,14 +4,9 @@
 
 
 'atom-text-editor':
-  'ctrl-k': 'unset!'
   # dash
   'cmd-;': 'dash:shortcut'
   'cmd-ctrl-;': 'dash:shortcut-alt'
-
-'atom-text-editor:not([mini])':
-  # snippets
-  'ctrl-k': 'snippets:expand'
 
 '.platform-darwin':
   # tree-view
@@ -27,9 +22,6 @@
   'down': 'unset!'
   'ctrl-p': 'autocomplete-plus:select-previous'
   'ctrl-n': 'autocomplete-plus:select-next'
-'atom-text-editor.autocomplete-active':
-  'tab': 'unset!'
-  'ctrl-k': 'autocomplete-plus:confirm'
 
 
 # project-manager
