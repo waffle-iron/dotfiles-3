@@ -62,4 +62,5 @@
 
 # vim-mode(visual-mode)
 'atom-text-editor.vim-mode.visual-mode':
+  's': 'unset!'
   'ctrl-j': 'vim-mode-visual-block:escape'
