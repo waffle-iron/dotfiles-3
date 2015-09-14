@@ -7,6 +7,10 @@ var $1 = $2;
 $3
 """
 
+  'strict mode':
+    'prefix': 'use'
+    'body': '"use strict;"'
+
 
 # CSS
 '.source.css':
