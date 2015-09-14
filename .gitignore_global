@@ -35,5 +35,8 @@ Session.vim
 .netrwhist
 *~
 
+# JavaScript tern-js
+.tern-project
+
 # Ruby budnler gems
 /vendor
