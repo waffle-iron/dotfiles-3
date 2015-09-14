@@ -1,19 +1,134 @@
 # JavaScript
 '.source.js':
-  'variable':
-    'prefix': 'var'
+
+  'add':
+    'prefix': 'add'
+    'body': 'add(${1:class})'
+
+  'addEventLinsener':
+    'prefix': 'addEventLinsener'
     'body': """
-var $1 = $2;
-$3
+      addEventLinsener("${1:event}", function(){
+          ${2:// body}
+      });
+"""
+
+  'appendChild':
+    'prefix': 'appendChild'
+    'body': 'appendChild(${1:element});'
+
+  'alert':
+    'prefix': 'alert'
+    'body': 'alert(${1:message});'
+
+  'classList':
+    'prefix': 'classList'
+    'body': 'classList'
+
+  'document':
+    'prefix': 'document'
+    'body': 'document'
+
+  'for':
+    'prefix': 'for'
+    'body': """
+      for (var i=${1:init}; ${2:condition}; i ++;) {
+        ${3:// body}
+      }
+    """
+
+  'forEach':
+    'prefix': 'forEach'
+    'body': """
+      forEach( function (${2:element}) {
+          ${0:// body}
+      });
+    """
+
+  'for in':
+    'prefix': 'for in'
+    'body': """
+      for (${1:prop} in ${2:obj}) {
+          if (${2:obj}.hasOwnProperty(${1:prop})) {
+              ${0:// body}
+          }
+      }
+    """
+
+  'function':
+    'prefix': 'function'
+    'body': """
+      function ${1:methodName} (${2:arguments}) {
+        ${0:// body}
+      }
+"""
+
+  'innerHTML':
+    'prefix': 'innerHTML'
+    'body': 'innerHTML = "${1:element}"'
+
+  'prompt':
+    'prefix': 'prompt'
+    'body': 'prompt(${1:message});'
+
+  'querySelector':
+    'prefix': 'querySelector'
+    'body': 'querySelector("$1")$2'
+
+  'querySelectorAll':
+    'prefix': 'querySelectorAll'
+    'body': 'querySelectorAll("$1")$2'
+
+  'remove':
+    'prefix': 'remove'
+    'body': 'remove(${1:class})'
+
+  'removeChild':
+    'prefix': 'removeChild'
+    'body': 'removeChild(${1:element})'
+
+  'setInterval':
+    'prefix': 'setInterval'
+    'body': """
+      setInterval(function() {
+          ${1:// body}
+      }, ${2:delay});
+"""
+
+  'require':
+    'prefix': 'require'
+    'body': 'require("${1:module}");'
+
+  'setTimeout':
+    'prefix': 'setTimeout'
+    'body': """
+      setTimeout(function() {
+          ${1:// body}
+      }, ${2:delay});
 """
 
   'strict mode':
     'prefix': 'use'
     'body': '"use strict;"'
 
+  'textContent':
+    'prefix': 'textContent'
+    'body': 'textContent = "${1:content}";'
+
+  'toggle':
+    'prefix': 'toggle'
+    'body': 'toggle(${1:class})'
+
+  'variable':
+    'prefix': 'var'
+    'body': """
+var $1 = $2;
+"""
+
 
 # CSS
 '.source.css':
+
   'comment':
     'prefix': 'comment'
     'body': '/* $1 */$2'
@@ -45,6 +160,7 @@ $3
 
 # HTML
 '.text.html':
+
   'comment':
     'prefix': 'comment'
     'body': '<!-- $1 -->$2'
@@ -81,6 +197,7 @@ $3
 
 # markdown
 '.source.gfm':
+
   'code':
     'prefix': 'code'
     'body': """

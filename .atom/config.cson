@@ -57,6 +57,7 @@
     onSave: "untabify"
   "tree-view":
     hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
   "vim-mode":
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
@@ -103,29 +104,29 @@
 ".js.regexp.replacement.source":
   editor:
     preferredLineLength: 100
-".gohtml.html.text":
-  editor:
-    preferredLineLength: 100
-".js.regexp.source":
-  editor:
-    preferredLineLength: 100
 ".basic.html.text":
   editor:
     preferredLineLength: 100
     tabLength: 2
-".gotemplate.source":
+".js.regexp.source":
   editor:
     preferredLineLength: 100
-".go.source":
-  editor:
-    preferredLineLength: 100
-".gfm.source":
-  editor:
-    preferredLineLength: 100
-".css.source":
+".gohtml.html.text":
   editor:
     preferredLineLength: 100
 ".js.source":
   editor:
     preferredLineLength: 100
     tabLength: 4
+".css.source":
+  editor:
+    preferredLineLength: 100
+".gfm.source":
+  editor:
+    preferredLineLength: 100
+".go.source":
+  editor:
+    preferredLineLength: 100
+".gotemplate.source":
+  editor:
+    preferredLineLength: 100
