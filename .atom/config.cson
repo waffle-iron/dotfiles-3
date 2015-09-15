@@ -104,13 +104,13 @@
 ".js.regexp.replacement.source":
   editor:
     preferredLineLength: 100
+".js.regexp.source":
+  editor:
+    preferredLineLength: 100
 ".basic.html.text":
   editor:
     preferredLineLength: 100
     tabLength: 2
-".js.regexp.source":
-  editor:
-    preferredLineLength: 100
 ".gohtml.html.text":
   editor:
     preferredLineLength: 100
