@@ -2,20 +2,21 @@
 'body':
   'ctrl-m': 'core:confirm'
 
-
-'atom-text-editor':
-  'ctrl-k': 'unset!'
-  # dash
-  'cmd-;': 'dash:shortcut'
-  'cmd-ctrl-;': 'dash:shortcut-alt'
-
 'atom-text-editor:not([mini])':
   # snippets
   'ctrl-k': 'snippets:next-tab-stop'
+  'ctrl-b': 'snippets:previous-tab-stop'
+
+'atom-text-editor':
+  # 'ctrl-k': 'unset!'
+  'ctrl-k': 'autocomplete-plus:confirm'
+  # dash
+  'cmd-\'': 'dash:shortcut'
+  'cmd-ctrl-\'': 'dash:shortcut-alt'
 
 '.platform-darwin':
   # tree-view
-  'ctrl-;': 'tree-view:toggle-focus'
+  'cmd-;': 'tree-view:toggle-focus'
 # select-list
 '.select-list atom-text-editor[mini]':
   'ctrl-m': 'core:confirm'
