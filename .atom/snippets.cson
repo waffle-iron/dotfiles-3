@@ -8,7 +8,7 @@
   'addEventListener':
     'prefix': 'addEventListener'
     'body': """
-      addEventListener("${1:event}", function(){
+      addEventListener("${1:event}", function() {
           ${2:// body}
       });
       $3
@@ -48,7 +48,7 @@
   'forEach':
     'prefix': 'forEach'
     'body': """
-      forEach( function (${2:element}) {
+      forEach( function(${2:element}) {
           ${0:// body}
       });
     """
@@ -66,10 +66,18 @@
   'Function':
     'prefix': 'function'
     'body': """
-      function ${1:methodName}(${2:arguments}) {
+      function${1: methodName}(${2:arguments}) {
           ${0:// body}
       }
 """
+
+  'immediate function':
+    'prefix': 'immediateFunction'
+    'body': """
+      (function() {
+          ${0:// body}
+      })();
+    """
 
   'innerHTML':
     'prefix': 'innerHTML'
@@ -127,7 +135,11 @@
 
   'strict mode':
     'prefix': 'use'
-    'body': '"use strict;"'
+    'body': """
+      "use strict";
+
+      $0
+    """
 
   'textContent':
     'prefix': 'textContent'
@@ -197,10 +209,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="${1:css/style}.css">
-    <title></title>
+    <title>${2:title}</title>
   </head>
   <body>
-    $2
+    $3
     <script src="js/main.js"></script>
   </body>
 </html>
@@ -220,6 +232,54 @@
   'code':
     'prefix': 'code'
     'body': """
-```$1
-```
+      ```$1
+      ```
+"""
+
+  'coffee':
+    'prefix': 'coffee'
+    'body': """
+      ```coffee
+      $1
+      ```
+"""
+
+  'css':
+    'prefix': 'css'
+    'body': """
+      ```css
+      $1
+      ```
+"""
+
+  'html':
+    'prefix': 'html'
+    'body': """
+      ```html
+      $1
+      ```
+"""
+
+  'javascript':
+    'prefix': 'js'
+    'body': """
+      ```js
+      $1
+      ```
+"""
+
+  'ruby':
+    'prefix': 'ruby'
+    'body': """
+      ```ruby
+      $1
+      ```
+"""
+
+  'sass':
+    'prefix': 'sass'
+    'body': """
+      ```sass
+      $1
+      ```
 """

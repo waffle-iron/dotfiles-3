@@ -4,8 +4,8 @@
 
 'atom-text-editor:not([mini])':
   # snippets
-  'ctrl-k': 'snippets:next-tab-stop'
   'ctrl-b': 'snippets:previous-tab-stop'
+  'ctrl-k': 'snippets:expand'
 
 'atom-text-editor':
   # 'ctrl-k': 'unset!'
@@ -60,6 +60,7 @@
 # vim-mode (insert)
 'atom-text-editor.vim-mode.insert-mode':
   'ctrl-m': 'editor:newline'
+  'ctrl-k': 'snippets:next-tab-stop'
 
 # vim-mode(visual-mode)
 'atom-text-editor.vim-mode.visual-mode':
