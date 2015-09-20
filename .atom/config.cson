@@ -18,10 +18,10 @@
     invisibles: {}
     softWrap: true
     softWrapAtPreferredLineLength: true
-    scrollPastEnd: true
-    preferredLineLength: 100
     fontFamily: "Ricty diminished"
     showInvisibles: true
+    scrollPastEnd: true
+    preferredLineLength: 1000
   welcome:
     showOnStartup: false
   "atom-beautify":
@@ -49,10 +49,10 @@
   "linter-scss-lint":
     executablePath: "/Users/seiyayoshitaka/.rbenv/shims/scss-lint"
   pigments:
-    markerType: "dot"
     ignoredScopes: [
       "^(?!\\.source\\.css).*"
     ]
+    markerType: "dot"
   "tabs-to-spaces":
     onSave: "untabify"
   "tree-view":
@@ -101,6 +101,14 @@
       "//"
       "<>"
     ]
+  "unity-ui":
+    colorStatusIndicatorsInTreeView: true
+    showIcons: true
+  "yosemate-ui":
+    showIcons: true
+    colorStatusIndicatorsInTreeView: true
+  "advanced-open-file":
+    helmDirSwitch: true
 ".js.regexp.replacement.source":
   editor:
     preferredLineLength: 100
@@ -117,7 +125,7 @@
 ".js.source":
   editor:
     preferredLineLength: 100
-    tabLength: 4
+    tabLength: 2
 ".css.source":
   editor:
     preferredLineLength: 100

@@ -9,7 +9,7 @@
     'prefix': 'addEventListener'
     'body': """
       addEventListener("${1:event}", function() {
-          ${2:// body}
+        ${2:// body}
       });
       $3
 """
@@ -25,6 +25,7 @@
   'children':
     'prefix': 'children'
     'body': 'children'
+
   'classList':
     'prefix': 'classList'
     'body': 'classList'
@@ -40,7 +41,7 @@
   'for':
     'prefix': 'for'
     'body': """
-      for (var i=${1:init}; ${2:condition}; i ++;) {
+      for (var i=${1:init}; ${2:condition}; i ++) {
         ${3:// body}
       }
     """
@@ -48,8 +49,8 @@
   'forEach':
     'prefix': 'forEach'
     'body': """
-      forEach( function(${2:element}) {
-          ${0:// body}
+      forEach( function(${1:element}) {
+        ${2:// body}
       });
     """
 
@@ -57,9 +58,7 @@
     'prefix': 'for in'
     'body': """
       for (${1:prop} in ${2:obj}) {
-          if (${2:obj}.hasOwnProperty(${1:prop})) {
-              ${0:// body}
-          }
+        ${0:// body}
       }
     """
 
@@ -67,7 +66,7 @@
     'prefix': 'function'
     'body': """
       function${1: methodName}(${2:arguments}) {
-          ${0:// body}
+        ${0:// body}
       }
 """
 
@@ -75,7 +74,7 @@
     'prefix': 'immediateFunction'
     'body': """
       (function() {
-          ${0:// body}
+        ${0:// body}
       })();
     """
 
@@ -115,7 +114,7 @@
     'prefix': 'setInterval'
     'body': """
       setInterval(function() {
-          ${1:// body}
+        ${1:// body}
       }, ${2:delay});
       $3
 """
@@ -128,7 +127,7 @@
     'prefix': 'setTimeout'
     'body': """
       setTimeout(function() {
-          ${1:// body}
+        ${1:// body}
       }, ${2:delay});
       $3
 """
@@ -231,6 +230,10 @@
 
   'code':
     'prefix': 'code'
+    'body': '`$1`$2'
+
+  'codeblock':
+    'prefix': 'block'
     'body': """
       ```$1
       ```
@@ -239,47 +242,41 @@
   'coffee':
     'prefix': 'coffee'
     'body': """
-      ```coffee
-      $1
+      ```coffee$1
       ```
 """
 
   'css':
     'prefix': 'css'
     'body': """
-      ```css
-      $1
+      ```css$1
       ```
 """
 
   'html':
     'prefix': 'html'
     'body': """
-      ```html
-      $1
+      ```html$1
       ```
 """
 
   'javascript':
     'prefix': 'js'
     'body': """
-      ```js
-      $1
+      ```js$1
       ```
 """
 
   'ruby':
     'prefix': 'ruby'
     'body': """
-      ```ruby
-      $1
+      ```ruby$1
       ```
 """
 
   'sass':
     'prefix': 'sass'
     'body': """
-      ```sass
-      $1
+      ```sass$1
       ```
 """
