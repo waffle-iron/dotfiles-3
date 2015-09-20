@@ -1,14 +1,14 @@
 # body
 'body':
   'ctrl-m': 'core:confirm'
+  'ctrl-j': 'core:cancel'
+  'cmd-o': 'unset!'
 
 'atom-text-editor:not([mini])':
-  # snippets
-  'ctrl-b': 'snippets:previous-tab-stop'
   'ctrl-k': 'snippets:expand'
 
 'atom-text-editor':
-  # 'ctrl-k': 'unset!'
+  # snippets
   'ctrl-k': 'autocomplete-plus:confirm'
   # dash
   'cmd-\'': 'dash:shortcut'
@@ -20,6 +20,11 @@
 # select-list
 '.select-list atom-text-editor[mini]':
   'ctrl-m': 'core:confirm'
+
+
+'.platform-darwin atom-workspace':
+  # advanced-open-file
+  'cmd-o': 'advanced-open-file:toggle'
 
 # autocomplete
 'atom-text-editor:not(mini) .autocomplete-plus.autocomplete-suggestion-list':
@@ -60,7 +65,9 @@
 # vim-mode (insert)
 'atom-text-editor.vim-mode.insert-mode':
   'ctrl-m': 'editor:newline'
-  'ctrl-k': 'snippets:next-tab-stop'
+  'ctrl-n': 'snippets:next-tab-stop'
+  'ctrl-p': 'snippets:previous-tab-stop'
+  'ctrl-t': 'editor:indent'
 
 # vim-mode(visual-mode)
 'atom-text-editor.vim-mode.visual-mode':
