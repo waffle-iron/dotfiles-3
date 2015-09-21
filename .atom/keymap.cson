@@ -1,26 +1,20 @@
 # body
 'body':
-  'ctrl-m': 'core:confirm'
-  'ctrl-j': 'core:cancel'
   'cmd-o': 'unset!'
-
-'atom-text-editor:not([mini])':
-  'ctrl-k': 'snippets:expand'
+  'ctrl-j': 'core:cancel'
+  'ctrl-m': 'core:confirm'
 
 'atom-text-editor':
-  # snippets
-  'ctrl-k': 'autocomplete-plus:confirm'
-  # dash
-  'cmd-\'': 'dash:shortcut'
+  'cmd-\'': 'dash:shortcut' # dash
   'cmd-ctrl-\'': 'dash:shortcut-alt'
+  'ctrl-k': 'unset!' # for snippets
+  'ctrl-m': 'unset!'
 
-'.platform-darwin':
-  # tree-view
-  'cmd-;': 'tree-view:toggle-focus'
-# select-list
+'atom-text-editor:not([mini])':
+  'ctrl-k': 'snippets:expand' # snippets
+
 '.select-list atom-text-editor[mini]':
   'ctrl-m': 'core:confirm'
-
 
 '.platform-darwin atom-workspace':
   # advanced-open-file
@@ -30,9 +24,6 @@
 'atom-text-editor:not(mini) .autocomplete-plus.autocomplete-suggestion-list':
   'up': 'unset!'
   'down': 'unset!'
-  'ctrl-p': 'autocomplete-plus:select-previous'
-  'ctrl-n': 'autocomplete-plus:select-next'
-
 
 # project-manager
 '.project-manager input':
@@ -47,16 +38,20 @@
   'g g': 'core:move-to-top'
   'shift-g': 'core:move-to-bottom'
   'ctrl-m': 'tree-view:open-selected-entry'
+  'ctrl-[': 'tree-view:toggle-focus'
 '.tree-view-dialog atom-text-editor[mini]':
   'ctrl-m': 'core:confirm'
 
 # vim-mode
 'atom-text-editor.vim-mode':
-  'ctrl-j': 'vim-mode:reset-normal-mode'
   'ctrl-j': 'vim-mode:activate-normal-mode'
+  'ctrl-j': 'vim-mode:reset-normal-mode'
+  'ctrl-[': 'tree-view:toggle-focus'
 
 # vim-mode (normal)
 'atom-text-editor.vim-mode.normal-mode':
+  'ctrl-h': 'pane:show-previous-item'
+  'ctrl-l': 'pane:show-next-item'
   # bracket-matcher
   'tab': 'bracket-matcher:go-to-matching-bracket'
   # vim-mode-clipboard-plus
@@ -65,9 +60,11 @@
 # vim-mode (insert)
 'atom-text-editor.vim-mode.insert-mode':
   'ctrl-m': 'editor:newline'
-  'ctrl-n': 'snippets:next-tab-stop'
   'ctrl-p': 'snippets:previous-tab-stop'
   'ctrl-t': 'editor:indent'
+  'ctrl-k': 'snippets:next-tab-stop'
+'atom-text-editor.vim-mode.insert-mode.autocomplete-active':
+  'ctrl-k': 'autocomplete-plus:confirm'
 
 # vim-mode(visual-mode)
 'atom-text-editor.vim-mode.visual-mode':
