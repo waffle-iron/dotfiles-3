@@ -3,25 +3,28 @@
     disabledPackages: [
       "wrap-guide"
       "emmet"
-    ]
-    themes: [
-      "atom-light-ui"
-      "atom-light-syntax"
+      "welcome"
     ]
     packagesWithKeymapsDisabled: [
       "emmet"
       "dash"
     ]
     openEmptyEditorOnStart: false
+    themes: [
+      "atom-light-ui"
+      "atom-light-syntax"
+    ]
   editor:
     audioBeep: false
     invisibles: {}
     softWrap: true
     softWrapAtPreferredLineLength: true
     fontFamily: "Ricty diminished"
-    showInvisibles: true
     scrollPastEnd: true
     preferredLineLength: 1000
+    tabType: "soft"
+    showInvisibles: true
+    fontSize: 15
   welcome:
     showOnStartup: false
   "atom-beautify":
@@ -50,14 +53,20 @@
     executablePath: "/Users/seiyayoshitaka/.rbenv/shims/scss-lint"
   pigments:
     ignoredScopes: [
-      "^(?!\\.source\\.css).*"
+      "^(?!\\.source\\.[css|sass|scss|less|styl]).*"
+    ]
+    autocompleteScopes: [
+      ".source.css"
+      ".source.sass"
+      ".source.scss"
+      ".source.less"
+      ".source.styl"
     ]
     markerType: "dot"
   "tabs-to-spaces":
     onSave: "untabify"
   "tree-view":
     hideIgnoredNames: true
-    hideVcsIgnoredFiles: true
   "vim-mode":
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
@@ -109,17 +118,62 @@
     colorStatusIndicatorsInTreeView: true
   "advanced-open-file":
     helmDirSwitch: true
+  preview:
+    _analyticsUserId: "23cd23d5-ecf4-4843-83a8-93d3e457ac2d"
+  "atom-csscomb":
+    executeOnSave: true
+    configureWithJSON: true
+  "atom-css-comb":
+    projectConfigs: ".csscomb.json"
+  "one-dark-ui": {}
+  "sass-autocompile":
+    outputStyle: "Expanded"
+  "preview-plus": {}
+  "vim-mode-plus":
+    useClipboardAsDefaultRegister: true
+    incrementalSearch: true
+    useSmartcaseForSearch: true
+    showHoverSearchCounter: true
+    flashOnSearch: false
+    showHoverOnOperateIcon: "none"
+    flashOnOperate: false
+  "project-folder":
+    projectRootDirectories: [
+      "~/dotfiles"
+      "~/github"
+      "~/Dropbox/jekyll"
+    ]
+    hideLoadedFolderFromAddList: false
+  "find-and-replace": {}
 ".js.regexp.replacement.source":
   editor:
     preferredLineLength: 100
-".js.regexp.source":
+".gohtml.html.text":
   editor:
     preferredLineLength: 100
 ".basic.html.text":
   editor:
     preferredLineLength: 100
     tabLength: 2
-".gohtml.html.text":
+".js.regexp.source":
+  editor:
+    preferredLineLength: 100
+".css.scss.source":
+  editor:
+    preferredLineLength: 100
+".source.stylus":
+  editor:
+    preferredLineLength: 1000
+".ini.source":
+  editor:
+    preferredLineLength: 1000
+".gotemplate.source":
+  editor:
+    preferredLineLength: 100
+".go.source":
+  editor:
+    preferredLineLength: 100
+".gfm.source":
   editor:
     preferredLineLength: 100
 ".js.source":
@@ -129,12 +183,15 @@
 ".css.source":
   editor:
     preferredLineLength: 100
-".gfm.source":
+".coffee.source":
   editor:
-    preferredLineLength: 100
-".go.source":
+    preferredLineLength: 1000
+".litcoffee.source":
   editor:
-    preferredLineLength: 100
-".gotemplate.source":
+    preferredLineLength: 1000
+".sass.source":
   editor:
-    preferredLineLength: 100
+    preferredLineLength: 1000
+".preview":
+  editor:
+    preferredLineLength: 1000
