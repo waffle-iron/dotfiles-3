@@ -1,0 +1,4 @@
+-f .tags
+--append=yes
+--recurse=yes
+--exclude=vendor

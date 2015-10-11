@@ -35,6 +35,16 @@ Session.vim
 .netrwhist
 *~
 
+# ctags settings
+.tags
+tags
+.TAGS
+TAGS
+.tags*
+
+# jet brain IDE
+.idea
+
 # JavaScript tern-js
 .tern-project
 
