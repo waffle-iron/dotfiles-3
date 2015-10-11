@@ -33,7 +33,7 @@
   'shift-cmd-g': 'open-gitup:open'
   # symbols-tree-view
   'shift-cmd-t': 'symbols-tree-view:toggle'
-  #
+  # cursor-history
   'ctrl-i':     'cursor-history:next'
   'ctrl-o':     'cursor-history:prev'
   'ctrl-cmd-i': 'cursor-history:next-within-editor'
