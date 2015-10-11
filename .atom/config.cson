@@ -1,13 +1,15 @@
 "*":
   core:
     disabledPackages: [
-      "wrap-guide"
-      "emmet"
       "welcome"
+      "go-to-line"
     ]
     packagesWithKeymapsDisabled: [
       "emmet"
       "dash"
+      "rails-transporter"
+      "ruby-block"
+      "git-plus"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -24,7 +26,7 @@
     preferredLineLength: 1000
     tabType: "soft"
     showInvisibles: true
-    fontSize: 15
+    fontSize: 13
   welcome:
     showOnStartup: false
   "atom-beautify":
@@ -42,6 +44,7 @@
     autoActivationDelay: 0
     minimumWordLength: 1
     confirmCompletion: "tab"
+    maxVisibleSuggestions: 15
   "exception-reporting":
     userId: "b9bd8307-6a1b-1da6-3e85-434e50b7cb26"
   "git-diff":
@@ -67,6 +70,7 @@
     onSave: "untabify"
   "tree-view":
     hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
   "vim-mode":
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
@@ -94,8 +98,7 @@
   "atom-terminal":
     surpressDirectoryArgument: false
     app: "iTerm.app"
-  "open-terminal-here":
-    command: "open -a iTerm.app \"$PWD\""
+  "open-terminal-here": {}
   "one-light-ui": {}
   "atom-ternjs": {}
   "vim-surround":
@@ -118,6 +121,7 @@
     colorStatusIndicatorsInTreeView: true
   "advanced-open-file":
     helmDirSwitch: true
+    defaultInputValue: "Project root"
   preview:
     _analyticsUserId: "23cd23d5-ecf4-4843-83a8-93d3e457ac2d"
   "atom-csscomb":
@@ -136,60 +140,83 @@
     showHoverSearchCounter: true
     flashOnSearch: false
     showHoverOnOperateIcon: "none"
-    flashOnOperate: false
+    stayOnTransformString: true
+    showHoverOnOperate: true
   "project-folder":
     projectRootDirectories: [
       "~/dotfiles"
       "~/github"
       "~/Dropbox/jekyll"
+      "~/Documents"
+      "~/MyVagrant"
     ]
     hideLoadedFolderFromAddList: false
   "find-and-replace": {}
+  "linter-sass-lint": {}
+  "linter-eslint": {}
+  "linter-ruby": {}
+  "rubocop-auto-correct": {}
+  "git-history": {}
+  "ruby-block": {}
+  "rails-transporter": {}
+  "atom-ctags":
+    autoBuildTagsWhenActive: true
+  "symbols-view": {}
+  "git-plus": {}
 ".js.regexp.replacement.source":
   editor:
     preferredLineLength: 100
-".gohtml.html.text":
+".css.scss.source":
+  editor:
+    preferredLineLength: 100
+".js.regexp.source":
   editor:
     preferredLineLength: 100
 ".basic.html.text":
   editor:
     preferredLineLength: 100
     tabLength: 2
-".js.regexp.source":
+".gohtml.html.text":
   editor:
     preferredLineLength: 100
-".css.scss.source":
-  editor:
-    preferredLineLength: 100
-".source.stylus":
+".erb.html.text":
   editor:
     preferredLineLength: 1000
-".ini.source":
+".diff.source":
   editor:
     preferredLineLength: 1000
-".gotemplate.source":
+".sass.source":
   editor:
-    preferredLineLength: 100
-".go.source":
+    preferredLineLength: 1000
+".litcoffee.source":
   editor:
-    preferredLineLength: 100
-".gfm.source":
+    preferredLineLength: 1000
+".coffee.source":
+  editor:
+    preferredLineLength: 1000
+".css.source":
   editor:
     preferredLineLength: 100
 ".js.source":
   editor:
     preferredLineLength: 100
     tabLength: 2
-".css.source":
+".gfm.source":
   editor:
     preferredLineLength: 100
-".coffee.source":
+".go.source":
+  editor:
+    preferredLineLength: 100
+".gotemplate.source":
+  editor:
+    preferredLineLength: 100
+".ini.source":
   editor:
     preferredLineLength: 1000
-".litcoffee.source":
+".source.stylus":
   editor:
     preferredLineLength: 1000
-".sass.source":
+".ruby.source":
   editor:
     preferredLineLength: 1000
 ".preview":
