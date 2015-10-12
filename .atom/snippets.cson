@@ -1,91 +1,237 @@
-# CoffeeScritp
-'.source.coffee':
-  'do':
-    'prefix': 'do'
+# Rails
+'.source.ruby, .source.ruby.rails':
+  'find':
+    'prefix': 'find'
     'body': """
-            do${1:(${2:args})}->$3
+            find(${1:params[:id]})
+            """
+  'after_action':
+    'prefix': 'after_action'
+    'body': """
+            after_action :${1:method}${2:, only: [:${3:index}]
+            """
+  'before_action':
+    'prefix': 'before_action'
+    'body': """
+            before_action :${1:method}${2:, only: [:${3:index}]
+            """
+  'redirect_to':
+    'prefix': 'redirect_to'
+    'body': """
+            redirect_to ${1:path}
+            """
+# routes
+'.source.ruby, .source.ruby.rails, .meta.rails.routes':
+  'resource':
+    'prefix': 'resource'
+    'body': """
+            resource :$0
+            """
+  'resources':
+    'prefix': 'resources'
+    'body': """
+            resources :$0
+            """
+  'only':
+    'prefix': 'only'
+    'body': """
+            only: [:${1:action}]
+            """
+# Controller
+'.source.ruby, .source.ruby.rails, .meta.rails.controller':
+  'params':
+    'prefix': 'params'
+    'body': """
+            params[:${1:id}]$0
+            """
+  'respond_to':
+    'prefix': 'respond_to'
+    'body': """
+            respond_to :$0
+            """
+# Model
+'.source.ruby, .source.ruby.rails, .meta.rails.model':
+  'belongs_to':
+    'prefix': 'belongs_to '
+    'body': """
+            belongs_to :${0:category}
+            """
+  'has_many':
+    'prefix': 'has_many'
+    'body': """
+            has_many :${0:cetegories}
+            """
+  'has_one':
+    'prefix': 'has_one'
+    'body': """
+            has_one :${0:category}
+            """
+  'validates':
+    'prefix': 'validates'
+    'body': """
+            validates :${1:field}
+            """
+  'prensencce':
+    'prefix': 'presence'
+    'body': """
+            presence: ${0:true}
+            """
+# View
+
+
+# Ruby
+'.source.ruby':
+  'Array.new':
+    'prefix': 'Array'
+    'body': """
+            Array.new(${1:len,val})\n$0
+            """
+  'attr_accessor':
+    'prefix': 'attr_accessor'
+    'body': """
+            attr_accessor :${0:attr}
+            """
+  'attr_reader':
+    'prefix': 'attr_reader'
+    'body': """
+            attr_reader :${0:attr}
+            """
+  'attr_writer':
+    'prefix': 'attr_writer'
+    'body': """
+            attr_writer :${0:attr}
+            """
+  'case':
+    'prefix': 'case'
+    'body': """
+            case ${1:object}
+            when $0
             """
   'class':
     'prefix': 'class'
     'body': """
-            class ${1:ClassName}
+            class ${1:Class}
+              $0
+            end
             """
-  'constructor':
-    'prefix': 'const'
+  'def':
+    'prefix': 'def'
     'body': """
-            constructor: (${1:args})->$2
+            def ${1:method}
+              $0
+            end
+            """
+  'delete_if':
+    'prefix': 'delete_if'
+    'body': """
+            delete_if { |${1:e}| $0 }
+            """
+  'do':
+    'prefix': 'do'
+    'body': """
+            do${1: |${2:e}|}
+              $0
+            end
+            """
+  'each':
+    'prefix': 'each'
+    'body': """
+            each { |${1:e}| $0 }
+            """
+  'each_char':
+    'prefix': 'each_char'
+    'body': """
+            each_char { |${1:chr}| $0 }
+            """
+  'each_index':
+    'prefix': 'each_index'
+    'body': """
+            each_index { |${1:i}| $0 }
+            """
+  'each_key':
+    'prefix': 'each_key'
+    'body': """
+            each_key { |${1:i}| $0 }
+            """
+  'each_pair':
+    'prefix': 'each_pair'
+    'body': """
+            each_pair { |${1:name}, ${2:val}| $0 }
+            """
+  'each_value':
+    'prefix': 'each_value'
+    'body': """
+            each_value { |${1:val}| $0 }
             """
   'else':
     'prefix': 'else'
     'body': """
             else
-              $1
+              $0
             """
-  'else if':
-    'prefix': 'elseif'
+  'elsif':
+    'prefix': 'elsif'
     'body': """
-            else if ${1:condition}$2
+            elsif ${1:condition}
+              $0
             """
-  'extends':
-    'prefix': 'extends'
+  'Hash.new':
+    'prefix': 'Hash'
     'body': """
-            extends ${1:Ancestor}
+            Hash.new { |${1:hash}, ${2:key}| ${1:hash}[${2:key}] = $0 }
             """
-  'for in':
-    'prefix': 'for in'
+  'inject':
+    'prefix': 'inject'
     'body': """
-            for ${1:name} in ${2:array}$3
+            inject${1:(${2:init})} {|${3:result}, ${2:item}| $0 }
             """
-  'for in (range)':
-    'prefix': 'for in (range)'
+  'initialize':
+    'prefix': 'initialize'
     'body': """
-            for ${1:name} in [${2:start}..${3:finish}]${4: by ${5:step}}$6
+            initialize${1:(${2:arg})}$0
             """
-  'for of':
-    'prefix': 'for of'
+  'map':
+    'prefix': 'map'
     'body': """
-            for ${1:key}, ${2:value} of ${3:Object}$4
+            map { |${1:e}| $0 }
             """
-  'function':
-    'prefix': 'function'
+  'require':
+    'prefix': 'prefix'
     'body': """
-            ${1:(${2:args})}->$3
+            require $0
             """
-  'function(bound)':
-    'prefix': 'function(bound)'
+  'reject':
+    'prefix': 'reject'
     'body': """
-            (${1:args}) =>$2
+            reject { |${1:e}| $0}
             """
-  'if':
-    'prefix': 'if'
+  'scan':
+    'prefix': 'scan'
     'body': """
-            if ${1:condition}$2
+            scan(/${1:pattern}/) { |${2:match}| $0 }
             """
-  'if then else':
-    'prefix': 'if then else'
+  'sort':
+    'prefix': 'sort'
     'body': """
-            if ${1:condition} then ${2:value} else ${3:other}$4
+            sort { |${1:a, b}| $0 }
             """
-  'log':
-    'prefix': 'log'
+  'sort_by':
+    'prefix': 'sort_by'
     'body': """
-            console.log$1
-            """
-  'switch':
-    'prefix': 'switch'
-    'body': """
-            switch ${1:object}
-              when ${2:value}$3
+            sort_by { |${1:e}| $0 }
             """
   'when':
     'prefix': 'when'
     'body': """
-            when ${1:condition}$2
+            when $1
+            $2
             """
-  'then':
-    'prefix': 'then'
+  'while':
+    'prefix': 'while'
     'body': """
-            then ${1:action}$2
+            while ${1:condition}
+              $0
+            end
             """
 
 # JavaScript
@@ -122,8 +268,8 @@
   'for':
     'prefix': 'for'
     'body': """
-            for (var i=${1:init}; ${2:condition}; i ++) {
-              ${3:// body}
+            for (var i = ${1:0}; ${2:i < $3}; i++) {
+              ${0:// body}
             }
             """
   'forEach':
@@ -140,11 +286,11 @@
               ${0:// body}
             }
             """
-  'Function':
+  'function':
     'prefix': 'function'
     'body': """
-            function${1: methodName}(${2:arguments}) {
-              ${0:// body}
+            function${1: ${2:methodName}}($3) {
+              $0
             }
             """
   'immediate function':
@@ -247,6 +393,105 @@
             }
             """
 
+# CoffeeScritp
+'.source.coffee':
+  # cson
+  'tools':
+    'prefix': 'tools'
+    'body': """
+            type: "${1:button}"
+            icon: "$2"
+            ${3:iconset: "${4:ion}"}
+            callback: "$5"
+            """
+  'do':
+    'prefix': 'do'
+    'body': """
+            do${1:(${2:args})}->$3
+            """
+  'class':
+    'prefix': 'class'
+    'body': """
+            class ${1:ClassName}
+            """
+  'constructor':
+    'prefix': 'const'
+    'body': """
+            constructor: (${1:args})->$2
+            """
+  'else':
+    'prefix': 'else'
+    'body': """
+            else
+              $1
+            """
+  'else if':
+    'prefix': 'elseif'
+    'body': """
+            else if ${1:condition}$2
+            """
+  'extends':
+    'prefix': 'extends'
+    'body': """
+            extends ${1:Ancestor}
+            """
+  'for in':
+    'prefix': 'for in'
+    'body': """
+            for ${1:name} in ${2:array}$3
+            """
+  'for in (range)':
+    'prefix': 'for in (range)'
+    'body': """
+            for ${1:name} in [${2:start}..${3:finish}]${4: by ${5:step}}$6
+            """
+  'for of':
+    'prefix': 'for of'
+    'body': """
+            for ${1:key}, ${2:value} of ${3:Object}$4
+            """
+  'function':
+    'prefix': 'function'
+    'body': """
+            ${1:(${2:args})}->$3
+            """
+  'function(bound)':
+    'prefix': 'function(bound)'
+    'body': """
+            (${1:args}) =>$2
+            """
+  'if':
+    'prefix': 'if'
+    'body': """
+            if ${1:condition}$2
+            """
+  'if then else':
+    'prefix': 'if then else'
+    'body': """
+            if ${1:condition} then ${2:value} else ${3:other}$4
+            """
+  'log':
+    'prefix': 'log'
+    'body': """
+            console.log$1
+            """
+  'switch':
+    'prefix': 'switch'
+    'body': """
+            switch ${1:object}
+              when ${2:value}$3
+            """
+  'when':
+    'prefix': 'when'
+    'body': """
+            when ${1:condition}$2
+            """
+  'then':
+    'prefix': 'then'
+    'body': """
+            then ${1:action}$2
+            """
+
 # HTML
 '.text.html':
   'comment':
@@ -283,11 +528,6 @@
 '.source.gfm':
   'code':
     'prefix': 'code'
-    'body': """
-            `$1`$2
-            """
-  'codeblock':
-    'prefix': 'block'
     'body': """
             ```$1
             ```
