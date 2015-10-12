@@ -13,7 +13,7 @@
     ]
     openEmptyEditorOnStart: false
     themes: [
-      "atom-light-ui"
+      "native-ui"
       "atom-light-syntax"
     ]
   editor:
@@ -21,12 +21,12 @@
     invisibles: {}
     softWrap: true
     softWrapAtPreferredLineLength: true
-    fontFamily: "Ricty diminished"
     scrollPastEnd: true
     preferredLineLength: 1000
     tabType: "soft"
     showInvisibles: true
     fontSize: 13
+    fontFamily: "Ricty Diminished"
   welcome:
     showOnStartup: false
   "atom-beautify":
@@ -75,6 +75,7 @@
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
   tabs:
+    tabScrolling: true
     enableVcsColoring: true
   zentabs:
     maximumOpenedTabs: 7
@@ -98,7 +99,8 @@
   "atom-terminal":
     surpressDirectoryArgument: false
     app: "iTerm.app"
-  "open-terminal-here": {}
+  "open-terminal-here":
+    command: "open -a $HOME/Applications/iTerm.app \"$PWD\""
   "one-light-ui": {}
   "atom-ternjs": {}
   "vim-surround":
@@ -139,9 +141,9 @@
     useSmartcaseForSearch: true
     showHoverSearchCounter: true
     flashOnSearch: false
-    showHoverOnOperateIcon: "none"
     stayOnTransformString: true
     showHoverOnOperate: true
+    flashOnOperate: false
   "project-folder":
     projectRootDirectories: [
       "~/dotfiles"
@@ -163,6 +165,16 @@
     autoBuildTagsWhenActive: true
   "symbols-view": {}
   "git-plus": {}
+  "tool-bar":
+    position: "Left"
+    iconSize: "16px"
+  "tree-view-git-status": {}
+  "flex-tool-bar":
+    showConfigButton: false
+  "symbols-tree-view": {}
+  "seeing-is-believing":
+    "add-to-env": {}
+  "terminal-panel": {}
 ".js.regexp.replacement.source":
   editor:
     preferredLineLength: 100
@@ -182,16 +194,16 @@
 ".erb.html.text":
   editor:
     preferredLineLength: 1000
-".diff.source":
-  editor:
-    preferredLineLength: 1000
-".sass.source":
-  editor:
-    preferredLineLength: 1000
 ".litcoffee.source":
   editor:
     preferredLineLength: 1000
 ".coffee.source":
+  editor:
+    preferredLineLength: 1000
+".diff.source":
+  editor:
+    preferredLineLength: 1000
+".sass.source":
   editor:
     preferredLineLength: 1000
 ".css.source":
