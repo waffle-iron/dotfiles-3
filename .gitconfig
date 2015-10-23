@@ -1,6 +1,6 @@
 [core]
 	excludesfile = /Users/seiyayoshitaka/.gitignore_global
-	editor = atom --wait
+	editor = vim -c \"set fenc=utf-8\"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
