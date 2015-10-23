@@ -16,10 +16,12 @@ export VISUAL=/usr/local/bin/vim
 
 alias rm='trash'
 alias op='open'
+alias so='source'
 alias chrome='open -a "Google Chrome"'
 alias gi='git'
+alias gu='gitup'
 alias ctags="/usr/local/bin/ctags"
-alias ctags-rails="/usr/local/bin/ctags -R --exclude=.git --exclude=log --exclude=app/assets --exclude=vendor"
+alias ctags-rails="/usr/local/bin/ctags -R -f .tags --exclude=.git --exclude=log --exclude=app/assets --exclude=vendor"
 alias rb='ruby'
 alias slm='slimrb'
 alias sb='seeing_is_believing'
