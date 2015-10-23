@@ -1,13 +1,6 @@
 [
   {
     type: "button"
-    icon: "git-plain"
-    iconset: "devicon"
-    callback: "git-plus:menu"
-    tooltip: "Git Plus"
-  }
-  {
-    type: "button"
     icon: "git-branch"
     callback: "open-gitup:open"
     tooltip: "Open GitUp"
@@ -20,9 +13,6 @@
     tooltip: "Open on GitHub"
   }
   {
-    type: "spacer"
-  }
-  {
     type: "button"
     icon: "code"
     callback: "script:run"
@@ -33,13 +23,6 @@
     icon: "eye"
     callback: "preview:toggle"
     tooltip: "Preview"
-  }
-  {
-    type: "button"
-    icon: "check"
-    iconset: "fa"
-    callback: "atom-beautify:beautify-editor"
-    tooltip: "Beautify"
   }
   {
     type: "spacer"
@@ -71,16 +54,9 @@
   {
     type: "button"
     icon: "safari"
-    iconset: "fa"
+    iconset: "icomoon"
     callback: "open-in-browser:open"
     tooltip: "Open in Browser"
-  }
-  {
-    type: "button"
-    icon: "social-css3"
-    iconset: "ion"
-    callback: "css-comb:comb"
-    tooltip: "Css Comb"
   }
   {
     type: "button"
@@ -101,22 +77,10 @@
   }
   {
     type: "button"
-    icon: "chevron-right"
+    icon: "columns"
+    iconset: "fa"
     callback: "pane:split-right"
     tooltip: "Split Right"
-  }
-  {
-    type: "button"
-    icon: "pencil-square-o"
-    iconset: "fa"
-    callback: "markdown-preview:toggle"
-    tooltip: "Markdown Preview"
-  }
-  {
-    type: "button"
-    icon: "file-text"
-    callback: "dash:shortcut"
-    tooltip: "Dash"
   }
   {
     type: "button"

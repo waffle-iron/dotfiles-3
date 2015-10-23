@@ -124,19 +124,24 @@
   'delete_if':
     'prefix': 'delete_if'
     'body': """
-            delete_if { |${1:e}| $0 }
+            delete_if { |${1:i}| $0 }
             """
   'do':
     'prefix': 'do'
     'body': """
-            do${1: |${2:e}|}
+            do${1: |${2:i}|}
               $0
             end
+            """
+  'downto':
+    'prefix': 'downto'
+    'body': """
+            downto(${1:to}) {|${2:i}| $0}
             """
   'each':
     'prefix': 'each'
     'body': """
-            each { |${1:e}| $0 }
+            each { |${1:i}| $0 }
             """
   'each_char':
     'prefix': 'each_char'
@@ -193,7 +198,12 @@
   'map':
     'prefix': 'map'
     'body': """
-            map { |${1:e}| $0 }
+            map { |${1:i}| $0 }
+            """
+  'Rational':
+    'prefix': 'Rational'
+    'body': """
+            Rational(${1:num})
             """
   'require':
     'prefix': 'prefix'
@@ -203,7 +213,7 @@
   'reject':
     'prefix': 'reject'
     'body': """
-            reject { |${1:e}| $0}
+            reject { |${1:i}| $0}
             """
   'scan':
     'prefix': 'scan'
@@ -218,7 +228,17 @@
   'sort_by':
     'prefix': 'sort_by'
     'body': """
-            sort_by { |${1:e}| $0 }
+            sort_by { |${1:i}| $0 }
+            """
+  'split':
+    'prefix': 'split'
+    'body': """
+            split($0)
+            """
+  'step':
+    'prefix': 'step'
+    'body': """
+            step(${1:from}, ${2:to}) {|${3:i} $0}
             """
   'when':
     'prefix': 'when'
@@ -232,6 +252,21 @@
             while ${1:condition}
               $0
             end
+            """
+  'times':
+    'prefix': 'times'
+    'body': """
+            times { |${1:i}| $0}
+            """
+  'to_r':
+    'prefix': 'to_r'
+    'body': """
+            to_r
+            """
+  'upto':
+    'prefix': 'upto'
+    'body': """
+            upto(${1:to}) {|${2:i}| $0}
             """
 
 # JavaScript

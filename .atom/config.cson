@@ -3,6 +3,8 @@
     disabledPackages: [
       "welcome"
       "go-to-line"
+      "wrap-guide"
+      "background-tips"
     ]
     packagesWithKeymapsDisabled: [
       "emmet"
@@ -10,12 +12,24 @@
       "rails-transporter"
       "ruby-block"
       "git-plus"
+      "gist-it"
+      "atom-csscomb"
+      "atom-beautify"
+      "symbol-gen"
+      "merge-conflicts"
+      "zentabs"
+      "git-diff"
+      "open-on-bitbucket"
+      "rails-model-schema"
+      "linter"
+      "symbols-tree-view"
     ]
     openEmptyEditorOnStart: false
     themes: [
-      "native-ui"
+      "slack-ui"
       "atom-light-syntax"
     ]
+    destroyEmptyPanes: false
   editor:
     audioBeep: false
     invisibles: {}
@@ -31,6 +45,7 @@
     showOnStartup: false
   "atom-beautify":
     _analyticsUserId: "a4134265-e650-47ca-aa99-9dd91cba36a7"
+    css_indent_comments: false
   "atom-color-highlight":
     scopes:
       css: "css"
@@ -70,7 +85,6 @@
     onSave: "untabify"
   "tree-view":
     hideIgnoredNames: true
-    hideVcsIgnoredFiles: true
   "vim-mode":
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
@@ -78,8 +92,9 @@
     tabScrolling: true
     enableVcsColoring: true
   zentabs:
-    maximumOpenedTabs: 7
     neverCloseUnsaved: true
+    showPinnedIcon: false
+    maximumOpenedTabs: 8
   minimap:
     plugins:
       "minimap-autohide": true
@@ -90,7 +105,6 @@
   autosave:
     enabled: true
   linter:
-    showErrorTabLine: true
     statusIconScope: "File"
     showErrorPanel: false
   "clipboard-plus":
@@ -126,11 +140,6 @@
     defaultInputValue: "Project root"
   preview:
     _analyticsUserId: "23cd23d5-ecf4-4843-83a8-93d3e457ac2d"
-  "atom-csscomb":
-    executeOnSave: true
-    configureWithJSON: true
-  "atom-css-comb":
-    projectConfigs: ".csscomb.json"
   "one-dark-ui": {}
   "sass-autocompile":
     outputStyle: "Expanded"
@@ -150,24 +159,29 @@
       "~/github"
       "~/Dropbox/jekyll"
       "~/Documents"
-      "~/MyVagrant"
+      "~/Vagrant"
     ]
     hideLoadedFolderFromAddList: false
   "find-and-replace": {}
   "linter-sass-lint": {}
   "linter-eslint": {}
-  "linter-ruby": {}
-  "rubocop-auto-correct": {}
+  "rubocop-auto-correct":
+    rubocopCommandPath: '''
+      ~/.rbenv/shims/rubocop
+      
+      
+    '''
+    autoRun: true
+    correctFile: true
   "git-history": {}
   "ruby-block": {}
   "rails-transporter": {}
-  "atom-ctags":
-    autoBuildTagsWhenActive: true
   "symbols-view": {}
   "git-plus": {}
   "tool-bar":
-    position: "Left"
+    position: "Right"
     iconSize: "16px"
+    visible: false
   "tree-view-git-status": {}
   "flex-tool-bar":
     showConfigButton: false
@@ -175,6 +189,33 @@
   "seeing-is-believing":
     "add-to-env": {}
   "terminal-panel": {}
+  "cursor-history": {}
+  robe: {}
+  "ruby-block-converter": {}
+  "gist-it":
+    newGistsDefaultToPrivate: true
+    userToken: "51d4ddc05c435593efdbeb8d2ae4ef9e7a0814c0"
+  "japanese-wrap":
+    characterWidth: {}
+  "atom-csscomb":
+    executeOnSave: true
+    configureWithJSON: true
+  "atom-css-comb":
+    readyMadeConfigs: "csscomb"
+    projectConfigs: ".csscomb.json"
+  "emmet-simplified": {}
+  "linter-rubocop":
+    command: "/Users/seiyayoshitaka/.rbenv/shims/rubocop"
+  "linter-ruby": {}
+  "merge-conflicts": {}
+  "web-search":
+    browser: {}
+    webservice: [
+      "http://google.com/search?q=$q$"
+    ]
+  "rails-model-schema":
+    showImmediately: false
+  "ruby-test": {}
 ".js.regexp.replacement.source":
   editor:
     preferredLineLength: 100
@@ -194,13 +235,13 @@
 ".erb.html.text":
   editor:
     preferredLineLength: 1000
+".diff.source":
+  editor:
+    preferredLineLength: 1000
 ".litcoffee.source":
   editor:
     preferredLineLength: 1000
 ".coffee.source":
-  editor:
-    preferredLineLength: 1000
-".diff.source":
   editor:
     preferredLineLength: 1000
 ".sass.source":
