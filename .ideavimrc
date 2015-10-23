@@ -1,0 +1,16 @@
+" Ignore upper and lower case differences
+set ignorecase
+" Distinguish case if uppercase included
+set smartcase
+" Highlight searching
+set hlsearch
+" Show invisible characters
+
+set list
+" Escape
+inoremap <C-j> <Esc>
+noremap <C-j> <Esc>
+noremap! <C-j> <Esc>
+vnoremap <C-j> <Esc>
+
+vnorempa vv <S-v>
