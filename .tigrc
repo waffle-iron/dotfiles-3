@@ -1,0 +1,19 @@
+set line-graphics = utf-8
+# Show commit id
+set main-view = id date author commit-title:graph=yes,refs=yes
+# Vertical split
+set vertical-split = no
+# Split view ratio
+set split-view-height = 90%
+# Ignore spaces
+set ignore-space = all
+
+# Keybindings
+bind generic <Ctrl-f> scroll-page-down
+bind generic Z        view-close
+bind generic G        move-last-line
+bind generic vg view-grep
+
+# Status mode
+# Commit view with showing diff
+bind status V !git commit -v

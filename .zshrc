@@ -31,6 +31,10 @@ eval "$(hub alias -s)"
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit
 
+# tig
+alias t='tig'
+alias ts='tig status'
+
 # peco 設定は~/.peco/config.json
 function peco-select-history() {
     local tac
