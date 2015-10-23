@@ -41,9 +41,13 @@ tags
 .TAGS
 TAGS
 .tags*
+tags*
 
 # jet brain IDE
 .idea
+
+# csscomb
+.csscomb.json
 
 # JavaScript tern-js
 .tern-project
