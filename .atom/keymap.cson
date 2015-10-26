@@ -1,87 +1,65 @@
 'body':
-  'ctrl-j': 'core:cancel'
-  'ctrl-m': 'core:confirm'
-  # for advanced-open-file
-  'cmd-o': 'unset!'
-  # for git-plus
-  'cmd-h': 'unset!'
-  # tree-view
-  'shift-cmd-t': 'tree-view:toggle'
+  'ctrl-j'     : 'core:cancel'
+  'ctrl-m'     : 'core:confirm'
+  'cmd-o'      : 'unset!' # for advanced-open-file
+  'cmd-h'      : 'unset!' # for git-plus
+  'shift-cmd-t': 'tree-view:toggle' # tree-view
 
 
 'atom-text-editor':
-  # tree-view
-  'ctrl-;': 'tree-view:toggle-focus'
-  # for snippets
-  'ctrl-k': 'unset!'
-  'ctrl-m': 'unset!'
-  # dash
-  'cmd-\'': 'dash:shortcut'
+  'ctrl-m'     : 'unset!'
+  'ctrl-k'     : 'unset!' # for snippet
+  'ctrl-;'     : 'tree-view:toggle-focus'
+  'cmd-\''     : 'dash:shortcut'
   'cmd-ctrl-\'': 'dash:shortcut-alt'
-  # linter
-  'cmd-l': 'linter:togglePanel'
-  # atom-beautify
-  'cmd-b': 'atom-beautify:beautify-editor'
+  'cmd-l'      : 'linter:togglePanel'
+  'cmd-b'      : 'atom-beautify:beautify-editor'
+  'ctrl-i'     : 'atom-alignment:alignMultiple'
+  'ctrl-w ]'   : 'pane-move:right'
+  'ctrl-w ['   : 'pane-move:left'
+
 
 'atom-workspace atom-text-editor:not([mini])':
-  # linter
   'shift-cmd-l': 'linter:toggle'
 
 '.platform-darwin atom-text-editor':
-  # for open-gitup
-  'shift-cmd-g': 'unset!'
-  # for symbol-gen
-  'cmd-g': 'unset!'
-  # snippets
+  'shift-cmd-g': 'unset!' # for open-gitup
+  'cmd-g': 'unset!' # for symbol-gen
   'ctrl-k': 'snippets:expand'
-  # git-plus
   'cmd-h': 'git-plus:menu'
-  # tool-bar
   'shift-cmd-y': 'tool-bar:toggle'
 
 'atom-workspace':
-  # advanced-open-file
-  'cmd-o': 'advanced-open-file:toggle'
-  # symbol-gen
-  'cmd-g': 'symbol-gen:generate'
-  # open-on-github
-  'shift-cmd-h': 'open-on-github:repository'
-  # project-folder
-  'shift-cmd-e': 'project-folder:add'
-  'shift-cmd-g': 'open-gitup:open'
-  # cursor-history
-  'ctrl-o': 'cursor-history:next'
-  'ctrl-i': 'cursor-history:prev'
-  'ctrl-cmd-o': 'cursor-history:next-within-editor'
-  'ctrl-cmd-i': 'cursor-history:prev-within-editor'
-  # symbols-tree-view
-  'shift-cmd-u': 'symbols-tree-view:toggle'
-  # rails-transporter
-  'ctrl-g a': 'rails-transporter:open-asset'
-  'ctrl-g c': 'rails-transporter:open-controller'
-  'ctrl-g f': 'rails-transporter:open-factory'
-  'ctrl-g h': 'rails-transporter:open-helper'
-  'ctrl-g l': 'rails-transporter:open-layout'
-  'ctrl-g m': 'rails-transporter:open-model'
+  'cmd-o'        : 'advanced-open-file:toggle'
+  'cmd-g'        : 'symbol-gen:generate'
+  'shift-cmd-h'  : 'open-on-github:repository'
+  'shift-cmd-e'  : 'project-folder:add'
+  'shift-cmd-g'  : 'open-gitup:open'
+  'shift-cmd-u'  : 'symbols-tree-view:toggle'
+  'ctrl-g a'     : 'rails-transporter:open-asset'
+  'ctrl-g c'     : 'rails-transporter:open-controller'
+  'ctrl-g f'     : 'rails-transporter:open-factory'
+  'ctrl-g h'     : 'rails-transporter:open-helper'
+  'ctrl-g l'     : 'rails-transporter:open-layout'
+  'ctrl-g m'     : 'rails-transporter:open-model'
   'ctrl-g ctrl-m': 'rails-transporter:open-migration-finder'
-  'ctrl-g p': 'rails-transporter:open-partial-template'
-  'ctrl-g s': 'rails-transporter:open-spec'
-  'ctrl-g t': 'rails-transporter:open-test'
-  'ctrl-g v': 'rails-transporter:open-view'
+  'ctrl-g p'     : 'rails-transporter:open-partial-template'
+  'ctrl-g s'     : 'rails-transporter:open-spec'
+  'ctrl-g t'     : 'rails-transporter:open-test'
+  'ctrl-g v'     : 'rails-transporter:open-view'
   'ctrl-g ctrl-v': 'rails-transporter:open-view-finder'
-  # Rails Model Schema
   'ctrl-g ctrl-s': 'rails-model-schema:toggle'
 
 '.select-list atom-text-editor[mini]':
   'ctrl-m': 'core:confirm'
 
 '.tree-view':
-  'ctrl-m': 'tree-view:open-selected-entry'
-  'y y': 'tree-view:copy'
-  'p': 'tree-view:paste'
-  'd d': 'tree-view:remove'
-  'x': 'project-folder:remove'
-  'g g': 'core:move-to-top'
+  'ctrl-m' : 'tree-view:open-selected-entry'
+  'y y'    : 'tree-view:copy'
+  'p'      : 'tree-view:paste'
+  'd d'    : 'tree-view:remove'
+  'x'      : 'project-folder:remove'
+  'g g'    : 'core:move-to-top'
   'shift-g': 'core:move-to-bottom'
 '.tree-view-dialog atom-text-editor[mini]':
   'ctrl-m': 'core:confirm'
@@ -91,7 +69,7 @@
 # -------------------------
 'atom-text-editor.vim-mode-plus':
   'ctrl-j': 'vim-mode-plus:reset-normal-mode'
-  'tab': 'bracket-matcher:go-to-matching-bracket'
+  'tab'   : 'bracket-matcher:go-to-matching-bracket'
 
 # all except normal
 # -------------------------
@@ -121,32 +99,29 @@
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'ctrl-h': 'pane:show-previous-item'
   'ctrl-l': 'pane:show-next-item'
-  'g _' : 'vim-mode-plus:snake-case'
+  'g _'   : 'vim-mode-plus:snake-case'
   'ctrl-p': 'clipboard-plus:toggle'
 
 # normal mode
 # -------------------------
 'atom-text-editor.vim-mode-plus.normal-mode':
-  's': 'vim-mode-plus:surround-word'
-  'd s': 'vim-mode-plus:delete-surround-any-pair'
-  'c s': 'vim-mode-plus:change-surround-any-pair'
-  'shift-y': 'custom:yank-to-end-of-line'
-  # ctags
+  's'          : 'vim-mode-plus:surround-word'
+  'd s'        : 'vim-mode-plus:delete-surround-any-pair'
+  'c s'        : 'vim-mode-plus:change-surround-any-pair'
+  'shift-y'    : 'custom:yank-to-end-of-line'
   'cmd-shift-]': 'atom-ctags:go-to-declaration'
-  'cmd-shift-[' : 'atom-ctags:return-from-declaration'
-  # ruby block converter
-  'ctrl-]': 'ruby-block-converter:to-curly-brackets'
-  'ctrl-[': 'ruby-block-converter:to-do-end'
-  # seeing-is-believing
-  "ctrl-0": 'seeing-is-believing:annotate-document'
-  "cmd-ctrl-0": 'seeing-is-believing:remove-annotations'
+  'cmd-shift-[': 'atom-ctags:return-from-declaration'
+  'ctrl-]'     : 'ruby-block-converter:to-curly-brackets'
+  'ctrl-['     : 'ruby-block-converter:to-do-end'
+  "ctrl-0"     : 'seeing-is-believing:annotate-document'
+  "cmd-ctrl-0" : 'seeing-is-believing:remove-annotations'
 
 # operator-pending, visual
 # -------------------------
 'atom-text-editor.vim-mode-plus.operator-pending-mode,
   atom-text-editor.vim-mode-plus.visual-mode':
-  's': 'vim-mode-plus:surround-word'
-  '\'': 'vim-mode-plus:inner-any-pair'
+    's' : 'vim-mode-plus:surround-word'
+    '\'': 'vim-mode-plus:inner-any-pair'
 
 
 # visual
