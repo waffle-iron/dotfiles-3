@@ -178,13 +178,7 @@
   "rails-transporter": {}
   "symbols-view": {}
   "git-plus": {}
-  "tool-bar":
-    position: "Right"
-    iconSize: "16px"
-    visible: false
   "tree-view-git-status": {}
-  "flex-tool-bar":
-    showConfigButton: false
   "symbols-tree-view": {}
   "seeing-is-believing":
     "add-to-env": {}

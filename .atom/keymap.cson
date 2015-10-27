@@ -3,7 +3,7 @@
   'ctrl-m'     : 'core:confirm'
   'cmd-o'      : 'unset!' # for advanced-open-file
   'cmd-h'      : 'unset!' # for git-plus
-  'shift-cmd-t': 'tree-view:toggle' # tree-view
+  'cmd-;'      : 'tree-view:toggle' # tree-view
 
 
 'atom-text-editor':
@@ -14,10 +14,11 @@
   'cmd-ctrl-\'': 'dash:shortcut-alt'
   'cmd-l'      : 'linter:togglePanel'
   'cmd-b'      : 'atom-beautify:beautify-editor'
+  'ctrl-s'     : 'sort-lines:sort'
   'ctrl-i'     : 'atom-alignment:alignMultiple'
   'ctrl-w ]'   : 'pane-move:right'
   'ctrl-w ['   : 'pane-move:left'
-
+  'ctrl-e'     : 'emmet:expand-abbreviation'
 
 'atom-workspace atom-text-editor:not([mini])':
   'shift-cmd-l': 'linter:toggle'
@@ -27,7 +28,6 @@
   'cmd-g': 'unset!' # for symbol-gen
   'ctrl-k': 'snippets:expand'
   'cmd-h': 'git-plus:menu'
-  'shift-cmd-y': 'tool-bar:toggle'
 
 'atom-workspace':
   'cmd-o'        : 'advanced-open-file:toggle'
