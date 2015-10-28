@@ -13,7 +13,9 @@ bind generic <Ctrl-f> scroll-page-down
 bind generic Z        view-close
 bind generic G        move-last-line
 bind generic vg view-grep
-
+# see github commit
+bind main g !@hub browse -- commit/%(commit)
+bind diff g !@hub browse -- commit/%(commit)
 # Status mode
 # Commit view with showing diff
 bind status V !git commit -v
