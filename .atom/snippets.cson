@@ -52,29 +52,29 @@
 # Model
 '.source.ruby, .source.ruby.rails, .meta.rails.model':
   'belongs_to':
-    'prefix': 'belongs_to '
+    'prefix': 'belongs_to'
     'body': """
-            belongs_to :${0:category}
+            belongs_to(:${0:category})
             """
   'has_many':
     'prefix': 'has_many'
     'body': """
-            has_many :${0:cetegories}
+            has_many(:${0:cetegories})
             """
   'has_one':
     'prefix': 'has_one'
     'body': """
-            has_one :${0:category}
+            has_one(:${0:category})
             """
   'validates':
     'prefix': 'validates'
     'body': """
-            validates :${1:field}
+            validates(:${0:field})
             """
   'prensencce':
     'prefix': 'presence'
     'body': """
-            presence: ${0:true}
+            presence(:${0:true})
             """
 # View
 
@@ -129,7 +129,7 @@
   'do':
     'prefix': 'do'
     'body': """
-            do${1: |${2:i}|}
+            do$1
               $0
             end
             """
@@ -529,6 +529,16 @@
 
 # HTML
 '.text.html':
+  'erb-code':
+    'prefix': '-'
+    'body'  : """
+              <% $0 %>
+              """
+  'erb-variable':
+    'prefix': '='
+    'body'  : """
+              <%= $0 %>
+              """
   'comment':
     'prefix': 'comment'
     'body': '<!-- $1 -->$2'

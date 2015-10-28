@@ -7,7 +7,6 @@
       "background-tips"
     ]
     packagesWithKeymapsDisabled: [
-      "emmet"
       "dash"
       "rails-transporter"
       "ruby-block"
@@ -23,13 +22,17 @@
       "rails-model-schema"
       "linter"
       "symbols-tree-view"
+      "move-panes"
+      "atom-alignment"
+      "sort-lines"
+      "ruby-test"
+      "emmet"
     ]
     openEmptyEditorOnStart: false
     themes: [
-      "slack-ui"
-      "atom-light-syntax"
+      "dark-flat-ui"
+      "outlander-syntax"
     ]
-    destroyEmptyPanes: false
   editor:
     audioBeep: false
     invisibles: {}
@@ -39,7 +42,6 @@
     preferredLineLength: 1000
     tabType: "soft"
     showInvisibles: true
-    fontSize: 13
     fontFamily: "Ricty Diminished"
   welcome:
     showOnStartup: false
@@ -163,7 +165,8 @@
     ]
     hideLoadedFolderFromAddList: false
   "find-and-replace": {}
-  "linter-sass-lint": {}
+  "linter-sass-lint":
+    configPath: "Users/seiyayoshitaka/.sass-lint.yml"
   "linter-eslint": {}
   "rubocop-auto-correct":
     rubocopCommandPath: '''
@@ -174,7 +177,10 @@
     autoRun: true
     correctFile: true
   "git-history": {}
-  "ruby-block": {}
+  "ruby-block":
+    showBottomPanel: false
+    highlightLineNumber: true
+    highlightLine: false
   "rails-transporter": {}
   "symbols-view": {}
   "git-plus": {}
@@ -197,7 +203,6 @@
   "atom-css-comb":
     readyMadeConfigs: "csscomb"
     projectConfigs: ".csscomb.json"
-  "emmet-simplified": {}
   "linter-rubocop":
     command: "/Users/seiyayoshitaka/.rbenv/shims/rubocop"
   "linter-ruby": {}
@@ -210,60 +215,66 @@
   "rails-model-schema":
     showImmediately: false
   "ruby-test": {}
+  "atom-alignment": {}
+  "paper-flat-ui": {}
+  "highlight-column":
+    lineMode: true
+    opacity: 0.1
+    enabled: false
 ".js.regexp.replacement.source":
   editor:
     preferredLineLength: 100
-".css.scss.source":
+".erb.html.text":
   editor:
-    preferredLineLength: 100
-".js.regexp.source":
+    preferredLineLength: 1000
+".gohtml.html.text":
   editor:
     preferredLineLength: 100
 ".basic.html.text":
   editor:
     preferredLineLength: 100
     tabLength: 2
-".gohtml.html.text":
+".js.regexp.source":
   editor:
     preferredLineLength: 100
-".erb.html.text":
+".css.scss.source":
   editor:
-    preferredLineLength: 1000
+    preferredLineLength: 100
 ".diff.source":
   editor:
     preferredLineLength: 1000
-".litcoffee.source":
+".ruby.source":
   editor:
     preferredLineLength: 1000
-".coffee.source":
+".source.stylus":
   editor:
     preferredLineLength: 1000
-".sass.source":
+".ini.source":
   editor:
     preferredLineLength: 1000
-".css.source":
+".gotemplate.source":
+  editor:
+    preferredLineLength: 100
+".go.source":
+  editor:
+    preferredLineLength: 100
+".gfm.source":
   editor:
     preferredLineLength: 100
 ".js.source":
   editor:
     preferredLineLength: 100
     tabLength: 2
-".gfm.source":
+".css.source":
   editor:
     preferredLineLength: 100
-".go.source":
-  editor:
-    preferredLineLength: 100
-".gotemplate.source":
-  editor:
-    preferredLineLength: 100
-".ini.source":
+".sass.source":
   editor:
     preferredLineLength: 1000
-".source.stylus":
+".coffee.source":
   editor:
     preferredLineLength: 1000
-".ruby.source":
+".litcoffee.source":
   editor:
     preferredLineLength: 1000
 ".preview":
