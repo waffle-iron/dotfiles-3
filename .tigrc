@@ -11,11 +11,16 @@ set ignore-space = all
 # Keybindings
 bind generic <Ctrl-f> scroll-page-down
 bind generic Z        view-close
-bind generic G        move-last-line
 bind generic vg view-grep
+bind main    g move-first-line
+bind diff    g move-first-line
+bind generic g move-first-line
+bind main    G move-last-line
+bind diff    G move-last-line
+bind generic G        move-last-line
 # see github commit
-bind main g !@hub browse -- commit/%(commit)
-bind diff g !@hub browse -- commit/%(commit)
+bind main B !@hub browse -- commit/%(commit)
+bind diff B !@hub browse -- commit/%(commit)
 # Status mode
 # Commit view with showing diff
 bind status V !git commit -v
