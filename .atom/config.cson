@@ -26,13 +26,13 @@
       "atom-alignment"
       "sort-lines"
       "ruby-test"
-      "emmet"
     ]
     openEmptyEditorOnStart: false
     themes: [
       "dark-flat-ui"
       "outlander-syntax"
     ]
+    destroyEmptyPanes: false
   editor:
     audioBeep: false
     invisibles: {}
@@ -43,6 +43,7 @@
     tabType: "soft"
     showInvisibles: true
     fontFamily: "Ricty Diminished"
+    fontSize: 12
   welcome:
     showOnStartup: false
   "atom-beautify":
@@ -69,6 +70,9 @@
   jslint:
     validateOnChange: true
     hideOnNoErrors: true
+  "file-types":
+    rb: "source.ruby.rails"
+    erb: "text.html.ruby"
   "linter-scss-lint":
     executablePath: "/Users/seiyayoshitaka/.rbenv/shims/scss-lint"
   pigments:
@@ -87,9 +91,6 @@
     onSave: "untabify"
   "tree-view":
     hideIgnoredNames: true
-  "vim-mode":
-    useClipboardAsDefaultRegister: true
-    useSmartcaseForSearch: true
   tabs:
     tabScrolling: true
     enableVcsColoring: true
@@ -103,46 +104,16 @@
       "git-diff": true
   "markdown-preview":
     useGitHubStyle: true
-  emmet: {}
-  autosave:
-    enabled: true
   linter:
     statusIconScope: "File"
-    showErrorPanel: false
   "clipboard-plus":
     limit: 20
-  "browser-plus": {}
-  "atom-terminal":
-    surpressDirectoryArgument: false
-    app: "iTerm.app"
-  "open-terminal-here":
-    command: "open -a $HOME/Applications/iTerm.app \"$PWD\""
-  "one-light-ui": {}
   "atom-ternjs": {}
-  "vim-surround":
-    pairs: [
-      "()"
-      "[]"
-      "{}"
-      "\"\""
-      "''"
-      "``"
-      "||"
-      "//"
-      "<>"
-    ]
-  "unity-ui":
-    colorStatusIndicatorsInTreeView: true
-    showIcons: true
-  "yosemate-ui":
-    showIcons: true
-    colorStatusIndicatorsInTreeView: true
   "advanced-open-file":
     helmDirSwitch: true
     defaultInputValue: "Project root"
   preview:
     _analyticsUserId: "23cd23d5-ecf4-4843-83a8-93d3e457ac2d"
-  "one-dark-ui": {}
   "sass-autocompile":
     outputStyle: "Expanded"
   "preview-plus": {}
