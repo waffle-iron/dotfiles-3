@@ -49,6 +49,12 @@
   "atom-beautify":
     _analyticsUserId: "a4134265-e650-47ca-aa99-9dd91cba36a7"
     css_indent_comments: false
+    analytics: false
+    html_preserve_newlines: false
+    html_unformatted: [
+      "%"
+    ]
+    language_erb_disabled: true
   "atom-color-highlight":
     scopes:
       css: "css"
@@ -106,6 +112,7 @@
     useGitHubStyle: true
   linter:
     statusIconScope: "File"
+    showErrorPanel: false
   "clipboard-plus":
     limit: 20
   "atom-ternjs": {}
@@ -195,57 +202,57 @@
 ".js.regexp.replacement.source":
   editor:
     preferredLineLength: 100
-".erb.html.text":
+".css.scss.source":
   editor:
-    preferredLineLength: 1000
-".gohtml.html.text":
+    preferredLineLength: 100
+".js.regexp.source":
   editor:
     preferredLineLength: 100
 ".basic.html.text":
   editor:
     preferredLineLength: 100
     tabLength: 2
-".js.regexp.source":
+".gohtml.html.text":
   editor:
     preferredLineLength: 100
-".css.scss.source":
-  editor:
-    preferredLineLength: 100
-".diff.source":
+".erb.html.text":
   editor:
     preferredLineLength: 1000
-".ruby.source":
+".litcoffee.source":
   editor:
     preferredLineLength: 1000
-".source.stylus":
+".coffee.source":
   editor:
     preferredLineLength: 1000
-".ini.source":
+".sass.source":
   editor:
     preferredLineLength: 1000
-".gotemplate.source":
-  editor:
-    preferredLineLength: 100
-".go.source":
-  editor:
-    preferredLineLength: 100
-".gfm.source":
+".css.source":
   editor:
     preferredLineLength: 100
 ".js.source":
   editor:
     preferredLineLength: 100
     tabLength: 2
-".css.source":
+".gfm.source":
   editor:
     preferredLineLength: 100
-".sass.source":
+".go.source":
+  editor:
+    preferredLineLength: 100
+".gotemplate.source":
+  editor:
+    preferredLineLength: 100
+".ini.source":
   editor:
     preferredLineLength: 1000
-".coffee.source":
+".source.stylus":
   editor:
     preferredLineLength: 1000
-".litcoffee.source":
+".ruby.source":
+  editor:
+    preferredLineLength: 1000
+".diff.source":
   editor:
     preferredLineLength: 1000
 ".preview":
