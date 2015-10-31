@@ -3,16 +3,176 @@ augroup vimrc
   autocmd!
 augroup END
 
+" General
 " --------------------
+set novisualbell                     " Never flash
+set nofoldenable                     " Never fold
+set noswapfile                       " Never backup
+set nobackup
+set nowritebackup
+
+set ruler                            " Show cursor position
+set number                           " Show line number
+set wrap                             " Wrap the lines longer than window width
+set clipboard=unnamed,autoselect     " Copy to clipboard
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set shiftround
+set infercase
+set laststatus=2
+set wrapscan
+set ambiwidth=double
+set pumheight=10      " Height for completion
+set wildmenu
+set wildmode=longest:full,full
+set showmatch
+set formatoptions+=j
+set matchtime=1
+set display=lastline
+set nf=hex
+set mouse=a
+set helpheight=999
+set hidden
+set switchbuf=useopen
+set t_vb=
+" Use Japanese doc
+set helplang=ja
+let g:vim_markdown_folding_disabel = 1
+" Disable auto comment out
+autocmd vimrc FileType * setlocal formatoptions-=ro
+" Add to pair matches
+set matchpairs& matchpairs+=<:>
+" Remember the last cursor position
+if has("autocmd")
+  autocmd vimrc BufReadPost *
+        \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+        \   exe "normal! g'\"" |
+        \ endif
+endif
+augroup mine
+    au BufWinEnter * sign define mysign
+    au BufWinEnter * exe "sign place 1337 line=1 name=mysign buffer=" . bufnr('%')
+augroup END
+if has('unnamedplus')
+  set clipboard& clipboard+=unnamedplus,unnamed 
+else
+  set clipboard& clipboard+=unnamed
+endif
+" matchit.vim
+source $VIMRUNTIME/macros/matchit.vim
+let b:match_ignorecase = 1
+" ruby
+augroup matchit
+  au!
+  au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
+augroup END
+" Hilight erb files properly
+autocmd vimrc BufRead,BufNewFile *.erb set filetype=eruby.html
+" Filetype for markdown
+autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+" Never hilight itailc in markdown
+autocmd vimrc FileType markdown hi! def link markdownItalic LineNr
+
+" Indentation
+" ===========
+set autoindent
+set smartindent
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+
+if has("autocmd")
+  filetype plugin on
+  filetype indent on
+  autocmd vimrc FileType html       setlocal sw=2 sts=2 ts=2 noet
+  autocmd vimrc FileType xhtml      setlocal sw=4 sts=4 ts=4 et
+  autocmd vimrc FileType css        setlocal sw=4 sts=4 ts=4 noet
+  autocmd vimrc FileType scss       setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType sass       setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType stylus     setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType javascript setlocal sw=4 sts=4 ts=4 noet
+  autocmd vimrc FileType coffee     setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType php        setlocal sw=4 sts=4 ts=4 et
+  autocmd vimrc FileType python     setlocal sw=4 sts=4 ts=4 et
+  autocmd vimrc FileType ruby       setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType eruby      setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType haml       setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType slim       setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType yaml       setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType xml        setlocal sw=4 sts=4 ts=4 noet
+  autocmd vimrc FileType sql        setlocal sw=4 sts=4 ts=4 et
+  autocmd vimrc FileType sh         setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType vim        setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType zsh        setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType markdown   setlocal sw=2 sts=2 ts=2 noet
+  autocmd vimrc FileType diff       setlocal sw=4 sts=4 ts=4 noet
+endif
+
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+" Keymappings
+" --------------------
+" Disable Unused keys
+map ZQ <Nop>
+map Q <Nop>
+map s <Nop>
+" Set <Leader>
+let g:mapleader = "\<Space>"
+" Escape
+noremap <C-j> <esc>
+noremap! <C-j> <esc>
+cnoremap <C-j> <Esc>
+" Go and Back
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+" Never skip folded lines
+nnoremap j gj
+nnoremap gj j
+nnoremap k gk
+nnoremap gk k
+vnoremap j gj
+vnoremap gj j
+vnoremap k gk
+vnoremap gk k
+" Yank until end of line
+nnoremap Y y$
+" Move between buffers
+noremap <silent><C-h> :bprevious<CR>
+noremap <silent><C-l> :bnext<CR>
+" Close buffer
+nnoremap <silent><c-z> :bd<CR>
+" Jump to matched pairs
+nnoremap <Tab> %
+vnoremap <Tab> %
+" Increment / Decreament
+nnoremap + <C-a>
+nnoremap - <C-x>
+" Divide screen
+nnoremap <silent><Leader>v :split<CR>
+nnoremap <silent><Leader>s :vsplit<CR>
+" Open shell
+nnoremap <silent><Leader>c :shell<CR>
+" Preview in browsers
+nnoremap <silent><Leader>o :!open %<CR>
+" Copy the opening file's path
+noremap <silent>cp :let @+=expand("%:p")<CR>
+" Clear hiligt
+noremap <silent>,l :nohl<CR>
+
 " NEOBUNDLE
-" --------------------
+" ====================
  if has('vim_starting')
    if &compatible
      set nocompatible " Be iMproved
    endif
 
    " Required:
-   set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
  endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -28,8 +188,12 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 
+
+" Manage files
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'danro/rename.vim'
 
 " Completion
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
@@ -60,12 +224,6 @@ NeoBundleLazy 'Shougo/neosnippet', {
   \ "autoload": {"insert": 1}}
 NeoBundle 'Shougo/neosnippet-snippets'
 
-" Filer
-NeoBundle 'Shougo/vimfiler'
-
-" Rename file
-NeoBundle 'danro/rename.vim'
-
 " Copy and Paste
 NeoBundle 'LeafCage/yankround.vim'
 
@@ -84,6 +242,9 @@ NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'terryma/vim-expand-region'
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 " Git
 NeoBundle 'tpope/vim-fugitive'
@@ -172,179 +333,14 @@ filetype plugin indent on
 NeoBundleCheck
 
 
-" --------------------
-" BASIC SETTINGS
-" --------------------
-" No bell
-set novisualbell
-" No backup
-set noswapfile
-set nobackup
-set nowritebackup
-" No foldings
-set nofoldenable
-set ruler
-set number
-set wrap
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set shiftround
-set infercase
-set laststatus=2
-set clipboard=unnamedplus,unnamed
-set wrapscan
-set ambiwidth=double
-" Height for completion
-set pumheight=10
-set wildmenu
-set wildmode=longest:full,full
-set showmatch
-set formatoptions+=j
-set matchtime=1
-set display=lastline
-set nf=hex
-set mouse=a
-set helpheight=999
-set hidden
-set switchbuf=useopen
-set t_vb=
-" Use Japanese doc
-set helplang=ja
-let g:vim_markdown_folding_disabel = 1
-" Disable auto comment out
-autocmd vimrc FileType * setlocal formatoptions-=ro
-" Add to pair matches
-set matchpairs& matchpairs+=<:>
-" Remember the last cursor position
-if has("autocmd")
-  autocmd vimrc BufReadPost *
-        \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-        \   exe "normal! g'\"" |
-        \ endif
-endif
-augroup mine
-    au BufWinEnter * sign define mysign
-    au BufWinEnter * exe "sign place 1337 line=1 name=mysign buffer=" . bufnr('%')
-augroup END
-if has('unnamedplus')
-  set clipboard& clipboard+=unnamedplus,unnamed 
-else
-  set clipboard& clipboard+=unnamed
-endif
-" matchit.vim
-source $VIMRUNTIME/macros/matchit.vim
-let b:match_ignorecase = 1
-" ruby
-augroup matchit
-  au!
-  au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
-augroup END
-" Hilight erb files properly
-autocmd vimrc BufRead,BufNewFile *.erb set filetype=eruby.html
-" Filetype for markdown
-autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-" Never hilight itailc in markdown
-autocmd vimrc FileType markdown hi! def link markdownItalic LineNr
 
-" --------------------
-" KEYMAPPINGS
-" --------------------
-" Disable Unused keys
-map ZQ <Nop>
-map Q <Nop>
-map s <Nop>
-" Set <Space> as <Leader>
-nnoremap <Space> <Leader>
-let g:mapleader = "\<Space>"
-" Escape
-noremap <C-j> <esc>
-noremap! <C-j> <esc>
-cnoremap <C-j> <Esc>
-" Go and Back
-inoremap <C-f> <Right>
-inoremap <C-b> <Left>
-" Never skip folded lines
-nnoremap j gj
-nnoremap gj j
-nnoremap k gk
-nnoremap gk k
-vnoremap j gj
-vnoremap gj j
-vnoremap k gk
-vnoremap gk k
-" Select to end of line
-vnoremap v $h
-" Yank until end of line
-nnoremap Y y$
-" Move between buffers
-noremap <silent><C-h> :bprevious<CR>
-noremap <silent><C-l> :bnext<CR>
-" Close buffer
-nnoremap <silent><c-z> :bd<CR>
-" Jump to matched pairs
-nnoremap <Tab> %
-vnoremap <Tab> %
-" Increment / Decreament
-nnoremap + <C-a>
-nnoremap - <C-x>
-" Divide screen
-nnoremap <silent><Leader>v :split<CR>
-nnoremap <silent><Leader>s :vsplit<CR>
-" Open shell
-nnoremap <silent><Leader>c :shell<CR>
-" Preview in browsers
-nnoremap <silent><Leader>o :!open %<CR>
-" Copy the opening file's path
-noremap <silent>cp :let @+=expand("%:p")<CR>
 
-" --------------------
-" INDENTATION
-" --------------------
-set autoindent
-set smartindent
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-
-if has("autocmd")
-  filetype plugin on
-  filetype indent on
-  autocmd vimrc FileType html       setlocal sw=2 sts=2 ts=2 noet
-  autocmd vimrc FileType xhtml      setlocal sw=4 sts=4 ts=4 et
-  autocmd vimrc FileType css        setlocal sw=4 sts=4 ts=4 noet
-  autocmd vimrc FileType scss       setlocal sw=2 sts=2 ts=2 et
-  autocmd vimrc FileType sass       setlocal sw=2 sts=2 ts=2 et
-  autocmd vimrc FileType stylus     setlocal sw=2 sts=2 ts=2 et
-  autocmd vimrc FileType javascript setlocal sw=4 sts=4 ts=4 noet
-  autocmd vimrc FileType coffee     setlocal sw=2 sts=2 ts=2 et
-  autocmd vimrc FileType php        setlocal sw=4 sts=4 ts=4 et
-  autocmd vimrc FileType python     setlocal sw=4 sts=4 ts=4 et
-  autocmd vimrc FileType ruby       setlocal sw=2 sts=2 ts=2 et
-  autocmd vimrc FileType eruby      setlocal sw=2 sts=2 ts=2 et
-  autocmd vimrc FileType haml       setlocal sw=2 sts=2 ts=2 et
-  autocmd vimrc FileType slim       setlocal sw=2 sts=2 ts=2 et
-  autocmd vimrc FileType yaml       setlocal sw=2 sts=2 ts=2 et
-  autocmd vimrc FileType xml        setlocal sw=4 sts=4 ts=4 noet
-  autocmd vimrc FileType sql        setlocal sw=4 sts=4 ts=4 et
-  autocmd vimrc FileType sh         setlocal sw=2 sts=2 ts=2 et
-  autocmd vimrc FileType vim        setlocal sw=2 sts=2 ts=2 et
-  autocmd vimrc FileType zsh        setlocal sw=2 sts=2 ts=2 et
-  autocmd vimrc FileType markdown   setlocal sw=2 sts=2 ts=2 noet
-  autocmd vimrc FileType diff       setlocal sw=4 sts=4 ts=4 noet
-endif
-
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " --------------------
 " STYLE
 " --------------------
 colorscheme gotham
-syntax enable
+syntax on
 set t_Co=256
 set cursorline
 hi CursorLine ctermbg=232
