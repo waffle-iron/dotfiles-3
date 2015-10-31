@@ -1,4 +1,4 @@
-" General
+" general
 " --------------------
 set visualbell t_vb=                " Never flash
 set nofoldenable                    " Never fold
@@ -12,6 +12,8 @@ set helplang=ja                     " Use Japanese doc
 set helpheight=999
 set encoding=utf-8
 set fileencodings=utf-8
+set numberwidth=3
+
 
 set laststatus=2                    " Always show status line
 set ruler                           " Show cursor position
@@ -52,6 +54,12 @@ augroup DisableAutoComment
   autocmd FileType * setlocal formatoptions-=ro
 augroup END
 
+" Load .vimrc automatically
+augroup LoadVimConfig
+    au!
+    au BufWritePost .vimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
+
 " Keymappings
 " ===========
 " Disable Unused keys
@@ -82,32 +90,32 @@ nnoremap Y y$
 noremap <silent><C-h> :bprevious<CR>
 noremap <silent><C-l> :bnext<CR>
 " Close buffer
-nnoremap <silent><c-z> :bd<CR>
+nnoremap <silent><Leader>z :bd<CR>
 " Jump to matched pairs
 nnoremap <Tab> %
 vnoremap <Tab> %
 " Increment / Decreament
 nnoremap + <C-a>
 nnoremap - <C-x>
+" Expand brackets
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
 " Divide screen
 nnoremap <silent><Leader>v :split<CR>
 nnoremap <silent><Leader>s :vsplit<CR>
 " Open shell
 nnoremap <silent><Leader>c :shell<CR>
-" Preview in browsers
-nnoremap <silent><Leader>o :!open %<CR>
+" Open tig
+nnoremap <silent><Leader>gt :!tig<CR>
+
 " Copy the opening file's path
-nnoremap <silent>cp :let @+=expand("%:p")<CR>
-
+nnoremap ,y :let @+=expand("%:p")<CR>
 " Load vimrc
-nnoremap <silent>,s :<C-u>source ~/.vimrc<CR>
+nnoremap ,s :source ~/dotfiles/.vimrc<CR>
 " Clear hilight
-nnoremap <silent>,l :nohl<CR>
-
-" Expand brackets
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
+nnoremap ,l :nohl<CR>
 
 " FileType
 " ===========
@@ -178,6 +186,8 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'LeafCage/yankround.vim'
 " vim-auto-save
 NeoBundle 'vim-scripts/vim-auto-save'
+" vim-bufkill
+NeoBundle 'qpkorr/vim-bufkill'
 " vim-expand-region
 NeoBundle 'terryma/vim-expand-region'
 " vim-operator-surround
@@ -189,6 +199,8 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'airblade/vim-gitgutter'
 " vim-fugitive
 NeoBundle 'tpope/vim-fugitive'
+" gitv
+NeoBundle 'gregsexton/gitv'
 
 " ae : entire content / ie : excluding empty lines
 NeoBundle 'kana/vim-textobj-entire'
@@ -314,7 +326,7 @@ let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 augroup unite
   autocmd!
-  autocmd FileType unite nmap <buffer> <C-J> <Plug>(unite_exit)
+  autocmd FileType unite nmap <buffer><C-J> <Plug>(unite_exit)
 augroup END
 " History
 nnoremap <silent><Leader>h :<C-u>Unite file_mru<CR>
@@ -323,7 +335,7 @@ nnoremap <silent><Leader>b :<C-u>Unite buffer<CR>
 " Copy history
 nnoremap <silent><Leader>p :<C-u>Unite yankround<CR>
 " Grep
-nnoremap <silent><Leader>g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent><Leader>f :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --hidden --ignore'
@@ -428,7 +440,7 @@ let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_scss_checkers = ['scss_lint']
 nnoremap <silent><Leader>e :Errors<CR>
-nnoremap <silent><Leader>q :lclose<CR>
+nnoremap <silent>,q :lclose<CR>
 
 " yankround
 " ---------
@@ -442,12 +454,15 @@ nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(GitG
 nmap <expr><C-n> yankround#is_active() ? "\<Plug>(yankround-next)" : "<SID>(GitGutterNextHunk)"
 let g:yankround_use_region_hl = 1
 
+" vim-bufkill
+nnoremap <silent><c-z> :BD<CR>
+
 " vim-auto-save
 " -------------
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 1
 let g:auto_save = 1
-nnoremap <Leader>a :AutoSaveToggle<CR>
+nnoremap ,a :AutoSaveToggle<CR>
 
 " vim-expand-region
 " -----------------
@@ -459,24 +474,42 @@ map <silent>sa <Plug>(operator-surround-append)
 map <silent>sd <Plug>(operator-surround-delete)
 map <silent>sc <Plug>(operator-surround-replace)
 
-
 " vim-quickrun
-let g:quickrun_config={'*': {'split': ''}}
-let g:quickrun_config._={ 'runner':'vimproc',
-      \       "runner/vimproc/updatetime" : 10,
-      \       "outputter/buffer/close_on_empty" : 1,
-      \       'outputter/buffer/split': ':botright'
-      \ }
-let g:quickrun_config={'_': {'split': 'vertical'}}
-set splitright
+" ------------
+nmap <silent><Leader>d <plug>(quickrun)
+let g:quickrun_config = {
+\   "_": {
+\     "runner": "vimproc",
+\     "runner/vimproc/updatetime": 60,
+\     "runner/vimproc/sleep": 10,
+\     "outputter/buffer/split": "5"
+\   }
+\ }
+set splitbelow
 
+" vim-fugitive
+" -------------
+nnoremap <silent><Leader>gb :Gblame<CR>
+nnoremap <silent><Leader>gc :Gcommit -v<CR>
+nnoremap <silent><Leader>gd :Gdiff HEAD<CR>
+" Checkout current file
+nnoremap <silent><Leader>go :Gread<CR>
+nnoremap <silent><Leader>gp :Gpush<CR>
+nnoremap <silent><Leader>gs :Gstatus<CR>
+nnoremap <silent><Leader>ga :Gwrite<CR>
+nnoremap <silent><Leader>gu :Git reset HEAD %<CR>
+
+" gitv
+" ---
+nnoremap <silent><Leader>gl :Gitv<CR>
+nnoremap <silent><Leader>gf :Gitv!<CR>
 
 " vim-gitgutter
 " -------------
 nnoremap <silent><SID>(GitGutterPrevHunk) :<C-u>GitGutterPrevHunk<CR>
 nnoremap <silent><SID>(GitGutterNextHunk) :<C-u>GitGutterNextHunk<CR>
 
-" Ruby and Rails 
+" Ruby and Rails
 " ==============
 " neocomplete-rsense.vim
 let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
@@ -512,7 +545,7 @@ let g:vimjs#smartcomplete = 1
 " ---------
 augroup cosco
   autocmd!
-  autocmd FileType css,scss,javascript nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
+  autocmd FileType css,scss,javascript nnoremap <silent>,; :call cosco#commaOrSemiColon()<CR>
 augroup END
 
 " Markup
@@ -573,11 +606,6 @@ let g:airline_symbols.space = ' '
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
-
-
-
-
-
 
 " USER
 " ====
