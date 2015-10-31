@@ -1,34 +1,35 @@
 [core]
-	excludesfile = /Users/seiyayoshitaka/.gitignore_global
-	editor = vim -c \"set fenc=utf-8\"
+  excludesfile = /Users/seiyayoshitaka/.gitignore_global
+  editor = vim -c \"set fenc=utf-8\"
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 [user]
-	name = ystkme
-	email = bloom6445@gmail.com
+  name = ystkme
+  email = bloom6445@gmail.com
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+  clean = git lfs clean %f
+  smudge = git lfs smudge %f
+  required = true
 [github]
-	user = ystkme
+  user = ystkme
 [color]
-	ui = true
+  ui = auto
 [alias]
   a  = add
   c  = commit -v
-	cm = commit
+  cm = commit
   o  = checkout
-	co = checkout
-	s  = status
-	st = status
-	br = branch
+  co = checkout
+  d  = diff
+  s  = status
+  st = status
+  br = branch
   p  = push
-	pl = !git pull && git submodule update --init
+  pl = !git pull && git submodule update --init
   graph = log --graph --date=short --pretty='%C(yellow)%h%Creset %C(cyan bold)%d%Creset %s %Cgreen[%cd]%Creset' --decorate
 [push]
-	default = simple
+  default = simple
