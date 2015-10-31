@@ -230,8 +230,12 @@ inoremap <C-b> <Left>
 " Never skip folded lines
 nnoremap j gj
 nnoremap gj j
+vnoremap j gj
+vnoremap gj j
 nnoremap k gk
 nnoremap gk k
+vnoremap k gk
+vnoremap gk k
 " vを二回で行末まで選択
 " vnoremap v $h
 vnoremap V $h
@@ -248,8 +252,6 @@ vmap <Tab> %
 " Increment / Decreament
 nnoremap + <C-a>
 nnoremap - <C-x>
-" Clear hilight
-nnoremap <silent><C-l>  :nohl<CR>
 " Divide screen
 nnoremap <silent><Leader>v :split<CR>
 nnoremap <silent><Leader>s :vsplit<CR>
@@ -341,7 +343,7 @@ nnoremap <silent><Leader>d :<C-u>Unite file_rec<CR>
 nnoremap <silent><Leader>b :<C-u>Unite buffer<CR>
 nnoremap <silent><Leader>p :<C-u>Unite yankround<CR>
 nmap <buffer><c-j> <Plug>(unite_all_exit)
-let s:unite_file_rec_ignore_globs = ['.bundle/', 'vendor/', '.git/', 'tmp/', 'packages/**', 'compile-cache/**']
+let s:unite_file_rec_ignore_globs = ['.bundle/', 'vendor/', '.git/', 'tmp/', '.atom/**']
 call unite#custom#source('file_rec', 'ignore_globs', s:unite_file_rec_ignore_globs)
 
 " neocomplete
@@ -393,6 +395,14 @@ function! s:incsearch_keymap()
     IncSearchNoreMap <C-d>  <Over>(incsearch-scroll-b)
     IncSearchNoreMap <C-j>  <Esc>
 endfunction
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 
 " vim-gitgutter
 nnoremap <silent><SID>(GitGutterPrevHunk) :<C-u>GitGutterPrevHunk<CR>
