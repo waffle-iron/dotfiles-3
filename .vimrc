@@ -6,7 +6,7 @@ set noswapfile                      " Never backup
 set nobackup
 set nowritebackup
 set mouse=a                         " Enable mouse
-set clipboard+=unnamed,autoselect   " Copy to clipboard
+set clipboard+=unnamed              " Copy to clipboard
 set helplang=ja                     " Use Japanese doc
 set helpheight=999
 set encoding=utf-8
@@ -100,11 +100,11 @@ nnoremap <silent><Leader>c :shell<CR>
 nnoremap <silent><Leader>gt :!tig<CR>
 
 " Copy the opening file's path
-nnoremap ,y :let @+=expand("%:p")<CR>
+nnoremap <silent><Leader>y :let @+=expand("%:p")<CR>
 " Load vimrc
-nnoremap ,s :source ~/dotfiles/.vimrc<CR>
+nnoremap <Leader>s :source ~/dotfiles/.vimrc<CR>
 " Clear hilight
-nnoremap ,l :nohl<CR>
+nnoremap <Leader>l :nohl<CR>
 
 " FileType
 " ===========
@@ -160,6 +160,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 " unite.vim
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite-outline'
 " vimfiler
 NeoBundle 'Shougo/vimfiler'
 " neocomplete.vim
@@ -315,24 +316,36 @@ NeoBundleCheck
 " ---------
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
+let g:unite_source_rec_max_cache_files = 5000
+let g:unite_source_file_mru_limit      = 200
 augroup unite
   autocmd!
   autocmd FileType unite nmap <buffer><C-J> <Plug>(unite_exit)
 augroup END
-" History
-nnoremap <silent><Leader>h :<C-u>Unite file_mru<CR>
+" The prefix key.
+nnoremap [unite]  <Nop>
+nmap     <space>u  [unite]
+
+" history
+nnoremap <silent> [unite]h :<C-u>Unite file_mru<CR>
+" Directory
+nnoremap <silent> [unite]r :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 " Opening buffers
-nnoremap <silent><Leader>b :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 " Copy history
-nnoremap <silent><Leader>p :<C-u>Unite yankround<CR>
+nnoremap <silent> [unite]p :<C-u>Unite yankround<CR>
+" Outline
+nnoremap <silent> [unite]o :<C-u>Unite outline:. -buffer-name=search-buffer<CR>
 " Grep
-nnoremap <silent><Leader>f :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+
+" Use 'ag' for Unite grep
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --hidden --ignore'
   let g:unite_source_grep_recursive_opt = ''
 endif
-" Current directory
+" Check if directory is git project
 let s:unite_ignore_patterns = '\.\(gif\|jpe\?g\|png\|webp\)$'
 call unite#custom#source('file_rec/git', 'ignore_pattern', s:unite_ignore_patterns)
 function! DispatchUniteFileRecAsyncOrGit()
@@ -343,7 +356,6 @@ function! DispatchUniteFileRecAsyncOrGit()
     Unite file_rec/async
   endif
 endfunction
-nnoremap <silent><Leader>r :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 
 " vimfiler
 " --------
