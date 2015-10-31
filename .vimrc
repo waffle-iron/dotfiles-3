@@ -5,7 +5,6 @@ set nofoldenable                    " Never fold
 set noswapfile                      " Never backup
 set nobackup
 set nowritebackup
-
 set mouse=a                         " Enable mouse
 set clipboard+=unnamed,autoselect   " Copy to clipboard
 set helplang=ja                     " Use Japanese doc
@@ -90,16 +89,11 @@ inoremap [<CR> []<Left><CR><ESC><S-o>
 inoremap (<CR> ()<Left><CR><ESC><S-o>
 
 " Move between buffers
-noremap <silent><C-h> :bprevious<CR>
-noremap <silent><C-l> :bnext<CR>
-" Close buffer, keep pane
-nnoremap <silent><c-z> :ene<CR>:bw #<CR>
+nnoremap <silent><C-h> :bprevious<CR>
+nnoremap <silent><C-l> :bnext<CR>
 " Close buffer and pane
 nnoremap <silent><Leader>z :bd<CR>
 
-" Divide screen
-nnoremap <silent><Leader>v :split<CR>
-nnoremap <silent><Leader>s :vsplit<CR>
 " Open shell
 nnoremap <silent><Leader>c :shell<CR>
 " Open tig
@@ -183,6 +177,7 @@ NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'vim-scripts/vim-auto-save'
 " vim-bufkill
 NeoBundle 'qpkorr/vim-bufkill'
+NeoBundle 'vim-scripts/bufkill.vim'
 " vim-expand-region
 NeoBundle 'terryma/vim-expand-region'
 " vim-operator-surround
@@ -456,6 +451,10 @@ let g:auto_save_silent = 1
 let g:auto_save = 1
 nnoremap ,a :AutoSaveToggle<CR>
 
+" bufkill.vim
+" vim-scripts
+nnoremap <c-z> :BD<CR>
+
 " vim-expand-region
 " -----------------
 vmap v <Plug>(expand_region_expand)
@@ -500,7 +499,7 @@ nnoremap <silent><Leader>gf :Gitv!<CR>
 " -------------
 nnoremap <silent><SID>(GitGutterPrevHunk) :<C-u>GitGutterPrevHunk<CR>
 nnoremap <silent><SID>(GitGutterNextHunk) :<C-u>GitGutterNextHunk<CR>
-let g:gitgutter_override_sign_column_highlight = 1
+let g:gitgutter_override_sign_column_highlight = 3
 
 " Ruby and Rails
 " ==============
