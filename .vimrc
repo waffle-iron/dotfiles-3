@@ -499,8 +499,7 @@ nnoremap <silent><Leader>gf :Gitv!<CR>
 " -------------
 nnoremap <silent><SID>(GitGutterPrevHunk) :<C-u>GitGutterPrevHunk<CR>
 nnoremap <silent><SID>(GitGutterNextHunk) :<C-u>GitGutterNextHunk<CR>
-let g:gitgutter_override_sign_column_highlight = 3
-
+let g:gitgutter_sign_column_always = 1
 " Ruby and Rails
 " ==============
 " neocomplete-rsense.vim
