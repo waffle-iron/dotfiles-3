@@ -495,7 +495,7 @@ set splitbelow
 " -------------
 nnoremap <silent><Leader>gb :Gblame<CR>
 nnoremap <silent><Leader>gc :Gcommit -v<CR>
-nnoremap <silent><Leader>gd :Gdiff HEAD<CR>
+nnoremap <silent><Leader>gd :Gdiff<CR>
 " Checkout current file
 nnoremap <silent><Leader>go :Gread<CR>
 nnoremap <silent><Leader>gp :Gpush<CR>
@@ -513,6 +513,10 @@ nnoremap <silent><Leader>gf :Gitv!<CR>
 nnoremap <silent><SID>(GitGutterPrevHunk) :<C-u>GitGutterPrevHunk<CR>
 nnoremap <silent><SID>(GitGutterNextHunk) :<C-u>GitGutterNextHunk<CR>
 let g:gitgutter_sign_column_always = 1
+
+nmap <Leader>a <Plug>GitGutterStageHunk
+nmap <Leader>o <Plug>GitGutterRevertHunk
+
 " Ruby and Rails
 " ==============
 " neocomplete-rsense.vim
@@ -633,8 +637,8 @@ command! -nargs=* Dash call <SID>dash(<f-args>)
 syntax on
 set t_Co=256
 colorscheme gotham
+set background=dark
 set cursorline
-hi CursorLine ctermbg=232
 " make cusor vertical in insert mode
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
