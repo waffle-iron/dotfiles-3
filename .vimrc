@@ -1,4 +1,5 @@
-augroup MyAutoCmd
+" Initialize autocmd
+augroup vimrc
   autocmd!
 augroup END
 
@@ -152,14 +153,14 @@ NeoBundle 'KabbAmine/vCoolor.vim'
 NeoBundleLazy 'mattn/emmet-vim', {
   \ "autoload": {"filetypes":['html','css','eruby','sass','scss']}}
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,eruby,scss EmmetInstall
-autocmd Filetype html,css,eruby,scss imap <buffer><expr><tab>
+autocmd vimrc FileType html,css,eruby,scss EmmetInstall
+autocmd vimrc Filetype html,css,eruby,scss imap <buffer><expr><tab>
       \ emmet#isExpandable() ? "\<plug>(emmet-expand-abbr)" :
       \ "\<tab>"
 
 " Markdown
-autocmd BufRead,BufNewFile *.md  set filetype=markdown
-autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
+autocmd vimrc BufRead,BufNewFile *.md  set filetype=markdown
+autocmd vimrc BufRead,BufNewFile *.mkd  set filetype=markdown
 let g:previm_show_header = 0
 NeoBundle 'suan/vim-instant-markdown'
 let g:instant_markdown_autostart = 0
@@ -213,12 +214,12 @@ set t_vb=
 set helplang=ja
 let g:vim_markdown_folding_disabel = 1
 " Disable auto comment out
-autocmd FileType * setlocal formatoptions-=ro
+autocmd vimrc FileType * setlocal formatoptions-=ro
 " Add to pair matches
 set matchpairs& matchpairs+=<:>
 " Remember the last cursor position
 if has("autocmd")
-  autocmd BufReadPost *
+  autocmd vimrc BufReadPost *
         \ if line("'\"") > 0 && line ("'\"") <= line("$") |
         \   exe "normal! g'\"" |
         \ endif
@@ -241,23 +242,22 @@ augroup matchit
   au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
 augroup END
 " Hilight erb files properly
-autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
+autocmd vimrc BufRead,BufNewFile *.erb set filetype=eruby.html
 " Filetype for markdown
-autocmd MyAutoCmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 " Never hilight itailc in markdown
-autocmd MyAutoCmd FileType markdown hi! def link markdownItalic LineNr
+autocmd vimrc FileType markdown hi! def link markdownItalic LineNr
 
 " --------------------
 " KEYMAPPINGS
 " --------------------
 " Disable Unused keys
-nnoremap ZQ <Nop>
-nnoremap Q <Nop>
-" Set <Space> as <Leader>
-nmap <Space> <Leader>
-let mapleader = "\<Space>"
-" For plugins like vim-operator-surround
+map ZQ <Nop>
+map Q <Nop>
 map s <Nop>
+" Set <Space> as <Leader>
+nnoremap <Space> <Leader>
+let g:mapleader = "\<Space>"
 " Escape
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
@@ -284,8 +284,8 @@ noremap <silent><C-l> :bnext<CR>
 " Close buffer
 nnoremap <silent><c-z> :bd<CR>
 " Jump to matched pairs
-nmap <Tab> %
-vmap <Tab> %
+nnoremap <Tab> %
+vnoremap <Tab> %
 " Increment / Decreament
 nnoremap + <C-a>
 nnoremap - <C-x>
@@ -293,7 +293,7 @@ nnoremap - <C-x>
 nnoremap <silent><Leader>v :split<CR>
 nnoremap <silent><Leader>s :vsplit<CR>
 " Open shell
-" nnoremap <silent><Leader>c :shell<CR>
+nnoremap <silent><Leader>c :shell<CR>
 " Preview in browsers
 nnoremap <silent><Leader>o :!open %<CR>
 " Copy the opening file's path
@@ -312,28 +312,28 @@ set tabstop=2
 if has("autocmd")
   filetype plugin on
   filetype indent on
-  autocmd FileType html       setlocal sw=2 sts=2 ts=2 noet
-  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
-  autocmd FileType scss       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType sass       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType stylus     setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType javascript setlocal sw=4 sts=4 ts=4 noet
-  autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType eruby      setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType slim       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 noet
-  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType zsh        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType markdown   setlocal sw=2 sts=2 ts=2 noet
-  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
+  autocmd vimrc FileType html       setlocal sw=2 sts=2 ts=2 noet
+  autocmd vimrc FileType xhtml      setlocal sw=4 sts=4 ts=4 et
+  autocmd vimrc FileType css        setlocal sw=4 sts=4 ts=4 noet
+  autocmd vimrc FileType scss       setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType sass       setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType stylus     setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType javascript setlocal sw=4 sts=4 ts=4 noet
+  autocmd vimrc FileType coffee     setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType php        setlocal sw=4 sts=4 ts=4 et
+  autocmd vimrc FileType python     setlocal sw=4 sts=4 ts=4 et
+  autocmd vimrc FileType ruby       setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType eruby      setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType haml       setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType slim       setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType yaml       setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType xml        setlocal sw=4 sts=4 ts=4 noet
+  autocmd vimrc FileType sql        setlocal sw=4 sts=4 ts=4 et
+  autocmd vimrc FileType sh         setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType vim        setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType zsh        setlocal sw=2 sts=2 ts=2 et
+  autocmd vimrc FileType markdown   setlocal sw=2 sts=2 ts=2 noet
+  autocmd vimrc FileType diff       setlocal sw=4 sts=4 ts=4 noet
 endif
 
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
@@ -365,10 +365,10 @@ highlight Comment cterm=italic gui=italic
 " unite.vim
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
-au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
-au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+autocmd vimrc FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
+autocmd vimrc FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
+autocmd vimrc FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+autocmd vimrc FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
 " History
 nnoremap <silent><Leader>h :<C-u>Unite file_mru<CR>
 " Opening buffers
@@ -428,7 +428,7 @@ let g:vimfiler_tree_leaf_icon = ' '
 let g:vimfiler_tree_opened_icon = '▾'
 let g:vimfiler_tree_closed_icon = '▸'
 " close vimfiler automatically when there are only vimfiler open
-autocmd MyAutoCmd BufEnter * if (winnr('$') == 1 && &filetype ==# 'vimfiler') | q | endif
+autocmd vimrc BufEnter * if (winnr('$') == 1 && &filetype ==# 'vimfiler') | q | endif
 let s:hooks = neobundle#get_hooks("vimfiler")
 
 " incsearch
@@ -527,7 +527,7 @@ nnoremap <silent><Leader>e :Errors<CR>
 nnoremap <silent><Leader>q :lclose<CR>
 
 " cosco.vim
-autocmd FileType css,scss,javascript,coffee,db,sql nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
+autocmd vimrc FileType css,scss,javascript,coffee,db,sql nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
 
 " open-browser.vim
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
@@ -535,10 +535,10 @@ nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
 " vim-seeing-is-believing
-autocmd FileType ruby nmap <silent>mm <Plug>(seeing-is-believing-mark)
-autocmd FileType ruby vmap <silent>mm <Plug>(seeing-is-believing-mark)
-autocmd FileType ruby nmap <silent>mr <Plug>(seeing-is-believing-run)
-autocmd FileType ruby vmap <silent>mr <Plug>(seeing-is-believing-run)
+autocmd vimrc FileType ruby nmap <silent>mm <Plug>(seeing-is-believing-mark)
+autocmd vimrc FileType ruby vmap <silent>mm <Plug>(seeing-is-believing-mark)
+autocmd vimrc FileType ruby nmap <silent>mr <Plug>(seeing-is-believing-run)
+autocmd vimrc FileType ruby vmap <silent>mr <Plug>(seeing-is-believing-run)
 
 
 " --------------------
