@@ -1,5 +1,5 @@
-" general
-" --------------------
+" General
+" =======
 set visualbell t_vb=                " Never flash
 set nofoldenable                    " Never fold
 set noswapfile                      " Never backup
@@ -12,8 +12,6 @@ set helplang=ja                     " Use Japanese doc
 set helpheight=999
 set encoding=utf-8
 set fileencodings=utf-8
-set numberwidth=3
-
 
 set laststatus=2                    " Always show status line
 set ruler                           " Show cursor position
@@ -54,12 +52,6 @@ augroup DisableAutoComment
   autocmd FileType * setlocal formatoptions-=ro
 augroup END
 
-" Load .vimrc automatically
-augroup LoadVimConfig
-    au!
-    au BufWritePost .vimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END
-
 " Keymappings
 " ===========
 " Disable Unused keys
@@ -86,11 +78,6 @@ vnoremap k gk
 vnoremap gk k
 " Yank until end of line
 nnoremap Y y$
-" Move between buffers
-noremap <silent><C-h> :bprevious<CR>
-noremap <silent><C-l> :bnext<CR>
-" Close buffer
-nnoremap <silent><Leader>z :bd<CR>
 " Jump to matched pairs
 nnoremap <Tab> %
 vnoremap <Tab> %
@@ -98,9 +85,17 @@ vnoremap <Tab> %
 nnoremap + <C-a>
 nnoremap - <C-x>
 " Expand brackets
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap {<CR> {}<Left><CR><ESC><S-o>
+inoremap [<CR> []<Left><CR><ESC><S-o>
+inoremap (<CR> ()<Left><CR><ESC><S-o>
+
+" Move between buffers
+noremap <silent><C-h> :bprevious<CR>
+noremap <silent><C-l> :bnext<CR>
+" Close buffer, keep pane
+nnoremap <silent><c-z> :ene<CR>:bw #<CR>
+" Close buffer and pane
+nnoremap <silent><Leader>z :bd<CR>
 
 " Divide screen
 nnoremap <silent><Leader>v :split<CR>
@@ -214,13 +209,13 @@ NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
 
-" Ruby and Rails 
+" Ruby and Rails
 " ==============
 NeoBundle 'hwartig/vim-seeing-is-believing'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
-" g S : split / g J : join 
+" g S : split / g J : join
 NeoBundle 'AndrewRadev/splitjoin.vim'
 " necomplete-rsense.vim
 NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
@@ -454,9 +449,6 @@ nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(GitG
 nmap <expr><C-n> yankround#is_active() ? "\<Plug>(yankround-next)" : "<SID>(GitGutterNextHunk)"
 let g:yankround_use_region_hl = 1
 
-" vim-bufkill
-nnoremap <silent><c-z> :BD<CR>
-
 " vim-auto-save
 " -------------
 let g:auto_save_in_insert_mode = 0
@@ -508,6 +500,7 @@ nnoremap <silent><Leader>gf :Gitv!<CR>
 " -------------
 nnoremap <silent><SID>(GitGutterPrevHunk) :<C-u>GitGutterPrevHunk<CR>
 nnoremap <silent><SID>(GitGutterNextHunk) :<C-u>GitGutterNextHunk<CR>
+let g:gitgutter_override_sign_column_highlight = 1
 
 " Ruby and Rails
 " ==============
