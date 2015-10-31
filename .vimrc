@@ -7,7 +7,7 @@ augroup END
 " --------------------
  if has('vim_starting')
    if &compatible
-     set nocompatible               " Be iMproved
+     set nocompatible " Be iMproved
    endif
 
    " Required:
@@ -79,6 +79,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'KabbAmine/vCoolor.vim'
@@ -141,46 +142,39 @@ NeoBundleCheck
 " BASIC SETTINGS
 " --------------------
 " insertモード時のカーソルをVertical Barに
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
 set ruler
 set number
-" set showcmd
-set wrap "長いテキストの折り返し
+set wrap
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set shiftround 
-set infercase " 補完時に大文字小文字を区別しない
+set shiftround
+set infercase
 set laststatus=2
 set clipboard=unnamedplus,unnamed
-set helplang=ja "日本語のヘルプをデフォルトに設定
 set wrapscan
-set ambiwidth=double " 全角文字をきれいに表示
-set pumheight=10 " コマンド補完候補の数
-set wildmenu " コマンド補完を強化
-set wildmode=longest:full,full " 閉じ括弧入力時に対応する括弧にジャンプ。0.1秒
-set showmatch "対応括弧を表示
-set formatoptions+=j "コメント行でJしたとき途中のシンボルを削除
+set ambiwidth=double
+set pumheight=10
+set wildmenu
+set wildmode=longest:full,full
+set showmatch
+set formatoptions+=j
 set matchtime=1
 set display=lastline
-set nf=hex " インクリメント・デクリメントを16進数に
-set mouse=a " マウスの使用
-set helpheight=999 " helpの高さを設定
-set hidden " バッファ切替の際、保存していなくても警告しない
-set switchbuf=useopen   " 新しく開く代わりにすでに開いてあるバッファを開く
+set nf=hex
+set mouse=a
+set helpheight=999
+set hidden
+set switchbuf=useopen
 set t_vb=
 set novisualbell
-set noswapfile " スワップファイルをつくらない
+set noswapfile
 set nobackup
 set nowritebackup
-set nofoldenable " 折込を禁止
+set nofoldenable
+" Use Japanese doc
+set helplang=ja
 let g:vim_markdown_folding_disabel = 1
 autocmd FileType html,eruby,css,scss,javascript,ruby setlocal formatoptions-=ro " 改行時に自動コメント挿入しない
 set matchpairs& matchpairs+=<:> " 対応括弧に'<'と'>'のペアを追加
@@ -191,16 +185,13 @@ if has("autocmd")
         \   exe "normal! g'\"" |
         \ endif
 endif
-" カラムを追加
 augroup mine
     au BufWinEnter * sign define mysign
     au BufWinEnter * exe "sign place 1337 line=1 name=mysign buffer=" . bufnr('%')
 augroup END
 if has('unnamedplus')
-  " set clipboard& clipboard+=unnamedplus " 2013-07-03 14:30 unnamed 追加
   set clipboard& clipboard+=unnamedplus,unnamed 
 else
-  " set clipboard& clipboard+=unnamed,autoselect 2013-06-24 10:00 autoselect 削除
   set clipboard& clipboard+=unnamed
 endif
 " matchit.vim
@@ -213,62 +204,64 @@ augroup matchit
 augroup END
 " Hilight erb files properly
 autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
-" マークダウンのファイルタイプ
+" Filetype for markdown
 autocmd MyAutoCmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-" マークダウンでイタリックのハイライトをしない
+" Never hilight itailc in markdown
 autocmd MyAutoCmd FileType markdown hi! def link markdownItalic LineNr
+
 " --------------------
 " KEYMAPPINGS
 " --------------------
-" <Space>を<Leader>に
-nmap <Space> <Leader>
-let mapleader = "\<Space>"
-" vim-operator-surround等で使うため
-map s <Nop>
-" <ZQ> / <Q> を無効に
+" Disable Unused keys
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
-" esc
+" Set <Space> as <Leader>
+nmap <Space> <Leader>
+let mapleader = "\<Space>"
+" For plugins like vim-operator-surround
+map s <Nop>
+" Escape
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
 cnoremap <C-j> <Esc>
-" すすむ/もどる
+" Go and Back
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
-" 移動を表示行単位に変える。
+" Never skip folded lines
 nnoremap j gj
 nnoremap gj j
 nnoremap k gk
 nnoremap gk k
 " vを二回で行末まで選択
-vnoremap v $h
-" Yを行末までのヤンクに
+" vnoremap v $h
+vnoremap V $h
+" Yank until end of line
 nnoremap Y y$
-" <C-h><C-l> : バッファ移動
+" Move between buffers
 noremap <silent><C-h> :bprevious<CR>
 noremap <silent><C-l> :bnext<CR>
-" ,w : バッファを閉じる
+" Close buffer
 nnoremap <silent><c-z> :bd<CR>
-" TABで対応ペアにジャンプk
+" Jump to matched pairs
 nmap <Tab> %
 vmap <Tab> %
-" + / - でインクリメント・デクリメント
+" Increment / Decreament
 nnoremap + <C-a>
 nnoremap - <C-x>
-" ハイライトをクリア
-nnoremap <silent><Leader>l  :nohl<CR>
-" 画面分割
+" Clear hilight
+nnoremap <silent><C-l>  :nohl<CR>
+" Divide screen
 nnoremap <silent><Leader>v :split<CR>
 nnoremap <silent><Leader>s :vsplit<CR>
-" コマンドライン
+" Open shell
 nnoremap <silent><Leader>c :shell<CR>
-" ブラウザプレビュー
+" Preview in browsers
 nnoremap <silent><Leader>o :!open %<CR>
-" cp : いま開いているファイルのパスをコピー
+" Copy the opening file's path
 noremap <silent>cp :let @+=expand("%:p")<CR>
 
 " --------------------
-" INDENT
+" INDENTATION
 " --------------------
 set autoindent
 set smartindent
@@ -284,9 +277,9 @@ if has("autocmd")
   autocmd FileType html       setlocal sw=2 sts=2 ts=2 noet
   autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
   autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
-  autocmd FileType scss        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType sass        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType stylus      setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType scss       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType sass       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType stylus     setlocal sw=2 sts=2 ts=2 et
   autocmd FileType javascript setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
   autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
@@ -310,18 +303,27 @@ inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " --------------------
-" Appearance
+" STYLE
 " --------------------
 colorscheme gotham
 syntax enable
 set t_Co=256
 set cursorline
 hi CursorLine ctermbg=10
+" make cusor vertical in insert mode
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+highlight Comment cterm=italic gui=italic
+
 " --------------------
-" PLUGIN SETTINGS
+" PLUGINS
 " --------------------
 " unite
-" 大文字小文字を区別しない
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
@@ -335,8 +337,12 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 endif
 nnoremap <silent><Leader>h :<C-u>Unite file_mru<CR>
+nnoremap <silent><Leader>d :<C-u>Unite file_rec<CR>
 nnoremap <silent><Leader>b :<C-u>Unite buffer<CR>
-nnoremap <silent><Leader>y :<C-u>Unite yankround<CR>
+nnoremap <silent><Leader>p :<C-u>Unite yankround<CR>
+nmap <buffer><c-j> <Plug>(unite_all_exit)
+let s:unite_file_rec_ignore_globs = ['.bundle/', 'vendor/', '.git/', 'tmp/', 'packages/**', 'compile-cache/**']
+call unite#custom#source('file_rec', 'ignore_globs', s:unite_file_rec_ignore_globs)
 
 " neocomplete
 if !exists('g:neocomplete#force_omni_input_patterns')
@@ -388,6 +394,10 @@ function! s:incsearch_keymap()
     IncSearchNoreMap <C-j>  <Esc>
 endfunction
 
+" vim-gitgutter
+nnoremap <silent><SID>(GitGutterPrevHunk) :<C-u>GitGutterPrevHunk<CR>
+nnoremap <silent><SID>(GitGutterNextHunk) :<C-u>GitGutterNextHunk<CR>
+
 " vim-auto-save
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 1
@@ -435,9 +445,8 @@ nmap P <Plug>(yankround-P)
 nmap gp <Plug>(yankround-gp)
 xmap gp <Plug>(yankround-gp)
 nmap gP <Plug>(yankround-gP)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
-" noremap <Leader>p :Unite yankround <CR>
+nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(GitGutterPrevHunk)"
+nmap <expr><C-n> yankround#is_active() ? "\<Plug>(yankround-next)" : "<SID>(GitGutterNextHunk)"
 let g:yankround_use_region_hl = 1
 
 " syntastic
@@ -484,4 +493,3 @@ function! s:dash(...)
 endfunction
 command! -nargs=* Dash call <SID>dash(<f-args>)
 
-highlight Comment cterm=italic gui=italic
