@@ -26,8 +26,11 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
+
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
+
+" Completion
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 if neobundle#is_installed('neocomplete')
   let g:neocomplete#enable_at_startup = 1
@@ -48,78 +51,44 @@ elseif neobundle#is_installed('neocomplcache')
   let g:neocomplcache_enable_camel_case_completion = 1
   let g:neocomplcache_enable_underbar_completion = 1
 endif
-
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" Snippets
 NeoBundleLazy 'Shougo/neosnippet', {
   \ "autoload": {"insert": 1}}
 NeoBundle 'Shougo/neosnippet-snippets'
+
+" Filer
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'haya14busa/incsearch.vim'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'whatyouhide/vim-gotham'
-NeoBundle 'kana/vim-smartinput'
-NeoBundle 'ntpeters/vim-better-whitespace'
-let g:better_whitespace_filetypes_blacklist = ['unite', 'vimfiler']
-NeoBundle 'grep.vim'
-NeoBundle 'thinca/vim-quickrun'
+
+" Rename file
 NeoBundle 'danro/rename.vim'
-NeoBundle 'tomtom/tcomment_vim'
+
+" Copy and Paste
+NeoBundle 'LeafCage/yankround.vim'
+
+" Auto save
+NeoBundle 'vim-scripts/vim-auto-save'
+
+" Searching
+NeoBundle 'haya14busa/incsearch.vim'
+
+" Input matched pairs
+NeoBundle 'kana/vim-smartinput'
+
+" Expand text-object
+NeoBundle 'rhysd/vim-operator-surround'
+NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'LeafCage/yankround.vim'
-NeoBundle 'mrtazz/simplenote.vim'
-let g:SimplenoteFiletype = "markdown"
-source ~/dotfiles/.simplenoterc
-NeoBundle 'lfilho/cosco.vim'
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'rhysd/vim-operator-surround'
-NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'yuku-t/vim-ref-ri'
+NeoBundle 'tomtom/tcomment_vim'
+
+" Git
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'AndrewRadev/splitjoin.vim'
-NeoBundle 'gorodinskiy/vim-coloresque'
-NeoBundle 'KabbAmine/vCoolor.vim'
-command! Vc VCoolor
-NeoBundle 'othree/html5.vim'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'wavded/vim-stylus'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle '1995eaton/vim-better-javascript-completion'
-let g:vimjs#casesensitive = 0
-let g:vimjs#smartcomplete = 1
-NeoBundle 'moll/vim-node'
-NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
-      \ 'insert' : 1,
-      \ 'filetypes': 'ruby',
-      \ }}
-let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
-NeoBundle 'hwartig/vim-seeing-is-believing'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'szw/vim-tags'
-NeoBundle 'suan/vim-instant-markdown'
-let g:instant_markdown_autostart = 0
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
-autocmd BufRead,BufNewFile *.md  set filetype=markdown
-autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
-let g:previm_show_header = 0
-NeoBundleLazy 'mattn/emmet-vim', {
-  \ "autoload": {"filetypes":['html','css','eruby','sass','scss']}}
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,eruby,scss EmmetInstall
-autocmd Filetype html,css,eruby,scss imap <buffer><expr><tab>
-      \ emmet#isExpandable() ? "\<plug>(emmet-expand-abbr)" :
-      \ "\<tab>"
-NeoBundle 'vim-scripts/vim-auto-save'
+
+" Gist
 NeoBundleLazy 'lambdalisue/vim-gista', {
       \ 'depends': [
       \    'Shougo/unite.vim',
@@ -132,6 +101,70 @@ NeoBundleLazy 'lambdalisue/vim-gista', {
       \}}
 let g:gista#github_user = 'ystkme'
 
+" Linter
+NeoBundle 'scrooloose/syntastic'
+
+" Run Script
+NeoBundle 'thinca/vim-quickrun'
+
+" Document
+NeoBundle 'vim-jp/vimdoc-ja'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'yuku-t/vim-ref-ri'
+NeoBundle 'AndrewRadev/splitjoin.vim'
+
+" Style
+NeoBundle 'bling/vim-airline'
+NeoBundle 'whatyouhide/vim-gotham'
+NeoBundle 'ntpeters/vim-better-whitespace'
+let g:better_whitespace_filetypes_blacklist = ['unite', 'vimfiler']
+
+" Ruby and Rails
+NeoBundle 'hwartig/vim-seeing-is-believing'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'szw/vim-tags'
+NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
+      \ 'insert' : 1,
+      \ 'filetypes': 'ruby',
+      \ }}
+let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
+
+" JavaScript
+NeoBundle 'lfilho/cosco.vim'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle '1995eaton/vim-better-javascript-completion'
+let g:vimjs#casesensitive = 0
+let g:vimjs#smartcomplete = 1
+NeoBundle 'moll/vim-node'
+
+" Markup
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'wavded/vim-stylus'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'slim-template/vim-slim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'gorodinskiy/vim-coloresque'
+NeoBundle 'KabbAmine/vCoolor.vim'
+NeoBundleLazy 'mattn/emmet-vim', {
+  \ "autoload": {"filetypes":['html','css','eruby','sass','scss']}}
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,eruby,scss EmmetInstall
+autocmd Filetype html,css,eruby,scss imap <buffer><expr><tab>
+      \ emmet#isExpandable() ? "\<plug>(emmet-expand-abbr)" :
+      \ "\<tab>"
+
+" Markdown
+autocmd BufRead,BufNewFile *.md  set filetype=markdown
+autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
+let g:previm_show_header = 0
+NeoBundle 'suan/vim-instant-markdown'
+let g:instant_markdown_autostart = 0
+NeoBundle 'kannokanno/previm'
+
 call neobundle#end()
 " Required:
 filetype plugin indent on
@@ -141,7 +174,14 @@ NeoBundleCheck
 " --------------------
 " BASIC SETTINGS
 " --------------------
-" insertモード時のカーソルをVertical Barに
+" No bell
+set novisualbell
+" No backup
+set noswapfile
+set nobackup
+set nowritebackup
+" No foldings
+set nofoldenable
 set ruler
 set number
 set wrap
@@ -155,6 +195,7 @@ set laststatus=2
 set clipboard=unnamedplus,unnamed
 set wrapscan
 set ambiwidth=double
+" Height for completion
 set pumheight=10
 set wildmenu
 set wildmode=longest:full,full
@@ -168,17 +209,14 @@ set helpheight=999
 set hidden
 set switchbuf=useopen
 set t_vb=
-set novisualbell
-set noswapfile
-set nobackup
-set nowritebackup
-set nofoldenable
 " Use Japanese doc
 set helplang=ja
 let g:vim_markdown_folding_disabel = 1
-autocmd FileType html,eruby,css,scss,javascript,ruby setlocal formatoptions-=ro " 改行時に自動コメント挿入しない
-set matchpairs& matchpairs+=<:> " 対応括弧に'<'と'>'のペアを追加
-" 前回のポインタの位置を記憶
+" Disable auto comment out
+autocmd FileType * setlocal formatoptions-=ro
+" Add to pair matches
+set matchpairs& matchpairs+=<:>
+" Remember the last cursor position
 if has("autocmd")
   autocmd BufReadPost *
         \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -230,15 +268,14 @@ inoremap <C-b> <Left>
 " Never skip folded lines
 nnoremap j gj
 nnoremap gj j
-vnoremap j gj
-vnoremap gj j
 nnoremap k gk
 nnoremap gk k
+vnoremap j gj
+vnoremap gj j
 vnoremap k gk
 vnoremap gk k
-" vを二回で行末まで選択
-" vnoremap v $h
-vnoremap V $h
+" Select to end of line
+vnoremap v $h
 " Yank until end of line
 nnoremap Y y$
 " Move between buffers
@@ -256,7 +293,7 @@ nnoremap - <C-x>
 nnoremap <silent><Leader>v :split<CR>
 nnoremap <silent><Leader>s :vsplit<CR>
 " Open shell
-nnoremap <silent><Leader>c :shell<CR>
+" nnoremap <silent><Leader>c :shell<CR>
 " Preview in browsers
 nnoremap <silent><Leader>o :!open %<CR>
 " Copy the opening file's path
@@ -268,14 +305,13 @@ noremap <silent>cp :let @+=expand("%:p")<CR>
 set autoindent
 set smartindent
 set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 
 if has("autocmd")
   filetype plugin on
   filetype indent on
-
   autocmd FileType html       setlocal sw=2 sts=2 ts=2 noet
   autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
   autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
@@ -311,7 +347,7 @@ colorscheme gotham
 syntax enable
 set t_Co=256
 set cursorline
-hi CursorLine ctermbg=10
+hi CursorLine ctermbg=232
 " make cusor vertical in insert mode
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -320,31 +356,44 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+" Make comment italic
 highlight Comment cterm=italic gui=italic
 
 " --------------------
 " PLUGINS
 " --------------------
-" unite
+" unite.vim
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
 au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
 au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
 au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+" History
+nnoremap <silent><Leader>h :<C-u>Unite file_mru<CR>
+" Opening buffers
+nnoremap <silent><Leader>b :<C-u>Unite buffer<CR>
+" Copy history
+nnoremap <silent><Leader>p :<C-u>Unite yankround<CR>
+" Grep
 nnoremap <silent><Leader>g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --hidden --ignore'
   let g:unite_source_grep_recursive_opt = ''
 endif
-nnoremap <silent><Leader>h :<C-u>Unite file_mru<CR>
-nnoremap <silent><Leader>d :<C-u>Unite file_rec<CR>
-nnoremap <silent><Leader>b :<C-u>Unite buffer<CR>
-nnoremap <silent><Leader>p :<C-u>Unite yankround<CR>
-nmap <buffer><c-j> <Plug>(unite_all_exit)
-let s:unite_file_rec_ignore_globs = ['.bundle/', 'vendor/', '.git/', 'tmp/', '.atom/**']
-call unite#custom#source('file_rec', 'ignore_globs', s:unite_file_rec_ignore_globs)
+" Current directory
+let s:unite_ignore_patterns = '\.\(gif\|jpe\?g\|png\|webp\)$'
+call unite#custom#source('file_rec/git', 'ignore_pattern', s:unite_ignore_patterns)
+function! DispatchUniteFileRecAsyncOrGit()
+  " If current directory is git repo
+  if isdirectory(getcwd()."/.git")
+    Unite file_rec/git:--cached:--others:--exclude-standard
+  else
+    Unite file_rec/async
+  endif
+endfunction
+nnoremap <silent><Leader>r :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 
 " neocomplete
 if !exists('g:neocomplete#force_omni_input_patterns')
@@ -415,9 +464,9 @@ let g:auto_save = 1
 nnoremap <Leader>a :AutoSaveToggle<CR>
 
 " vim-operator-surround
-map <silent>sc <Plug>(operator-surround-append)
+map <silent>sa <Plug>(operator-surround-append)
 map <silent>sd <Plug>(operator-surround-delete)
-map <silent>sr <Plug>(operator-surround-replace)
+map <silent>sc <Plug>(operator-surround-replace)
 
 " airline
 let g:airline#extensions#tabline#enabled  = 1
@@ -491,11 +540,18 @@ autocmd FileType ruby vmap <silent>mm <Plug>(seeing-is-believing-mark)
 autocmd FileType ruby nmap <silent>mr <Plug>(seeing-is-believing-run)
 autocmd FileType ruby vmap <silent>mr <Plug>(seeing-is-believing-run)
 
+
+" --------------------
+" USER
+" --------------------
+
 " dash from vim
 function! s:dash(...)
   let ft = &filetype
-  if &filetype == 'python'
-    let ft = ft.'2'
+  if &filetype == 'ruby'
+    let ft = 'rb'
+  elseif &filetype == 'javascript'
+    let ft = 'js'
   endif
   let ft = ft.':'
   let word = len(a:000) == 0 ? input('Dash search: ', ft.expand('<cword>')) : ft.join(a:000, ' ')
