@@ -198,6 +198,7 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'danro/rename.vim'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'tpope/vim-sleuth'
 
 " Document
 NeoBundle 'vim-jp/vimdoc-ja'
