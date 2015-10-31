@@ -93,18 +93,16 @@ nnoremap <silent><C-h> :bprevious<CR>
 nnoremap <silent><C-l> :bnext<CR>
 " Close buffer and pane
 nnoremap <silent><Leader>z :bd<CR>
-
 " Open shell
 nnoremap <silent><Leader>c :shell<CR>
-" Open tig
-nnoremap <silent><Leader>gt :!tig<CR>
-
 " Copy the opening file's path
 nnoremap <silent><Leader>y :let @+=expand("%:p")<CR>
 " Load vimrc
 nnoremap <Leader>s :source ~/dotfiles/.vimrc<CR>
 " Clear hilight
 nnoremap <Leader>l :nohl<CR>
+" Open tig
+nnoremap <silent><Leader>gt :!tig<CR>
 
 " FileType
 " ===========
@@ -326,10 +324,10 @@ augroup END
 nnoremap [unite]  <Nop>
 nmap     <space>u  [unite]
 
+" Directory
+nnoremap <silent> [unite]u :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 " history
 nnoremap <silent> [unite]h :<C-u>Unite file_mru<CR>
-" Directory
-nnoremap <silent> [unite]r :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 " Opening buffers
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 " Copy history
@@ -513,9 +511,8 @@ nnoremap <silent><Leader>gf :Gitv!<CR>
 nnoremap <silent><SID>(GitGutterPrevHunk) :<C-u>GitGutterPrevHunk<CR>
 nnoremap <silent><SID>(GitGutterNextHunk) :<C-u>GitGutterNextHunk<CR>
 let g:gitgutter_sign_column_always = 1
-
-nmap <Leader>a <Plug>GitGutterStageHunk
-nmap <Leader>o <Plug>GitGutterRevertHunk
+nmap <c-a> <Plug>GitGutterStageHunk
+nmap <c-x> <Plug>GitGutterRevertHunk
 
 " Ruby and Rails
 " ==============
@@ -637,9 +634,7 @@ command! -nargs=* Dash call <SID>dash(<f-args>)
 syntax on
 set t_Co=256
 colorscheme gotham
-set background=dark
 set cursorline
-" make cusor vertical in insert mode
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
