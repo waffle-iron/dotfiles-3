@@ -42,13 +42,12 @@ set autoindent
 set smartindent
 set expandtab
 set shiftwidth=2
-set softtabstop=2
 set tabstop=2
+set softtabstop=2
 
 augroup DisableAutoComment
   autocmd!
-  " Disable auto comment out
-  autocmd FileType * setlocal formatoptions-=ro
+  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup END
 
 " Keymappings
@@ -109,13 +108,13 @@ nnoremap <silent><Leader>gt :!tig<CR>
 " ===========
 augroup FileTypeSettings
   autocmd!
-  autocmd FileType html       setlocal sw=2 sts=2 ts=2 noet
+  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType scss       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType sass       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType stylus     setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType javascript setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
   autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
   autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
@@ -124,13 +123,13 @@ augroup FileTypeSettings
   autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType slim       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
   autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType zsh        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType markdown   setlocal sw=2 sts=2 ts=2 noet
-  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType markdown   setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
 augroup END
 
 
@@ -300,7 +299,7 @@ NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'Yggdroot/indentLine'
 " vim-airline
 NeoBundle 'bling/vim-airline'
-NeoBundle 'ajh17/Spacegray.vim'
+NeoBundle 'whatyouhide/vim-gotham'
 
 call neobundle#end()
 " Required:
@@ -581,9 +580,7 @@ let g:user_emmet_install_global = 0
 augroup emmet
   autocmd!
   autocmd FileType html,css,eruby,scss EmmetInstall
-  autocmd Filetype html,css,eruby,scss imap <buffer><expr><tab>
-        \ emmet#isExpandable() ? "\<plug>(emmet-expand-abbr)" :
-        \ "\<tab>"
+  autocmd Filetype html,css,eruby,scss inoremap
 augroup END
 
 " Markdown
@@ -623,7 +620,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 set guifont=Inconsolate\ Regular\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
-let g:airline_theme='zenburn'
+let g:airline_theme='gotham'
 let g:airline_left_sep = '⮀'
 let g:airline_right_sep = '⮂'
 let g:airline#extensions#tabline#left_sep = '⮀'
@@ -654,7 +651,7 @@ command! -nargs=* Dash call <SID>dash(<f-args>)
 " =====
 syntax on
 set t_Co=256
-colorscheme spacegray
+colorscheme gotham
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
