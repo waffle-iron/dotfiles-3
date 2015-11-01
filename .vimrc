@@ -88,6 +88,7 @@ inoremap {<CR> {}<Left><CR><ESC><S-o>
 inoremap [<CR> []<Left><CR><ESC><S-o>
 inoremap (<CR> ()<Left><CR><ESC><S-o>
 
+nnoremap <silent><c-w> :w<CR>
 " Create new buffer
 nnoremap <silent><c-t> :enew<CR>
 " Move between buffers
@@ -305,6 +306,8 @@ let g:gista#github_user = 'ystkme'
 
 " Appearance
 " ==========
+NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'vim-scripts/AfterColors.vim'
 " vim-better-whitespace
 NeoBundle 'ntpeters/vim-better-whitespace'
 " Yggdroot/indentLine
