@@ -47,7 +47,7 @@ set softtabstop=2
 
 augroup DisableAutoComment
   autocmd!
-  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+  autocmd FileType markdown setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup END
 
 " Keymappings
@@ -87,7 +87,7 @@ inoremap {<CR> {}<Left><CR><ESC><S-o>
 inoremap [<CR> []<Left><CR><ESC><S-o>
 inoremap (<CR> ()<Left><CR><ESC><S-o>
 
-nnoremap <silent><c-w> :w<CR>
+nnoremap <Leader>w :w<CR>
 " Create new buffer
 nnoremap <silent><Leader>t :enew<CR>
 " Move between buffers
@@ -114,7 +114,7 @@ augroup FileTypeSettings
   autocmd FileType scss       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType sass       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType stylus     setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType javascript setlocal sw=4 sts=4 ts=4 et
   autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
   autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
@@ -324,6 +324,7 @@ nmap     <space>  [unite]
 
 " Directory
 nnoremap <silent> [unite]u :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
+nnoremap <silent> [unite]n :<C-u>UniteWithBufferDir file file/new -buffer-name=file<CR>
 " history
 nnoremap <silent> [unite]h :<C-u>Unite file_mru<CR>
 " Opening buffers
@@ -564,7 +565,8 @@ let g:vimjs#smartcomplete = 1
 " ---------
 augroup cosco
   autocmd!
-  autocmd FileType css,scss,javascript nnoremap <silent>,; :call cosco#commaOrSemiColon()<CR>
+  autocmd FileType css,scss,javascript nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
+  autocmd FileType css,scss,javascript inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
 augroup END
 
 " Markup
