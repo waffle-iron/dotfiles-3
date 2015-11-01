@@ -88,17 +88,17 @@ inoremap {<CR> {}<Left><CR><ESC><S-o>
 inoremap [<CR> []<Left><CR><ESC><S-o>
 inoremap (<CR> ()<Left><CR><ESC><S-o>
 
+" Create new buffer
+nnoremap <silent><c-t> :enew<CR>
 " Move between buffers
-nnoremap <silent><C-h> :bprevious<CR>
-nnoremap <silent><C-l> :bnext<CR>
+nnoremap <silent><c-h> :bprevious<CR>
+nnoremap <silent><c-l> :bnext<CR>
 " Close buffer and pane
 nnoremap <silent><Leader>z :bd<CR>
 " Open shell
 nnoremap <silent><Leader>c :shell<CR>
 " Copy the opening file's path
 nnoremap <silent><Leader>y :let @+=expand("%:p")<CR>
-" Load vimrc
-nnoremap <Leader>s :source ~/dotfiles/.vimrc<CR>
 " Clear hilight
 nnoremap <Leader>l :nohl<CR>
 " Open tig
@@ -182,6 +182,8 @@ NeoBundle 'terryma/vim-expand-region'
 " vim-operator-surround
 NeoBundle 'rhysd/vim-operator-surround'
 NeoBundle 'kana/vim-operator-user'
+" vim-easy-align
+NeoBundle 'junegunn/vim-easy-align'
 " vim-quickrun
 NeoBundle 'thinca/vim-quickrun'
 " vim-gitgutter
@@ -191,6 +193,9 @@ NeoBundle 'tpope/vim-fugitive'
 " gitv
 NeoBundle 'gregsexton/gitv'
 
+" Substite with ':S/{pattern}/{string}/[flags]', Replace with'/c' options
+" ctr: snake_case / crm: MixedCase / src: camelCase / crs: snake_case / cru: UPPER_CASE
+NeoBundle 'tpope/vim-abolish'
 " ae : entire content / ie : excluding empty lines
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
@@ -221,6 +226,9 @@ NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
 NeoBundleLazy 'vim-ruby/vim-ruby', {
       \ 'autoload': {'filetypes': ['ruby']}
       \ }
+NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', {
+      \ 'autolaod': {'filetype': ['ruby']}
+      \}
 
 " JavaScript
 " ==========
@@ -299,6 +307,8 @@ let g:gista#github_user = 'ystkme'
 " ==========
 " vim-better-whitespace
 NeoBundle 'ntpeters/vim-better-whitespace'
+" Yggdroot/indentLine
+NeoBundle 'Yggdroot/indentLine'
 " vim-airline
 NeoBundle 'bling/vim-airline'
 NeoBundle 'whatyouhide/vim-gotham'
@@ -322,7 +332,7 @@ augroup unite
 augroup END
 " The prefix key.
 nnoremap [unite]  <Nop>
-nmap     <space>u  [unite]
+nmap     <space>  [unite]
 
 " Directory
 nnoremap <silent> [unite]u :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
@@ -432,7 +442,7 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 highlight SyntasticErrorSign ctermbg=000
-let g:syntastic_loc_list_height=7
+let g:syntastic_loc_list_height=5
 let g:syntastic_mode_map = {
       \ 'mode': 'active',
       \ 'active_filetypes' : [],
@@ -441,7 +451,7 @@ let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_scss_checkers = ['scss_lint']
 nnoremap <silent><Leader>e :Errors<CR>
-nnoremap <silent>,q :lclose<CR>
+nnoremap <silent><Leader>q :lclose<CR>
 
 " yankround
 " ---------
@@ -463,18 +473,24 @@ let g:auto_save = 1
 nnoremap ,a :AutoSaveToggle<CR>
 
 " bufkill.vim
-" vim-scripts
+" -----------
 nnoremap <c-z> :BD<CR>
 
 " vim-expand-region
 " -----------------
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
 " vim-operator-surround
 " ---------------------
 map <silent>sa <Plug>(operator-surround-append)
 map <silent>sd <Plug>(operator-surround-delete)
 map <silent>sc <Plug>(operator-surround-replace)
+
+" vim-easy-align
+" --------------
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+vmap <c-m> <Plug>(EasyAlign)
 
 " vim-quickrun
 " ------------
@@ -537,7 +553,7 @@ augroup matchit
 augroup END
 " Hilight erb files properly
 augroup erb
-  autocmd!
+    autocmd!
   autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 augroup END
 
@@ -592,6 +608,13 @@ augroup END
 " vim-better-whitespace
 " ---------------------
 let g:better_whitespace_filetypes_blacklist = ['unite', 'vimfiler']
+" indentLine
+" Disable by default
+let g:indentLine_enabled = 0
+let g:indentLine_faster = 1
+let g:indentLine_char = '¦'
+let g:indentLine_color_term = 232
+nnoremap <silent><Leader>i :IndentLinesToggle<CR>
 " vim-airline
 " -------
 let g:airline#extensions#tabline#enabled  = 1
@@ -614,7 +637,6 @@ let g:airline_symbols.linenr = '⭡'
 
 " USER
 " ====
-
 " dash from vim
 function! s:dash(...)
   let ft = &filetype
