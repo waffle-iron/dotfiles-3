@@ -183,7 +183,6 @@ NeoBundle 'LeafCage/yankround.vim'
 " vim-auto-save
 NeoBundle 'vim-scripts/vim-auto-save'
 " vim-bufkill
-NeoBundle 'qpkorr/vim-bufkill'
 NeoBundle 'vim-scripts/bufkill.vim'
 " vim-expand-region
 NeoBundle 'terryma/vim-expand-region'
@@ -194,13 +193,9 @@ NeoBundle 'kana/vim-operator-user'
 NeoBundle 'junegunn/vim-easy-align'
 " tagbar
 NeoBundle 'majutsushi/tagbar'
-" vim-quickrun
-NeoBundle 'thinca/vim-quickrun'
-" vim-gitgutter
+" Git
 NeoBundle 'airblade/vim-gitgutter'
-" vim-fugitive
 NeoBundle 'tpope/vim-fugitive'
-" gitv
 NeoBundle 'gregsexton/gitv'
 
 " Substite with ':S/{pattern}/{string}/[flags]', Replace with'/c' options
@@ -221,6 +216,8 @@ NeoBundle 'yuku-t/vim-ref-ri'
 
 " Ruby and Rails
 " ==============
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
 " g S : split / g J : join
@@ -491,6 +488,33 @@ map <silent>sc <Plug>(operator-surround-replace)
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 vmap <c-m> <Plug>(EasyAlign)
 
+" switch.vim
+" ----------
+nnoremap ! :Switch<CR>
+let s:switch_definition = {
+      \ '*': [
+      \   ['is', 'are']
+      \ ],
+      \ 'ruby,eruby,haml,slim' : [
+      \   ['if', 'unless'],
+      \   ['while', 'until'],
+      \   ['.blank?', '.present?'],
+      \   ['include', 'extend'],
+      \   ['class', 'module'],
+      \   ['.inject', '.delete_if'],
+      \   ['.map', '.map!'],
+      \   ['attr_accessor', 'attr_reader', 'attr_writer'],
+      \ ],
+      \ 'ruby.application_template' : [
+      \   ['yes?', 'no?'],
+      \   ['lib', 'initializer', 'file', 'vendor', 'rakefile'],
+      \   ['controller', 'model', 'view', 'migration', 'scaffold'],
+      \ ],
+      \ 'erb,html,php' : [
+      \   { '<!--\([a-zA-Z0-9 /]\+\)--></\(div\|ul\|li\|a\)>' : '</\2><!--\1-->' },
+      \ ]
+      \ }
+
 " tagbar
 " ------
 nnoremap <silent><Leader>t :TagbarToggle<CR>
@@ -528,8 +552,8 @@ nnoremap <silent><Leader>gf :Gitv!<CR>
 
 " vim-gitgutter
 " -------------
-nnoremap <silent><SID>(GitGutterPrevHunk) :<C-u>GitGutterPrevHunk<CR>
-nnoremap <silent><SID>(GitGutterNextHunk) :<C-u>GitGutterNextHunk<CR>
+nnoremap <silent><SID>(GitGutterPrevHunk) :<C-u>GitGutterPrevHunk<CR>zz
+nnoremap <silent><SID>(GitGutterNextHunk) :<C-u>GitGutterNextHunk<CR>zz
 let g:gitgutter_sign_column_always = 1
 nmap <c-a> <Plug>GitGutterStageHunk
 nmap <c-x> <Plug>GitGutterRevertHunk
