@@ -102,7 +102,7 @@ nnoremap <silent><c-l> :bnext<CR>
 " Close buffer and pane
 nnoremap <silent><Leader>z :bd<CR>
 " Open shell
-nnoremap <silent><Leader>c :shell<CR>
+nnoremap <silent><Leader>s :shell<CR>
 " Copy the opening file's path
 nnoremap <silent><Leader>y :let @+=expand("%:p")<CR>
 " Clear hilight
@@ -192,6 +192,8 @@ NeoBundle 'rhysd/vim-operator-surround'
 NeoBundle 'kana/vim-operator-user'
 " vim-easy-align
 NeoBundle 'junegunn/vim-easy-align'
+" tagbar
+NeoBundle 'majutsushi/tagbar'
 " vim-quickrun
 NeoBundle 'thinca/vim-quickrun'
 " vim-gitgutter
@@ -341,6 +343,8 @@ nnoremap <silent> [unite]p :<c-u>Unite yankround<CR>
 nnoremap <silent> [unite]o :<c-u>Unite outline:. -buffer-name=search-buffer<CR>
 " Grep
 nnoremap <silent> [unite]g :<c-u>Unite grep:. -buffer-name=search-buffer<CR>
+" Tag
+nnoremap <silent> [unite]c :<c-u>Unite tag<CR>
 
 " Use 'ag' for Unite grep
 if executable('ag')
@@ -487,6 +491,11 @@ map <silent>sc <Plug>(operator-surround-replace)
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 vmap <c-m> <Plug>(EasyAlign)
 
+" tagbar
+" ------
+nnoremap <silent><Leader>t :TagbarToggle<CR>
+" let g:tagbar_sort = 0
+
 " vim-quickrun
 " ------------
 nmap <silent><Leader>d <plug>(quickrun)
@@ -506,7 +515,7 @@ nnoremap <silent><Leader>gb :Gblame<CR>
 nnoremap <silent><Leader>gc :Gcommit -v<CR>
 nnoremap <silent><Leader>gd :Gdiff<CR>
 " Checkout current file
-nnoremap <silent><Leader>go :Gread<CR>
+nnoremap <silent><Leader>gx :Gread<CR>
 nnoremap <silent><Leader>gp :Gpush<CR>
 nnoremap <silent><Leader>gs :Gstatus<CR>
 nnoremap <silent><Leader>ga :Gwrite<CR>
