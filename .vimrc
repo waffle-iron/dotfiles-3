@@ -314,7 +314,7 @@ NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'Yggdroot/indentLine'
 " vim-airline
 NeoBundle 'bling/vim-airline'
-NeoBundle 'whatyouhide/vim-gotham'
+NeoBundle 'ajh17/Spacegray.vim'
 
 call neobundle#end()
 " Required:
@@ -627,7 +627,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 set guifont=Inconsolate\ Regular\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
-let g:airline_theme='gotham'
+let g:airline_theme='zenburn'
 let g:airline_left_sep = '⮀'
 let g:airline_right_sep = '⮂'
 let g:airline#extensions#tabline#left_sep = '⮀'
@@ -658,8 +658,7 @@ command! -nargs=* Dash call <SID>dash(<f-args>)
 " =====
 syntax on
 set t_Co=256
-colorscheme gotham
-set cursorline
+colorscheme spacegray
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
