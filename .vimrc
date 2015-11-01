@@ -90,7 +90,7 @@ inoremap (<CR> ()<Left><CR><ESC><S-o>
 
 nnoremap <silent><c-w> :w<CR>
 " Create new buffer
-nnoremap <silent><c-t> :enew<CR>
+nnoremap <silent><Leader>t :enew<CR>
 " Move between buffers
 nnoremap <silent><c-h> :bprevious<CR>
 nnoremap <silent><c-l> :bnext<CR>
@@ -160,6 +160,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite-outline'
+NeoBundle 'basyura/unite-rails'
 " vimfiler
 NeoBundle 'Shougo/vimfiler'
 " neocomplete.vim
@@ -212,7 +213,6 @@ NeoBundle 'yuku-t/vim-ref-ri'
 
 " Ruby and Rails
 " ==============
-NeoBundle 'hwartig/vim-seeing-is-believing'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
@@ -224,12 +224,9 @@ NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
       \ 'autoload': {'filetypes': ['ruby']}
       \ }
 " vim-seeing-is-believing
-NeoBundleLazy 'vim-ruby/vim-ruby', {
+NeoBundleLazy 'hwartig/vim-seeing-is-believing', {
       \ 'autoload': {'filetypes': ['ruby']}
       \ }
-NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', {
-      \ 'autolaod': {'filetype': ['ruby']}
-      \}
 
 " JavaScript
 " ==========
@@ -259,18 +256,6 @@ NeoBundleLazy 'hail2u/vim-css3-syntax', {
       \ }
 NeoBundleLazy 'cakebaker/scss-syntax.vim', {
       \ "autoload": {"filetypes":['sass','scss']}
-      \ }
-NeoBundleLazy 'wavded/vim-stylus', {
-      \ "autoload": {"filetypes":['stylus']}
-      \ }
-NeoBundleLazy 'othree/html5.vim', {
-      \ "autoload": {"filetypes":['html','eruby']}
-      \ }
-NeoBundleLazy 'tpope/vim-haml', {
-      \ "autoload": {"filetypes":['haml']}
-      \ }
-NeoBundleLazy 'slim-template/vim-slim', {
-      \ "autoload": {"filetypes":['haml']}
       \ }
 NeoBundleLazy 'tyru/open-browser.vim', {
       \ "autoload": {"filetypes":["html"]}
@@ -306,6 +291,7 @@ let g:gista#github_user = 'ystkme'
 
 " Appearance
 " ==========
+" Includes ruby, es6, slim, html5 etc..
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/AfterColors.vim'
 " vim-better-whitespace
@@ -535,6 +521,16 @@ nmap <c-x> <Plug>GitGutterRevertHunk
 
 " Ruby and Rails
 " ==============
+" unite-rails
+nnoremap <silent> [unite]rc :<C-u>Unite rails/controller<CR>
+nnoremap <silent> [unite]rm :<C-u>Unite rails/model<CR>
+nnoremap <silent> [unite]rv :<C-u>Unite rails/view<CR>
+nnoremap <silent> [unite]rh :<C-u>Unite rails/helper<CR>
+nnoremap <silent> [unite]rd :<C-u>Unite rails/db<CR>
+nnoremap <silent> [unite]rj :<C-u>Unite rails/javascript<CR>
+nnoremap <silent> [unite]rs :<C-u>Unite rails/stylesheet<CR>
+nnoremap <silent> [unite]rr :<C-u>Unite rails/route<CR>
+nnoremap <silent> [unite]rg :<C-u>Unite rails/gemfile<CR>
 " neocomplete-rsense.vim
 let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
 " vim-seeing-is-believing
