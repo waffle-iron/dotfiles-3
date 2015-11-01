@@ -1,10 +1,14 @@
 " General
 " =======
+if v:version > 740                  " Never show undofile
+  set noundofile
+endif
 set visualbell t_vb=                " Never flash
 set nofoldenable                    " Never fold
 set noswapfile                      " Never backup
 set nobackup
 set nowritebackup
+
 set mouse=a                         " Enable mouse
 set clipboard+=unnamed              " Copy to clipboard
 set helplang=ja                     " Use Japanese doc
@@ -44,6 +48,8 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
+
+set tags+=.git/tags
 
 augroup DisableAutoComment
   autocmd!
@@ -89,7 +95,7 @@ inoremap (<CR> ()<Left><CR><ESC><S-o>
 
 nnoremap <Leader>w :w<CR>
 " Create new buffer
-nnoremap <silent><Leader>t :enew<CR>
+nnoremap <silent><Leader>n :enew<CR>
 " Move between buffers
 nnoremap <silent><c-h> :bprevious<CR>
 nnoremap <silent><c-l> :bnext<CR>
@@ -158,6 +164,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 " unite.vim
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'basyura/unite-rails'
 " vimfiler
@@ -212,7 +219,6 @@ NeoBundle 'yuku-t/vim-ref-ri'
 
 " Ruby and Rails
 " ==============
-NeoBundle 'szw/vim-tags'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
 " g S : split / g J : join
@@ -323,18 +329,18 @@ nnoremap [unite]  <Nop>
 nmap     <space>  [unite]
 
 " Directory
-nnoremap <silent> [unite]u :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
-nnoremap <silent> [unite]n :<C-u>UniteWithBufferDir file file/new -buffer-name=file<CR>
+nnoremap <silent> [unite]u :<c-u>call DispatchUniteFileRecAsyncOrGit()<CR>
+nnoremap <silent> [unite]n :<c-u>UniteWithBufferDir file file/new<CR>
 " history
-nnoremap <silent> [unite]h :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]h :<c-u>Unite file_mru<CR>
 " Opening buffers
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]b :<c-u>Unite buffer<CR>
 " Copy history
-nnoremap <silent> [unite]p :<C-u>Unite yankround<CR>
+nnoremap <silent> [unite]p :<c-u>Unite yankround<CR>
 " Outline
-nnoremap <silent> [unite]o :<C-u>Unite outline:. -buffer-name=search-buffer<CR>
+nnoremap <silent> [unite]o :<c-u>Unite outline:. -buffer-name=search-buffer<CR>
 " Grep
-nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> [unite]g :<c-u>Unite grep:. -buffer-name=search-buffer<CR>
 
 " Use 'ag' for Unite grep
 if executable('ag')
@@ -578,12 +584,8 @@ nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 " emmet-vim
 " ---------
-let g:user_emmet_install_global = 0
-augroup emmet
-  autocmd!
-  autocmd FileType html,css,eruby,scss EmmetInstall
-  autocmd Filetype html,css,eruby,scss inoremap
-augroup END
+" let g:user_emmet_install_global = 0
+" autocmd FileType html,css,eruby,scss EmmetInstall
 
 " Markdown
 " ========
