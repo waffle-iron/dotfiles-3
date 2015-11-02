@@ -101,8 +101,6 @@ nnoremap <silent><c-h> :bprevious<CR>
 nnoremap <silent><c-l> :bnext<CR>
 " Close buffer and pane
 nnoremap <silent><Leader>z :bd<CR>
-" Open shell
-nnoremap <silent><Leader>s :shell<CR>
 " Copy the opening file's path
 nnoremap <silent><Leader>y :let @+=expand("%:p")<CR>
 " Clear hilight
@@ -447,7 +445,7 @@ let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_scss_checkers = ['scss_lint']
 nnoremap <silent><Leader>e :Errors<CR>
-nnoremap <silent><Leader>q :lclose<CR>
+nnoremap <silent><Leader>c :lclose<CR>
 
 " yankround
 " ---------
@@ -470,7 +468,7 @@ nnoremap ,a :AutoSaveToggle<CR>
 
 " bufkill.vim
 " -----------
-nnoremap <c-z> :BD<CR>
+nnoremap <c-w> :BD<CR>
 
 " vim-expand-region
 " -----------------
@@ -522,7 +520,7 @@ nnoremap <silent><Leader>t :TagbarToggle<CR>
 
 " vim-quickrun
 " ------------
-nmap <silent><Leader>d <plug>(quickrun)
+nmap <silent><Leader>q <plug>(quickrun)
 let g:quickrun_config = {
 \   "_": {
 \     "runner": "vimproc",
