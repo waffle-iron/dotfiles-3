@@ -17,7 +17,6 @@ export VISUAL=/usr/local/bin/vim
 alias rm='trash'
 alias op='open'
 alias so='source'
-alias chrome='open -a "Google Chrome"'
 alias gi='git'
 alias gu='gitup'
 alias ctags="/usr/local/bin/ctags"
@@ -25,6 +24,26 @@ alias ctags-rails="/usr/local/bin/ctags -R -f .tags --exclude=.git --exclude=log
 alias rb='ruby'
 alias slm='slimrb'
 alias sb='seeing_is_believing'
+alias safari='open -a "Safari"'
+alias sfr='open -a "Safari"'
+alias chrome='open -a "Google Chrome"'
+
+# Atom
+# Use the same process even if already opened
+alias atom="open -a Atom"
+
+# Back to Vim
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
 
 # hub
 eval "$(hub alias -s)"
@@ -32,10 +51,9 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit
 
 # tig
-alias t='tig'
-alias ts='tig status'
+alias tigs='tig status'
 
-# peco 設定は~/.peco/config.json
+# peco config file is '~/.peco/config.json'
 function peco-select-history() {
     local tac
     if which tac > /dev/null; then
@@ -62,17 +80,16 @@ _gibo()
 }
 compdef _gibo gibo
 
-# rbenvの設定
+# rbenv config
 if which rbenv > /dev/null; then
     eval "$(rbenv init -)";
 fi
 
-# ~/.rbenv/plugins/rbenv-binstubsの設定
-# bundlerで管理しているGemコマンドを`bundle exec`なしで使える
+# config of '~/.rbenv/plugins/rbenv-binstubs'
 export PATH=./vendor/bin:$PATH
 alias be='bundle exec'
 
-# nodebrewのパスを通す
+# nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 ###-begin-npm-completion-###
