@@ -30,10 +30,44 @@ alias   javascript
     ${1}
     </script>
 
+snippet comment
+options word
+    <!--${1}-->
+
+snippet div
+options word
+    <div>${1}}</div>
+
+snippet div_class
+option word
+    <div class="${1}"></div>
 
 snippet p
 options word
     <p>${1}</p>
+
+snippet p_class
+options word
+    <p class="${1}"></p>
+
+snippet h1
+options word
+    <h1>${1}</h1>
+snippet h2
+options word
+    <h2>${1}</h2>
+snippet h3
+options word
+    <h3>${1}</h3>
+snippet h4
+options word
+    <h4>${1}</h4>
+snippet h5
+options word
+    <h5>${1}</h5>
+snippet h6
+options word
+    <h6>${1}</h6>
 
 snippet br
 options word
@@ -43,21 +77,9 @@ snippet hr
 options word
     <hr />
 
-snippet comment
-options word
-    <!--${1}-->
-
-snippet b
-options word
-    <b>${1}</b>
-
 snippet small
 options word
     <small>${1}</small>
-
-snippet strong
-options word
-    <strong>${1}</strong>
 
 snippet blockquote
     <blockquote>
@@ -67,6 +89,48 @@ snippet blockquote
 snippet a
 options word
     <a href="${1}"></a>
+
+snippet header
+options word
+    <header>
+    ${1}
+    </header>
+
+snippet footer
+options word
+    <footer>
+    ${1}
+    </footer>
+
+snippet nav
+options word
+    <nav>
+    ${1}
+    </nav>
+
+snippet article
+options word
+    <article>
+    ${1}
+    </article>
+
+snippet aside
+options word
+    <nav>
+    ${1}
+    </nav>
+
+snippet address
+options word
+    <adress>
+    ${1}
+    </adress>
+
+snippet section
+options word
+    <section>
+    ${1}
+    </section>
 
 snippet table
     <table>
@@ -160,13 +224,6 @@ snippet img
 options word
     <img src="${1}">
 
-snippet div
-options word
-    <div>${1}}</div>
-
-snippet div_class
-option word
-    <div class="${1}"></div>
 
 # eruby
 

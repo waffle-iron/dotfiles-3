@@ -15,6 +15,9 @@ set helplang=ja                     " Use Japanese doc
 set helpheight=999
 set encoding=utf-8
 set fileencodings=utf-8
+set synmaxcol=300
+set lazyredraw
+set ttyfast
 
 set laststatus=2                    " Always show status line
 set ruler                           " Show cursor position
@@ -100,7 +103,7 @@ nnoremap <silent><Leader>n :enew<CR>
 nnoremap <silent><c-h> :bprevious<CR>
 nnoremap <silent><c-l> :bnext<CR>
 " Close buffer and pane
-nnoremap <silent><Leader>z :bd<CR>
+nnoremap <silent><Leader>d :bd<CR>
 " Copy the opening file's path
 nnoremap <silent><Leader>y :let @+=expand("%:p")<CR>
 " Clear hilight
@@ -171,7 +174,6 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neocomplete.vim'
 " neosnippet
 NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
 " incsearch.vim
 NeoBundle 'haya14busa/incsearch.vim'
 " syntastic
@@ -214,7 +216,6 @@ NeoBundle 'yuku-t/vim-ref-ri'
 
 " Ruby and Rails
 " ==============
-NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
@@ -227,7 +228,8 @@ NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
       \ }
 " vim-seeing-is-believing
 NeoBundleLazy 'hwartig/vim-seeing-is-believing', {
-      \ 'autoload': {'filetypes': ['ruby']}
+      \ 'autoload': {
+      \   'filetypes': ['ruby']}
       \ }
 
 " JavaScript
@@ -384,26 +386,16 @@ endif
 let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
 
-
 " neosnippet
 " ----------
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: "\<TAB>"
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
-let s:my_snippet = '~/.vim/snippet/'
-let g:neosnippet#snippets_directory = s:my_snippet
-
+let g:neosnippet#snippets_directory='~/.vim/snippet'
 
 " incsearch.vim
 " -------------
@@ -468,7 +460,7 @@ nnoremap ,a :AutoSaveToggle<CR>
 
 " bufkill.vim
 " -----------
-nnoremap <c-w> :BD<CR>
+nnoremap <c-d> :BD<CR>
 
 " vim-expand-region
 " -----------------
@@ -518,19 +510,6 @@ let s:switch_definition = {
 nnoremap <silent><Leader>t :TagbarToggle<CR>
 " let g:tagbar_sort = 0
 
-" vim-quickrun
-" ------------
-nmap <silent><Leader>q <plug>(quickrun)
-let g:quickrun_config = {
-\   "_": {
-\     "runner": "vimproc",
-\     "runner/vimproc/updatetime": 60,
-\     "runner/vimproc/sleep": 10,
-\     "outputter/buffer/split": "5"
-\   }
-\ }
-set splitbelow
-
 " vim-fugitive
 " -------------
 nnoremap <silent><Leader>gb :Gblame<CR>
@@ -578,6 +557,8 @@ augroup sib
   autocmd FileType ruby vmap <silent>mm <Plug>(seeing-is-believing-mark)
   autocmd FileType ruby nmap <silent>mr <Plug>(seeing-is-believing-run)
   autocmd FileType ruby vmap <silent>mr <Plug>(seeing-is-believing-run)
+  " autocmd FileType ruby nmap <silent>mr <Plug>(seeing-is-believing-mark-and-run)
+  " autocmd FileType ruby vmap <silent>mr <Plug>(seeing-is-believing-mark-and-run)
 augroup END
 
 " Add pair words
