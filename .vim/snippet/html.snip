@@ -1,79 +1,39 @@
-snippet doctypetransitional
-    <!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-snippet doctypeframeset
-    <!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
-
-snippet doctypestrict
-    <!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-snippet html
-options indent
-	<!DOCTYPE html>
-	<html>
-		${1:TARGET}
-	</html>
-
-snippet html5
+snippet htm
 options indent
     <!DOCTYPE html>
     <html>
         <head>
-            <meta http-equiv="content-type" content="text/html; charset=${1:utf-8}">
-            <title>${2:TITLE}</title>
+            <meta http-equiv="content-type" content="text/html; charset=utf-8">
+            <title>${1}</title>
         </head>
-        <body>
-            ${3:CONTENT}
-        </body>
     </html>
 
 snippet head
 options indent
     <head>
-        <meta http-equiv="content-type" content="text/html; charset=${1:utf-8}">
-		<title>${2:TITLE}</title>
-		<link rel="stylesheet" type="text/css" href="${3:FILE}">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>${1}</title>
     </head>
-	${4:TARGET}
-
-snippet metaauthor
-    <meta name="author" content="${1}">${2}
-snippet keywords
-    <meta name="keywords" content="${1}">${2}
-snippet metaothers
-    <meta name="others" content="${1}">${2}
-snippet metagenerator
-    <meta name="generator" content="${1}">${2}
-snippet metadescription
-    <meta name="description" content="${1}">${2}
-
-snippet scriptcharset
-    <script type="text/javascript" charset="${1:UTF-8}">
-    ${2:TARGET}
-    </script>${3}
-snippet script
-    <script type="text/javascript">
-    ${1:TARGET}
-    </script>${2}
 
 snippet body
     <body>
-       ${1:TARGET}
+       ${1}
     </body>
 
-snippet h
-options word
-    <h${1:1}>${2}</h$1>${3}
+snippet stylesheet
+alias   css
+    <link rel=":stylesheet" href="${1}.css" type="text/css" media="screen" charset="utf-8">
+
+snippet script
+alias   javascript
+    <script>
+    ${1}
+    </script>
+
 
 snippet p
 options word
-    <p>${1}</p>${2}
+    <p>${1}</p>
 
 snippet br
 options word
@@ -85,249 +45,142 @@ options word
 
 snippet comment
 options word
-    <!--${1:TARGET}-->${2}
+    <!--${1}-->
 
 snippet b
 options word
-    <b>${1:TARGET}</b>${2}
+    <b>${1}</b>
+
 snippet small
 options word
-    <small>${1:TARGET}</small>${2}
+    <small>${1}</small>
+
 snippet strong
 options word
-    <strong>${1:TARGET}</strong>${2}
-snippet sub
-options word
-    <sub>${1:TARGET}</sub>${2}
-snippet sup
-options word
-    <sup>${1:TARGET}</sup>${2}
-snippet ins
-options word
-    <ins>${1:TARGET}</ins>${2}
-snippet del
-options word
-    <del>${1:TARGET}</del>${2}
-snippet em
-options word
-    <em>${1:TARGET}</em>${2}
-snippet bdo
-options word
-    <bdo dir="${1:rtl}">${2:TARGET}</bdo>${3}
-snippet pre
-    <pre>
-    ${1:TARGET}
-    </pre>${2}
+    <strong>${1}</strong>
+
 snippet blockquote
     <blockquote>
     ${1}
     </blockquote>
-    ${2}
-snippet link
-abbr    link stylesheet css
-    <link rel="${1:stylesheet}" href="${2}.css" type="text/css" media="${3:screen}" charset="utf-8">${4}
 
-snippet alignl
-    text-align="left"
-snippet alignr
-    text-align="right"
-snippet alignc
-    text-align="center"
+snippet a
+options word
+    <a href="${1}"></a>
 
-snippet bgcolor
-    bgcolor="${1}"${2}
-
-snippet ahref
-options word
-    <a href="${1}">${2:TARGET}</a>${3}
-snippet ahref_blank
-options word
-    <a href="${1}" target="_blank">${2:TARGET}</a>${3}
-snippet ahref_parent
-options word
-    <a href="${1}" target="_parent">${2:TARGET}</a>${3}
-snippet ahref_top
-options word
-    <a href="${1}" target="_top">${2:TARGET}</a>${3}
-snippet aname
-options word
-    <a name="${1}">${2:TARGET}</a>${3}
-
-snippet framesetcols
-    <frameset cols="${1}">
-    ${2:TARGET}
-    </frameset>${3}
-snippet framesetrows
-    <frameset rows="${1}"
-    ${2:TARGET}
-    </frameset>${3}
-
-snippet iframe
-options word
-    <iframe src="${1}"></iframe>${2}
 snippet table
-    <table border="${1}">
-    ${2:TARGET}
-    </table>${3}
+    <table>
+    ${1}
+    </table>
 
 snippet th
 options word
-    <th>${1:TARGET}</th>${2}
+    <th>${1}</th>
 
-snippet ulsquare
+snippet ul
 options word
-    <ul type="square">${1:TARGET}</ul>${2}
-snippet ulcircle
-options word
-    <ul type="circle">${1:TARGET}</ul>${2}
-snippet uldisc
-options word
-    <ul type="disc">${1:TARGET}</ul>${2}
+    <ul>${1}</ul>
 
 snippet ol
 options word
-    <ol>${1:TARGET}</ol>${2}
-snippet olA
-options word
-    <ol type="A">${1:TARGET}</ol>${2}
-snippet ola
-options word
-    <ol type="a">${1:TARGET}</ol>${2}
-snippet olI
-options word
-    <ol type="I">${1:TARGET}</ol>${2}
-snippet oli
-options word
-    <ol type="i">${1:TARGET}</ol>${2}
+    <ol>${1}</ol>
+
 
 snippet li
 options word
-    <li>${1:TARGET}</li>${2}
+    <li>${1}</li>
 
 snippet dl
 options word
-    <dl>${1:TARGET}</dl>${2}
+    <dl>${1}</dl>
+
 snippet dt
 options word
-    <dt>${1:TARGET}</dt>${2}
+    <dt>${1}</dt>
+
 snippet dd
 options word
-    <dd>${1:TARGET}</dd>${2}
+    <dd>${1}</dd>
 
 snippet form
     <form>
-    ${1:TARGET}
-    </form>${2}
+    ${1}
+    </form>
 
-snippet inputtext
+snippet input_text
 options word
-    <input type="text" name="${1:user}">${2}
-snippet inputpassword
+    <input type="text" name="${1}">
+snippet input_password
 options word
-    <input type="password" name="${1:password}">${2}
-snippet inputradio
+    <input type="password" name="${1}">
+snippet input_radio
 options word
-    <input type="radio" name="${1}" value="value">${2}
-snippet inputcheckbox
+    <input type="radio" name="${1}">
+snippet input_checkbox
 options word
-    <input type="checkbox" name="${1}">${2}
+    <input type="checkbox" name="${1}">
 
 snippet textarea
-    <textarea rows="${1}" cols="${2}">
-    ${3:TARGET}
+    <textarea>
     </textarea>
-    ${4}
 
 snippet button
 options word
-    <button>${1:TARGET}</button>${2}
+    <button>${1}</button>
 
 snippet select
 options word
-    <select>${1:TARGET}</select>${2}
+    <select>${1}</select>
 
-snippet optgroup
-    <optgroup label="${1}">
-    ${2:TARGET}
-    <optgroup>${3}
 snippet option
 options word
-    <option value="${1}">${2:TARGET}</option>${3}
+    <option value="${1}"></option>
 
 snippet label
 options word
-    <label>${1}: <input type="${2:TARGET}" /></label>${3}
+    <label>${1}: <input type="" /></label>
 
-snippet labelfor
+snippet label_for
 options word
-    <label for="${1}:id">${2:TARGET}</label>${3}
+    <label for="${1}"></label>
 
 snippet fieldset
 options word
-    <fieldset>${1:TARGET}</fieldset>${2}
-
-snippet legend
-options word
-    <legend>${1:TARGET}</legend>${2}
+    <fieldset>${1}</fieldset>
 
 snippet id
 options word
-    id="${1}"${2}
+    id="${1}"
 
 snippet class
 options word
-    class="${1}"${2}
-
-snippet pclass
-options word
-    <p class="${1}">${2:TARGET}</p>${3}
-
-snippet pid
-options word
-    <p id="${1}">${2:TARGET}</p>${3}
-
-snippet divid
-options word
-    <div id="${1}">${2:TARGET}</div>${3}
-
-snippet divclass
-options word
-    <div class="${1}">${2:TARGET}</div>${3}
+    class="${1}"
 
 snippet img
 options word
-    <img src="${1}">${2}
+    <img src="${1}">
 
 snippet div
 options word
-    <div ${1:id="${2:someid\}"}>${3:TARGET}</div>${4}
+    <div>${1}}</div>
 
-snippet header
+snippet div_class
+option word
+    <div class="${1}"></div>
+
+# eruby
+
+snippet ruby_code
 options word
-    <div class="header" role="header">
-        ${1}
-    </div>
+alias   -
+    <% ${1} %>
 
-snippet main
+snippet ruby_print
 options word
-    <div class="main" role="main">
-        ${1}
-    </div>
+alias   =
+    <%= ${1} %>
 
-snippet footer
+snippet ruby_comment
 options word
-    <div class="footer" role="contentinfo">
-        ${1}
-    </div>
-
-# defined
-
-snippet code
-options word
-alias <
-	<%${1:TARGET} %>
-
-snippet var
-options word
-alias =
-	<%= ${1:TARGET} %>
+alias #
+    <%# ${1} %>
