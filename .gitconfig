@@ -33,3 +33,5 @@
   graph = log --graph --date=short --pretty='%C(yellow)%h%Creset %C(cyan bold)%d%Creset %s %Cgreen[%cd]%Creset' --decorate
 [push]
   default = simple
+[init]
+	templatedir = ~/.git_tmp
