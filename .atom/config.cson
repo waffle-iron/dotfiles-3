@@ -199,60 +199,81 @@
     lineMode: true
     opacity: 0.1
     enabled: false
+  "open-recent":
+    recentDirectories: [
+      "/Users/seiyayoshitaka/Downloads/ruby_snip"
+      "/Users/seiyayoshitaka/GitHub/ruby-basic"
+      "/Users/seiyayoshitaka/dotfiles"
+      "/Users/seiyayoshitaka/GitHub/rails-tutorial/chapter3"
+      "/Users/seiyayoshitaka/Dropbox/school/2015-latter"
+      "/Users/seiyayoshitaka/Dropbox/school/2015-latter/borneo"
+      "/Users/seiyayoshitaka"
+      "/Users/seiyayoshitaka/GitHub/dotinstall/js-birthday-checker"
+    ]
+    recentFiles: [
+      "/Users/seiyayoshitaka/Downloads/ruby_snip/ruby.snip"
+      "/Users/seiyayoshitaka/Downloads/ruby_snip/ruby.rspec.controller.snip"
+      "/Users/seiyayoshitaka/Downloads/ruby_snip/ruby.rails.view.snip"
+      "/Users/seiyayoshitaka/Downloads/ruby_snip/ruby.rails.rspec.snip"
+      "/Users/seiyayoshitaka/Downloads/ruby_snip/ruby.rails.route.snip"
+      "/Users/seiyayoshitaka/Downloads/ruby_snip/ruby.rails.model.snip"
+      "/Users/seiyayoshitaka/GitHub/ruby-basic/main.rb"
+      "/Users/seiyayoshitaka/dotfiles/.irbrc"
+    ]
 ".js.regexp.replacement.source":
   editor:
     preferredLineLength: 100
-".css.scss.source":
+".erb.html.text":
   editor:
-    preferredLineLength: 100
-".js.regexp.source":
+    preferredLineLength: 1000
+".gohtml.html.text":
   editor:
     preferredLineLength: 100
 ".basic.html.text":
   editor:
     preferredLineLength: 100
     tabLength: 2
-".gohtml.html.text":
+".js.regexp.source":
   editor:
     preferredLineLength: 100
-".erb.html.text":
+".css.scss.source":
+  editor:
+    preferredLineLength: 100
+".diff.source":
   editor:
     preferredLineLength: 1000
-".litcoffee.source":
+".ruby.source":
   editor:
     preferredLineLength: 1000
-".coffee.source":
+".source.stylus":
   editor:
     preferredLineLength: 1000
-".sass.source":
+".ini.source":
   editor:
     preferredLineLength: 1000
-".css.source":
+".gotemplate.source":
+  editor:
+    preferredLineLength: 100
+".go.source":
+  editor:
+    preferredLineLength: 100
+".gfm.source":
   editor:
     preferredLineLength: 100
 ".js.source":
   editor:
     preferredLineLength: 100
     tabLength: 2
-".gfm.source":
+".css.source":
   editor:
     preferredLineLength: 100
-".go.source":
-  editor:
-    preferredLineLength: 100
-".gotemplate.source":
-  editor:
-    preferredLineLength: 100
-".ini.source":
+".sass.source":
   editor:
     preferredLineLength: 1000
-".source.stylus":
+".coffee.source":
   editor:
     preferredLineLength: 1000
-".ruby.source":
-  editor:
-    preferredLineLength: 1000
-".diff.source":
+".litcoffee.source":
   editor:
     preferredLineLength: 1000
 ".preview":
