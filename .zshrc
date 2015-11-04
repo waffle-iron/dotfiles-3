@@ -15,6 +15,7 @@ export EDITOR=/usr/local/bin/vim
 export VISUAL=/usr/local/bin/vim
 
 alias rm='trash'
+alias vi='vim'
 alias op='open'
 alias so='source'
 alias gi='git'
