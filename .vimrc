@@ -8,6 +8,7 @@ set nofoldenable                    " Never fold
 set noswapfile                      " Never backup
 set nobackup
 set nowritebackup
+set backspace=indent,eol,start
 
 set mouse=a                         " Enable mouse
 set clipboard+=unnamed              " Copy to clipboard
@@ -54,7 +55,7 @@ set softtabstop=2
 
 set tags+=.git/tags
 
-augroup DisableAutoComment
+augroup disableAutoComment
   autocmd!
   autocmd FileType markdown setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup END
@@ -95,7 +96,7 @@ nnoremap - <C-x>
 inoremap {<CR> {}<Left><CR><ESC><S-o>
 inoremap [<CR> []<Left><CR><ESC><S-o>
 inoremap (<CR> ()<Left><CR><ESC><S-o>
-
+" Save
 nnoremap <Leader>w :w<CR>
 " Create new buffer
 nnoremap <silent><Leader>n :enew<CR>
@@ -104,16 +105,14 @@ nnoremap <silent><c-h> :bprevious<CR>
 nnoremap <silent><c-l> :bnext<CR>
 " Close buffer and pane
 nnoremap <silent><Leader>d :bd<CR>
+" Clear hilight
+nnoremap <silent><Leader>l :nohl<CR>
 " Copy the opening file's path
 nnoremap <silent><Leader>y :let @+=expand("%:p")<CR>
-" Clear hilight
-nnoremap <Leader>l :nohl<CR>
-" Open tig
-nnoremap <silent><Leader>gt :!tig<CR>
 
 " FileType
 " ===========
-augroup FileTypeSettings
+augroup fileTypeSettings
   autocmd!
   autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
@@ -184,8 +183,6 @@ NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'vim-scripts/vim-auto-save'
 " vim-bufkill
 NeoBundle 'vim-scripts/bufkill.vim'
-" vim-expand-region
-NeoBundle 'terryma/vim-expand-region'
 " vim-operator-surround
 NeoBundle 'rhysd/vim-operator-surround'
 NeoBundle 'kana/vim-operator-user'
@@ -204,7 +201,6 @@ NeoBundle 'tpope/vim-abolish'
 " ae : entire content / ie : excluding empty lines
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'danro/rename.vim'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-sleuth'
@@ -218,6 +214,7 @@ NeoBundle 'yuku-t/vim-ref-ri'
 " ==============
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-endwise'
 " g S : split / g J : join
 NeoBundle 'AndrewRadev/splitjoin.vim'
@@ -252,9 +249,6 @@ NeoBundleLazy 'moll/vim-node', {
 
 " Markup
 " ======
-NeoBundleLazy 'mattn/emmet-vim', {
-      \ "autoload": {"filetypes":['html','css','eruby','sass','scss']}
-      \ }
 NeoBundleLazy 'hail2u/vim-css3-syntax', {
       \ "autoload": {"filetypes":['css','sass','scss']}
       \ }
@@ -350,8 +344,9 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 endif
 " Check if directory is git project
-let s:unite_ignore_patterns = '\.\(gif\|jpe\?g\|png\|webp\)$'
-call unite#custom#source('file_rec/git', 'ignore_pattern', s:unite_ignore_patterns)
+let s:ignore_patterns = 'vendor/\|.bundle/\|\.\(gif\|jpe\?g\|png\|webp\)$'
+" let s:unite_ignore_patterns = '.\(gif\|jpe\?g\|png\|webp\)$'
+call unite#custom#source('file_rec/git', 'ignore_pattern', s:ignore_patterns)
 function! DispatchUniteFileRecAsyncOrGit()
   " If current directory is git repo
   if isdirectory(getcwd()."/.git")
@@ -395,7 +390,43 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+let g:neosnippet#disable_runtime_snippets = {
+		\   '_' : 1,
+		\ }
 let g:neosnippet#snippets_directory='~/.vim/snippet'
+
+" Detect filetype
+augroup filetypedetect
+  autocmd!  BufEnter *rb call s:LoadRailsSnippet()
+augroup END
+
+function! s:LoadRailsSnippet()
+  " get current directory's path
+  let s:current_file_path = expand("%:p:h")
+
+  " Ignore if path is in app directory
+  if ( s:current_file_path !~ "app/")
+    return
+
+  elseif ( s:current_file_path =~ "app/models" )
+    NeoSnippetSource ~/.vim/snippet/rails.model.snip
+  elseif ( s:current_file_path =~ "app/controllers" )
+    NeoSnippetSource ~/.vim/snippet/rails.controller.snip
+  elseif ( s:current_file_path =~ "app/views" )
+    NeoSnippetSource ~/.vim/snippet/rails.view.snip
+  elseif ( s:current_file_path =~ "app/helpers" )
+    NeoSnippetSource ~/.vim/snippet/rails.helper.snip
+  elseif ( s:current_file_path =~ "app/assets" )
+    NeoSnippetSource ~/.vim/snippet/rails.asset.snip
+  else
+    NeoSnippetSource ~/.vim/snippet/rails.snip
+  endif
+endfunction
+
+autocmd User Rails.view*                 NeoSnippetSource ~/.vim/snippet/ruby.rails.view.snip
+autocmd User Rails.controller*           NeoSnippetSource ~/.vim/snippet/ruby.rails.controller.snip
+autocmd User Rails/db/migrate/*          NeoSnippetSource ~/.vim/snippet/ruby.rails.migrate.snip
+autocmd User Rails/config/routes.rb      NeoSnippetSource ~/.vim/snippet/ruby.rails.route.snip
 
 " incsearch.vim
 " -------------
@@ -461,11 +492,6 @@ nnoremap ,a :AutoSaveToggle<CR>
 " bufkill.vim
 " -----------
 nnoremap <c-d> :BD<CR>
-
-" vim-expand-region
-" -----------------
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
 
 " vim-operator-surround
 " ---------------------
@@ -594,10 +620,6 @@ augroup END
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
-" emmet-vim
-" ---------
-" let g:user_emmet_install_global = 0
-" autocmd FileType html,css,eruby,scss EmmetInstall
 
 " Markdown
 " ========
@@ -622,7 +644,6 @@ augroup END
 let g:better_whitespace_filetypes_blacklist = ['unite', 'vimfiler']
 " indentLine
 " Disable by default
-let g:indentLine_enabled = 0
 let g:indentLine_faster = 1
 let g:indentLine_char = '¦'
 let g:indentLine_color_term = 232
@@ -666,8 +687,8 @@ command! -nargs=* Dash call <SID>dash(<f-args>)
 " STYLE
 " =====
 syntax on
-set t_Co=256
 colorscheme gotham
+" set t_Co=256
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
