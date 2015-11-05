@@ -32,40 +32,66 @@ alias   javascript
 
 snippet comment
 options word
-    <!--${1}-->
+    <!-- ${1} -->
+
+snippet id
+options word
+    id="${1}"
+
+snippet class
+options word
+    class="${1}"
 
 snippet div
 options word
-    <div>${1}}</div>
-
-snippet div_class
-option word
     <div class="${1}"></div>
+
+snippet div-
+options word
+    <div>${1}</div>
 
 snippet p
 options word
-    <p>${1}</p>
-
-snippet p_class
-options word
     <p class="${1}"></p>
 
+snippet p-
+options word
+    <p>${1}</p>
+
 snippet h1
+options word
+    <h1 class="${1}"></h1>
+snippet h1-
 options word
     <h1>${1}</h1>
 snippet h2
 options word
+    <h2 class="${1}"></h2>
+snippet h2-
+options word
     <h2>${1}</h2>
 snippet h3
+options word
+    <h3 class="${1}"></h3>
+snippet h3-
 options word
     <h3>${1}</h3>
 snippet h4
 options word
+    <h4 class="${1}"></h4>
+snippet h4-
+options word
     <h4>${1}</h4>
 snippet h5
 options word
+    <h5 class="${1}"></h5>
+snippet h5-
+options word
     <h5>${1}</h5>
 snippet h6
+options word
+    <h6 class="${1}"></h6>
+snippet h6-
 options word
     <h6>${1}</h6>
 
@@ -88,9 +114,16 @@ snippet blockquote
 
 snippet a
 options word
-    <a href="${1}"></a>
+    <a class="${1}" href="${2}"></a>
+snippet a-
+options word
+    <a href="${2}"></a>
 
 snippet header
+options word
+    <header class="${1}">
+    </header>
+snippet header-
 options word
     <header>
     ${1}
@@ -98,11 +131,20 @@ options word
 
 snippet footer
 options word
+    <footer class="${1}">
+    </footer>
+snippet footer-
+options word
     <footer>
     ${1}
     </footer>
 
+
 snippet nav
+options word
+    <nav class="${1}">
+    </nav>
+snippet nav-
 options word
     <nav>
     ${1}
@@ -110,15 +152,33 @@ options word
 
 snippet article
 options word
+    <article class="${1}">
+    </article>
+snippet article-
+options word
     <article>
     ${1}
     </article>
 
 snippet aside
 options word
-    <nav>
+    <aside class="${1}">
+    </aside>
+snippet aside-
+options word
+    <aside>
     ${1}
-    </nav>
+    </aside>
+
+snippet section
+options word
+    <section class="${1}">
+    </section>
+snippet section-
+options word
+    <section>
+    ${1}
+    </section>
 
 snippet address
 options word
@@ -126,13 +186,10 @@ options word
     ${1}
     </adress>
 
-snippet section
-options word
-    <section>
-    ${1}
-    </section>
-
 snippet table
+    <table class="${1}">
+    </table>
+snippet table-
     <table>
     ${1}
     </table>
@@ -167,20 +224,23 @@ options word
     <dd>${1}</dd>
 
 snippet form
+    <form class="${1}">
+    </form>
+snippet form-
     <form>
     ${1}
     </form>
 
-snippet input_text
+snippet input-text
 options word
     <input type="text" name="${1}">
-snippet input_password
+snippet input-password
 options word
     <input type="password" name="${1}">
-snippet input_radio
+snippet input-radio
 options word
     <input type="radio" name="${1}">
-snippet input_checkbox
+snippet input-checkbox
 options word
     <input type="checkbox" name="${1}">
 
@@ -189,6 +249,9 @@ snippet textarea
     </textarea>
 
 snippet button
+options word
+    <button class="${1}"></button>
+snippet button-
 options word
     <button>${1}</button>
 
@@ -204,7 +267,7 @@ snippet label
 options word
     <label>${1}: <input type="" /></label>
 
-snippet label_for
+snippet label-for
 options word
     <label for="${1}"></label>
 
@@ -212,32 +275,55 @@ snippet fieldset
 options word
     <fieldset>${1}</fieldset>
 
-snippet id
-options word
-    id="${1}"
-
-snippet class
-options word
-    class="${1}"
-
 snippet img
 options word
     <img src="${1}">
 
+# erb
 
-# eruby
-
-snippet ruby_code
+snippet erb-code
 options word
 alias   -
     <% ${1} %>
 
-snippet ruby_print
+snippet erb-print
 options word
 alias   =
     <%= ${1} %>
 
-snippet ruby_comment
+snippet erb-comment
 options word
 alias #
     <%# ${1} %>
+
+snippet form_for
+options word
+    form_for ${1}
+
+snippet text_field
+options word
+    text_field ${1}
+
+snippet submit
+options word
+    submit #{1}
+
+snippet form-tag
+options word
+    form_tag ${1}
+
+snippet text-field-tag
+options word
+    text_field_tag ${1}
+
+snippet submit-tag
+options word
+    submit_tag ${1}
+
+snippet method
+options word
+    method: :${1} 
+
+snippet confirm
+options word
+    confirm: ${1}

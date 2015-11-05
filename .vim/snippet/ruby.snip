@@ -1,8 +1,52 @@
+snippet Array
+options word
+  Array.new(${1})
+
+snippet Hash
+options word
+  Hash.new(${1})
+
+snippet Rational
+options word
+  Rational(${1})
+
 snippet initialize
+options word
 abbr    initialize()
-    initialize(${1})
+  initialize(${1})
+
+snippet attr_reader
+options word
+  attr_reader :${1}
+
+snippet attr_writer
+options word
+  attr_writer :${1}
+
+snippet attr_accessor
+options word
+  attr_accessor :${1}
+
+snippet while
+options word
+  while ${1}
+
+snippet require
+options word
+  require ${1}
 
 snippet file_open
-abbr    File.open()
+options word
 alias   open
-    File.open(${1})
+  File.open(${1})
+
+snippet     match_japanese
+options     word
+  /[ぁ-んァ-ヴ一-龠亜-煕]/u
+
+# Gem
+
+snippet     binding
+alias       pry
+options     word
+  binding.pry;
