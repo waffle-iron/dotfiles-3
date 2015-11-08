@@ -82,11 +82,11 @@ _gibo()
 compdef _gibo gibo
 
 # rbenv config
-if which rbenv > /dev/null; then
-    eval "$(rbenv init -)";
-fi
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # config of '~/.rbenv/plugins/rbenv-binstubs'
+export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH=./vendor/bin:$PATH
 alias be='bundle exec'
 
