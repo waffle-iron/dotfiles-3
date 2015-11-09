@@ -204,6 +204,7 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-sleuth'
+NeoBundle 'tyru/open-browser.vim'
 
 " Document
 NeoBundle 'vim-jp/vimdoc-ja'
@@ -254,9 +255,6 @@ NeoBundleLazy 'hail2u/vim-css3-syntax', {
       \ }
 NeoBundleLazy 'cakebaker/scss-syntax.vim', {
       \ "autoload": {"filetypes":['sass','scss']}
-      \ }
-NeoBundleLazy 'tyru/open-browser.vim', {
-      \ "autoload": {"filetypes":["html"]}
       \ }
 NeoBundleLazy 'gorodinskiy/vim-coloresque', {
       \ "autoload": {"filetypes":['css','sass','scss']}
@@ -358,7 +356,7 @@ endfunction
 
 " vimfiler
 " --------
-nnoremap <silent><C-e> :VimFilerBufferDir -explorer -winwidth=25 -toggle<CR>
+nnoremap <silent><C-e> :VimFiler -explorer -winwidth=25 -toggle<CR>
 let g:vimfiler_safe_mode_by_default = 0
 let g:vimfiler_enable_auto_cd = 1
 let g:vimfiler_tree_leaf_icon = ' '
@@ -407,7 +405,6 @@ function! s:LoadRailsSnippet()
   " Ignore if path is in app directory
   if ( s:current_file_path !~ "app/")
     return
-
   elseif ( s:current_file_path =~ "app/models" )
     NeoSnippetSource ~/.vim/snippet/rails.model.snip
   elseif ( s:current_file_path =~ "app/controllers" )
@@ -418,8 +415,6 @@ function! s:LoadRailsSnippet()
     NeoSnippetSource ~/.vim/snippet/rails.helper.snip
   elseif ( s:current_file_path =~ "app/assets" )
     NeoSnippetSource ~/.vim/snippet/rails.asset.snip
-  else
-    NeoSnippetSource ~/.vim/snippet/rails.snip
   endif
 endfunction
 
@@ -618,6 +613,8 @@ augroup END
 " open-browser.vim
 " ----------------
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap <Leader>o <Plug>(openbrowser-open)
+vmap <Leader>o <Plug>(openbrowser-open)
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
@@ -644,6 +641,7 @@ augroup END
 let g:better_whitespace_filetypes_blacklist = ['unite', 'vimfiler']
 " indentLine
 " Disable by default
+let g:indentLine_enabled = 0
 let g:indentLine_faster = 1
 let g:indentLine_char = '¦'
 let g:indentLine_color_term = 232
@@ -688,7 +686,6 @@ command! -nargs=* Dash call <SID>dash(<f-args>)
 " =====
 syntax on
 colorscheme gotham
-" set t_Co=256
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
