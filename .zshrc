@@ -23,6 +23,8 @@ alias gu='gitup'
 alias ctags="/usr/local/bin/ctags"
 alias ctags-rails="/usr/local/bin/ctags -R -f .tags --exclude=.git --exclude=log --exclude=app/assets --exclude=vendor"
 alias rb='ruby'
+alias be='bundle exec'
+alias br='bundle exec ruby'
 alias slm='slimrb'
 alias sb='seeing_is_believing'
 alias safari='open -a "Safari"'
@@ -88,7 +90,6 @@ eval "$(rbenv init -)"
 # config of '~/.rbenv/plugins/rbenv-binstubs'
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH=./vendor/bin:$PATH
-alias be='bundle exec'
 
 # nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
