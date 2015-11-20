@@ -1,0 +1,56 @@
+AppCops:
+  Excludes:
+    - 'Gemfile'
+    - 'db/schema.rb'
+  DisplayCopNames: true
+
+#################### Style ####################
+
+# Enable Japanese comments
+Style/AsciiComments:
+  Enabled: false
+
+# Allow class with no document
+Style/Documentation:
+  Enabled: false
+
+# In classes and modules methods after 'private' and 'protected'
+# should be indented one step more
+Style/IndentationConsistency:
+  EnforcedStyle: rails
+
+# 'inject {|a, e| }' is too short
+Style/SingleLineBlockParams:
+  Enabled: false
+
+# Allow multiple spaces before args
+Style/SingleSpaceBeforeFirstArg:
+  Enabled: false
+
+# Use double quotes
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  Exclude:
+    - '**/Gemfile'
+
+Style/TrailingComma:
+  EnforcedStyleForMultiline: comma
+
+#################### Lint ####################
+
+
+#################### Metrics ####################
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/LineLength:
+  Max: 160
+  Exclude:
+    - "db/migrate/*.rb"
+
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - "db/migrate/*.rb"
+
