@@ -22,7 +22,7 @@ snippet body
 
 snippet stylesheet
 alias   css
-    <link rel=":stylesheet" href="${1}.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="${1}.css" type="text/css" media="screen" charset="utf-8">
 
 snippet script
 alias   javascript
@@ -40,60 +40,59 @@ options word
 
 snippet class
 options word
+alias    .
     class="${1}"
 
 snippet div
 options word
-    <div class="${1}"></div>
-
-snippet div-
-options word
     <div>${1}</div>
+snippet div.
+options word
+    <div class="${1}"></div>
 
 snippet p
 options word
-    <p class="${1}"></p>
-
-snippet p-
-options word
     <p>${1}</p>
+snippet p.
+options word
+    <p class="${1}"></p>
 
 snippet h1
 options word
-    <h1 class="${1}"></h1>
-snippet h1-
-options word
     <h1>${1}</h1>
+snippet h1.
+options word
+    <h1 class="${1}"></h1>
 snippet h2
 options word
-    <h2 class="${1}"></h2>
-snippet h2-
-options word
     <h2>${1}</h2>
+snippet h2.
+options word
+    <h2 class="${1}"></h2>
 snippet h3
 options word
-    <h3 class="${1}"></h3>
-snippet h3-
-options word
     <h3>${1}</h3>
+snippet h3.
+options word
+    <h3 class="${1}"></h3>
 snippet h4
 options word
-    <h4 class="${1}"></h4>
-snippet h4-
-options word
     <h4>${1}</h4>
+snippet h4.
+options word
+    <h4 class="${1}"></h4>
 snippet h5
 options word
-    <h5 class="${1}"></h5>
-snippet h5-
-options word
     <h5>${1}</h5>
+snippet h5.
+options word
+    <h5 class="${1}"></h5>
 snippet h6
 options word
-    <h6 class="${1}"></h6>
-snippet h6-
-options word
     <h6>${1}</h6>
+snippet h6.
+options word
+    <h6 class="${1}"></h6>
 
 snippet br
 options word
@@ -114,70 +113,69 @@ snippet blockquote
 
 snippet a
 options word
-    <a class="${1}" href="${2}"></a>
-snippet a-
-options word
     <a href="${2}"></a>
+snippet a.
+options word
+    <a class="${1}" href="${2}"></a>
 
 snippet header
-options word
-    <header class="${1}">
-    </header>
-snippet header-
 options word
     <header>
     ${1}
     </header>
+snippet header.
+options word
+    <header class="${1}">
+    </header>
 
 snippet footer
-options word
-    <footer class="${1}">
-    </footer>
-snippet footer-
 options word
     <footer>
     ${1}
     </footer>
-
+snippet footer.
+options word
+    <footer class="${1}">
+    </footer>
 
 snippet nav
-options word
-    <nav class="${1}">
-    </nav>
-snippet nav-
 options word
     <nav>
     ${1}
     </nav>
+snippet nav.
+options word
+    <nav class="${1}">
+    </nav>
 
 snippet article
-options word
-    <article class="${1}">
-    </article>
-snippet article-
 options word
     <article>
     ${1}
     </article>
+snippet article.
+options word
+    <article class="${1}">
+    </article>
 
 snippet aside
-options word
-    <aside class="${1}">
-    </aside>
-snippet aside-
 options word
     <aside>
     ${1}
     </aside>
+snippet aside.
+options word
+    <aside class="${1}">
+    </aside>
 
 snippet section
 options word
-    <section class="${1}">
-    </section>
-snippet section-
-options word
     <section>
     ${1}
+    </section>
+snippet section.
+options word
+    <section class="${1}">
     </section>
 
 snippet address
@@ -187,11 +185,11 @@ options word
     </adress>
 
 snippet table
-    <table class="${1}">
-    </table>
-snippet table-
     <table>
     ${1}
+    </table>
+snippet table.
+    <table class="${1}">
     </table>
 
 snippet tr
@@ -230,25 +228,28 @@ options word
     <dd>${1}</dd>
 
 snippet form
-    <form class="${1}">
-    </form>
-snippet form-
     <form>
     ${1}
     </form>
+snippet form.
+    <form class="${1}">
+    </form>
 
+snippet input
+options word
+    <input ${1} />
 snippet input-text
 options word
-    <input type="text" name="${1}">
+    <input type="text" name="${1}" />
 snippet input-password
 options word
-    <input type="password" name="${1}">
+    <input type="password" name="${1}" />
 snippet input-radio
 options word
-    <input type="radio" name="${1}">
+    <input type="radio" name="${1}" />
 snippet input-checkbox
 options word
-    <input type="checkbox" name="${1}">
+    <input type="checkbox" name="${1}" />
 
 snippet textarea
     <textarea>
@@ -256,10 +257,10 @@ snippet textarea
 
 snippet button
 options word
-    <button class="${1}"></button>
-snippet button-
-options word
     <button>${1}</button>
+snippet button.
+options word
+    <button class="${1}"></button>
 
 snippet select
 options word
