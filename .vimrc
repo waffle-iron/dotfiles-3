@@ -580,8 +580,6 @@ augroup sib
   autocmd FileType ruby vmap <silent>mm <Plug>(seeing-is-believing-mark)
   autocmd FileType ruby nmap <silent>mr <Plug>(seeing-is-believing-run)
   autocmd FileType ruby vmap <silent>mr <Plug>(seeing-is-believing-run)
-  " autocmd FileType ruby nmap <silent>mr <Plug>(seeing-is-believing-mark-and-run)
-  " autocmd FileType ruby vmap <silent>mr <Plug>(seeing-is-believing-mark-and-run)
 augroup END
 
 " Add pair words
