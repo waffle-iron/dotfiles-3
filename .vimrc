@@ -623,6 +623,8 @@ vmap gx <Plug>(openbrowser-smart-search)
 " vim-instant-markdown
 " --------------------
 let g:instant_markdown_autostart = 0
+nnoremap <silent><Leader>m :InstantMarkdonwPreview<CR>
+
 " previm
 " ------
 let g:previm_show_header = 0
