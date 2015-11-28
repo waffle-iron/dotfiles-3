@@ -18,12 +18,7 @@ options indent
         <title>${1}</title>
     </head>
 
-snippet body
-    <body>
-       ${1}
-    </body>
-
-snippet stylesheet
+snippet link
 alias   css
     <link rel="stylesheet" href="${1}.css" type="text/css" media="screen" charset="utf-8">
 
@@ -35,278 +30,31 @@ snippet comment
 options word
     <!-- ${1} -->
 
-snippet class
-options word
-alias    .
-    class="${1}"
-
-snippet id
-options word
-    id="${1}"
-
 snippet value
 options word
     value="${1}"
-
 snippet name
 options word
     name="${1}"
-
 snippet type
 options word
     type="${1}"
-
 snippet src
 options word
     src="${1}"
-
 snippet size
 options word
     size="${1}"
-
-snippet div
+snippet style
 options word
-    <div>${1}</div>
-snippet div.
-options word
-    <div class="${1}"></div>
-
-snippet p
-options word
-    <p>${1}</p>
-snippet p.
-options word
-    <p class="${1}"></p>
-
-snippet h1
-options word
-    <h1>${1}</h1>
-snippet h1.
-options word
-    <h1 class="${1}"></h1>
-snippet h2
-options word
-    <h2>${1}</h2>
-snippet h2.
-options word
-    <h2 class="${1}"></h2>
-snippet h3
-options word
-    <h3>${1}</h3>
-snippet h3.
-options word
-    <h3 class="${1}"></h3>
-snippet h4
-options word
-    <h4>${1}</h4>
-snippet h4.
-options word
-    <h4 class="${1}"></h4>
-snippet h5
-options word
-    <h5>${1}</h5>
-snippet h5.
-options word
-    <h5 class="${1}"></h5>
-snippet h6
-options word
-    <h6>${1}</h6>
-snippet h6.
-options word
-    <h6 class="${1}"></h6>
+    style="${1}"
 
 snippet br
 options word
     <br />
-
 snippet hr
 options word
     <hr />
-
-snippet small
-options word
-    <small>${1}</small>
-
-snippet blockquote
-    <blockquote>
-    ${1}
-    </blockquote>
-
-snippet a
-options word
-    <a href="${2}"></a>
-snippet a.
-options word
-    <a class="${1}" href="${2}"></a>
-
-snippet header
-options word
-    <header>
-    ${1}
-    </header>
-snippet header.
-options word
-    <header class="${1}">
-    </header>
-
-snippet footer
-options word
-    <footer>
-    ${1}
-    </footer>
-snippet footer.
-options word
-    <footer class="${1}">
-    </footer>
-
-snippet nav
-options word
-    <nav>
-    ${1}
-    </nav>
-snippet nav.
-options word
-    <nav class="${1}">
-    </nav>
-
-snippet article
-options word
-    <article>
-    ${1}
-    </article>
-snippet article.
-options word
-    <article class="${1}">
-    </article>
-
-snippet aside
-options word
-    <aside>
-    ${1}
-    </aside>
-snippet aside.
-options word
-    <aside class="${1}">
-    </aside>
-
-snippet section
-options word
-    <section>
-    ${1}
-    </section>
-snippet section.
-options word
-    <section class="${1}">
-    </section>
-
-snippet address
-options word
-    <adress>
-    ${1}
-    </adress>
-
-snippet table
-    <table>
-    ${1}
-    </table>
-snippet table.
-    <table class="${1}">
-    </table>
-
-snippet tr
-options word
-    <tr>${1}</tr>
-snippet th
-options word
-    <th>${1}</th>
-snippet td
-options word
-    <td>${1}</td>
-
-snippet ul
-options word
-    <ul>${1}</ul>
-
-snippet ol
-options word
-    <ol>${1}</ol>
-
-
-snippet li
-options word
-    <li>${1}</li>
-
-snippet dl
-options word
-    <dl>${1}</dl>
-
-snippet dt
-options word
-    <dt>${1}</dt>
-
-snippet dd
-options word
-    <dd>${1}</dd>
-
-snippet form
-    <form>
-    ${1}
-    </form>
-snippet form.
-    <form class="${1}">
-    </form>
-
-snippet input
-options word
-    <input ${1} />
-snippet input-text
-options word
-    <input type="text" name="${1}" />
-snippet input-password
-options word
-    <input type="password" name="${1}" />
-snippet input-radio
-options word
-    <input type="radio" name="${1}" />
-snippet input-checkbox
-options word
-    <input type="checkbox" name="${1}" />
-
-snippet textarea
-    <textarea>
-    </textarea>
-
-snippet button
-options word
-    <button>${1}</button>
-snippet button.
-options word
-    <button class="${1}"></button>
-
-snippet select
-options word
-    <select>${1}</select>
-
-snippet option
-options word
-    <option value="${1}"></option>
-
-snippet label
-options word
-    <label>${1}: <input type="" /></label>
-
-snippet label-for
-options word
-    <label for="${1}"></label>
-
-snippet fieldset
-options word
-    <fieldset>${1}</fieldset>
-
-snippet img
-options word
-    <img src="${1}">
-
 # erb
 
 snippet erb-code
@@ -323,35 +71,3 @@ snippet erb-comment
 options word
 alias #
     <%# ${1} %>
-
-snippet form_for
-options word
-    form_for ${1}
-
-snippet text_field
-options word
-    text_field ${1}
-
-snippet submit
-options word
-    submit #{1}
-
-snippet form-tag
-options word
-    form_tag ${1}
-
-snippet text-field-tag
-options word
-    text_field_tag ${1}
-
-snippet submit-tag
-options word
-    submit_tag ${1}
-
-snippet method
-options word
-    method: :${1} 
-
-snippet confirm
-options word
-    confirm: ${1}
