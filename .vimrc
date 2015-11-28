@@ -107,6 +107,8 @@ nnoremap <silent><c-h> :bprevious<CR>
 nnoremap <silent><c-l> :bnext<CR>
 " Close buffer and pane
 nnoremap <silent><Leader>d :bd<CR>
+" Split pane
+nnoremap <silent><Leader>v :vsplit<CR>
 " Clear hilight
 nnoremap <silent><Leader>l :nohl<CR>
 " Copy the opening file's path
@@ -164,6 +166,7 @@ NeoBundle 'Shougo/vimproc.vim', {
     \ }
 
 " unite.vim
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tsukkee/unite-tag'
@@ -306,7 +309,6 @@ filetype plugin indent on
 NeoBundleCheck
 " NeoBundle END
 " =============
-
 " Unite.vim
 " ---------
 let g:unite_enable_ignore_case = 1
@@ -610,6 +612,22 @@ augroup END
 
 " Markup
 " ======
+" emmet-vim
+" ---------
+let g:user_emmet_settings = {
+  \ 'variables': {
+  \ 'lang' : 'ja'
+  \ }
+\}
+augroup vimrc_emmet-vim
+  autocmd!
+  autocmd FileType html,erb,css,scss call s:map_emmet()
+augroup END
+
+function! s:map_emmet()
+  " expand neosnippet snippet if possible, falling back to emmet expansion
+  imap <buffer> <expr> <C-k> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<Plug>(emmet-expand-abbr)"
+endfunction
 " open-browser.vim
 " ----------------
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
