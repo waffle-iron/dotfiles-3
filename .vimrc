@@ -88,9 +88,8 @@ vnoremap k gk
 vnoremap gk k
 " Yank until end of line
 nnoremap Y y$
-" Jump to matched pairs
-nnoremap <Tab> %
-vnoremap <Tab> %
+" Jump to matched pairs **Use 'map'**
+map <Tab> %
 " Increment / Decreament
 nnoremap + <C-a>
 nnoremap - <C-x>
@@ -166,7 +165,6 @@ NeoBundle 'Shougo/vimproc.vim', {
     \ }
 
 " unite.vim
-NeoBundle 'mattn/emmet-vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tsukkee/unite-tag'
@@ -201,7 +199,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
 
 " Substite with ':S/{pattern}/{string}/[flags]', Replace with'/c' options
-" ctr: snake_case / crm: MixedCase / src: camelCase / crs: snake_case / cru: UPPER_CASE
+" crs: snake_case / crm: MixedCase / crc: camelCase / crs: snake_case / cru: UPPER_CASE
 NeoBundle 'tpope/vim-abolish'
 " ae : entire content / ie : excluding empty lines
 NeoBundle 'kana/vim-textobj-entire'
@@ -255,6 +253,7 @@ NeoBundleLazy 'moll/vim-node', {
 
 " Markup
 " ======
+NeoBundle 'mattn/emmet-vim'
 NeoBundleLazy 'hail2u/vim-css3-syntax', {
       \ "autoload": {"filetypes":['css','sass','scss']}
       \ }
@@ -585,11 +584,15 @@ augroup sib
 augroup END
 
 " Add pair words
-source $VIMRUNTIME/macros/matchit.vim
+if !exists('loaded_matchit')
+  " matchitを有効化
+  runtime macros/matchit.vim
+endif
 let b:match_ignorecase = 1
 augroup matchit
   au!
-  au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
+  au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:
+	\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
 augroup END
 " Hilight erb files properly
 augroup erb
@@ -614,12 +617,14 @@ augroup END
 " ======
 " emmet-vim
 " ---------
+let g:user_emmet_install_global = 0
+autocmd FileType html,erb,css,scss EmmetInstall
 let g:user_emmet_settings = {
   \ 'variables': {
   \ 'lang' : 'ja'
   \ }
 \}
-augroup vimrc_emmet-vim
+augroup emmet
   autocmd!
   autocmd FileType html,erb,css,scss call s:map_emmet()
 augroup END
