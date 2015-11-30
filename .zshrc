@@ -54,6 +54,7 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit
 
 # tig
+alias ts='tig status'
 alias tigs='tig status'
 
 # peco config file is '~/.peco/config.json'
