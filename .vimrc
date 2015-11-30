@@ -55,11 +55,6 @@ set softtabstop=2
 
 set tags+=.git/tags
 
-augroup disableAutoComment
-  autocmd!
-  autocmd FileType markdown setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-augroup END
-
 " Keymappings
 " ===========
 " Disable Unused keys
@@ -139,6 +134,12 @@ augroup fileTypeSettings
   autocmd FileType zsh        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType markdown   setlocal sw=2 sts=2 ts=2 et
   autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
+augroup END
+
+" Disable auto comment in markdown
+augroup disableAutoComment
+  autocmd!
+  autocmd FileType markdown setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup END
 
 
@@ -615,6 +616,8 @@ augroup END
 
 " Markup
 " ======
+" Hilight scss syntax
+au BufRead,BufNewFile *.scss set filetype=sass
 " emmet-vim
 " ---------
 let g:user_emmet_install_global = 0
@@ -720,3 +723,4 @@ else
 endif
 " Make comment italic
 highlight Comment cterm=italic gui=italic
+
