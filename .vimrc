@@ -136,12 +136,13 @@ augroup fileTypeSettings
   autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
 augroup END
 
+autocmd FileType scss set iskeyword+=-
+
 " Disable auto comment in markdown
 augroup disableAutoComment
   autocmd!
   autocmd FileType markdown setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup END
-
 
 " NeoBundle FROM
 " ==============
@@ -237,7 +238,7 @@ NeoBundleLazy 'hwartig/vim-seeing-is-believing', {
 " JavaScript
 " ==========
 NeoBundleLazy 'lfilho/cosco.vim', {
-      \ "autoload": {"filetypes":['javascript','css','scss']}
+      \ "autoload": {"filetypes":['javascript','css','sass','scss']}
       \ }
 NeoBundleLazy 'pangloss/vim-javascript', {
       \ 'autoload' : {'filetypes': ['javascript']}
@@ -256,8 +257,9 @@ NeoBundleLazy 'moll/vim-node', {
 " ======
 NeoBundle 'mattn/emmet-vim'
 NeoBundleLazy 'hail2u/vim-css3-syntax', {
-      \ "autoload": {"filetypes":['css','sass','scss']}
+      \ "autoload": {"filetypes":['css']}
       \ }
+NeoBundle "cakebaker/scss-syntax.vim"
 NeoBundleLazy 'cakebaker/scss-syntax.vim', {
       \ "autoload": {"filetypes":['sass','scss']}
       \ }
@@ -616,12 +618,10 @@ augroup END
 
 " Markup
 " ======
-" Hilight scss syntax
-au BufRead,BufNewFile *.scss set filetype=sass
 " emmet-vim
 " ---------
 let g:user_emmet_install_global = 0
-autocmd FileType html,erb,css,scss EmmetInstall
+autocmd FileType html,erb,css,sass,scss,liquid EmmetInstall
 let g:user_emmet_settings = {
   \ 'variables': {
   \ 'lang' : 'ja'
@@ -629,7 +629,7 @@ let g:user_emmet_settings = {
 \}
 augroup emmet
   autocmd!
-  autocmd FileType html,erb,css,scss call s:map_emmet()
+  autocmd FileType html,erb,css,sass,scss call s:map_emmet()
 augroup END
 
 function! s:map_emmet()
