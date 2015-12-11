@@ -597,11 +597,6 @@ augroup matchit
   au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:
 	\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
 augroup END
-" Hilight erb files properly
-augroup erb
-    autocmd!
-  autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
-augroup END
 
 " JavaScript
 " ==========
@@ -621,7 +616,7 @@ augroup END
 " emmet-vim
 " ---------
 let g:user_emmet_install_global = 0
-autocmd FileType html,erb,css,sass,scss,liquid EmmetInstall
+autocmd FileType html,eruby,css,sass,scss,liquid EmmetInstall
 let g:user_emmet_settings = {
   \ 'variables': {
   \ 'lang' : 'ja'
@@ -629,7 +624,7 @@ let g:user_emmet_settings = {
 \}
 augroup emmet
   autocmd!
-  autocmd FileType html,erb,css,sass,scss call s:map_emmet()
+  autocmd FileType html,eruby,css,sass,scss call s:map_emmet()
 augroup END
 
 function! s:map_emmet()
