@@ -485,10 +485,8 @@ let g:yankround_use_region_hl = 1
 
 " vim-auto-save
 " -------------
-let g:auto_save_in_insert_mode = 0
-let g:auto_save_silent = 1
 let g:auto_save = 1
-nnoremap ,a :AutoSaveToggle<CR>
+let g:auto_save_silent = 1
 
 " bufkill.vim
 " -----------
