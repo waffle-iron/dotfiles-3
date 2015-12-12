@@ -95,7 +95,7 @@ inoremap (<CR> ()<Left><CR><ESC><S-o>
 " Save
 nnoremap <Leader>w :w<CR>
 " Create new buffer
-nnoremap <silent><Leader>n :enew<CR>
+nnoremap <silent><Leader>N :enew<CR>
 " Move between buffers
 nnoremap <silent><c-h> :bprevious<CR>
 nnoremap <silent><c-l> :bnext<CR>
@@ -327,19 +327,19 @@ nmap     <space>  [unite]
 
 " Directory
 nnoremap <silent> [unite]u :<c-u>call DispatchUniteFileRecAsyncOrGit()<CR>
-nnoremap <silent> [unite]n :<c-u>UniteWithBufferDir file file/new<CR>
+nnoremap <silent> [unite]b :<c-u>UniteWithBufferDir file file/new<CR>
 " history
 nnoremap <silent> [unite]h :<c-u>Unite file_mru<CR>
 " Opening buffers
-nnoremap <silent> [unite]b :<c-u>Unite buffer<CR>
+nnoremap <silent> [unite]C :<c-u>Unite buffer<CR>
 " Copy history
 nnoremap <silent> [unite]p :<c-u>Unite yankround<CR>
 " Outline
 nnoremap <silent> [unite]o :<c-u>Unite outline:. -buffer-name=search-buffer<CR>
 " Grep
-nnoremap <silent> [unite]g :<c-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> [unite]G :<c-u>Unite grep:. -buffer-name=search-buffer<CR>
 " Tag
-nnoremap <silent> [unite]c :<c-u>Unite tag<CR>
+nnoremap <silent> [unite]T :<c-u>Unite tag<CR>
 
 " Use 'ag' for Unite grep
 if executable('ag')
@@ -633,8 +633,8 @@ endfunction
 " open-browser.vim
 " ----------------
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap <Leader>o <Plug>(openbrowser-open)
-vmap <Leader>o <Plug>(openbrowser-open)
+nmap <Leader>O <Plug>(openbrowser-open)
+vmap <Leader>O <Plug>(openbrowser-open)
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
