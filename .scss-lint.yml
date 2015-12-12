@@ -4,6 +4,8 @@ linters:
     enabled: false
   LeadingZero:
     enabled: false
+  MergeableSelector:
+    force_nesting: false
   PlaceholderInExtend:
     enabled: false
   QualifyingElement:
