@@ -30,6 +30,7 @@ alias sb='seeing_is_believing'
 alias safari='open -a "Safari"'
 alias sfr='open -a "Safari"'
 alias chrome='open -a "Google Chrome"'
+alias blog='cd ~/Dropbox/jekyll/yoshitaka/ && vi'
 
 # Atom
 # Use the same process even if already opened
