@@ -70,6 +70,8 @@ cnoremap <C-j> <Esc>
 " Go and Back
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
+inoremap <C-e> <Esc>$a
+inoremap <C-a> <Esc>^i
 " Delete to end
 inoremap <silent> <C-d> <Esc>lc$
 " Never skip folded lines
