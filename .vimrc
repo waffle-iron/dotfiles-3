@@ -64,16 +64,17 @@ map s <Nop>
 " Set <Leader>
 let g:mapleader = "\<Space>"
 " Escape
-noremap <C-j> <esc>
-noremap! <C-j> <esc>
-cnoremap <C-j> <Esc>
+noremap  <c-j> <Esc>
+noremap! <c-j> <Esc>
+cnoremap <c-j> <Esc>
 " Go and Back
-inoremap <C-f> <Right>
-inoremap <C-b> <Left>
-inoremap <C-e> <Esc>$a
-inoremap <C-a> <Esc>^i
+inoremap <c-f> <Right>
+inoremap <c-b> <Left>
+inoremap <c-e> <Esc>$a
+inoremap <c-a> <Esc>^i
 " Delete to end
-inoremap <silent> <C-d> <Esc>lc$
+inoremap <c-c> <Esc>c$
+inoremap <c-d> <Esc>d$
 " Never skip folded lines
 nnoremap j gj
 nnoremap gj j
@@ -88,12 +89,12 @@ nnoremap Y y$
 " Jump to matched pairs **Use 'map'**
 map <Tab> %
 " Increment / Decreament
-nnoremap + <C-a>
-nnoremap - <C-x>
+nnoremap + <c-a>
+nnoremap - <c-x>
 " Expand brackets
-inoremap {<CR> {}<Left><CR><ESC><S-o>
-inoremap [<CR> []<Left><CR><ESC><S-o>
-inoremap (<CR> ()<Left><CR><ESC><S-o>
+inoremap {<CR> {}<Left><CR><Esc><S-o>
+inoremap [<CR> []<Left><CR><Esc><S-o>
+inoremap (<CR> ()<Left><CR><Esc><S-o>
 " Save
 nnoremap <Leader>w :w<CR>
 " Create new buffer
@@ -321,7 +322,7 @@ let g:unite_source_rec_max_cache_files = 5000
 let g:unite_source_file_mru_limit      = 200
 augroup unite
   autocmd!
-  autocmd FileType unite nmap <buffer><C-J> <Plug>(unite_exit)
+  autocmd FileType unite nmap <buffer><c-j> <Plug>(unite_exit)
 augroup END
 " The prefix key.
 nnoremap [unite]  <Nop>
@@ -364,7 +365,7 @@ endfunction
 
 " vimfiler
 " --------
-nnoremap <silent><C-e> :VimFiler -explorer -winwidth=25 -toggle<CR>
+nnoremap <silent><c-e> :VimFiler -explorer -winwidth=25 -toggle<CR>
 let g:vimfiler_safe_mode_by_default = 0
 let g:vimfiler_enable_auto_cd = 1
 let g:vimfiler_tree_leaf_icon = ' '
@@ -389,9 +390,9 @@ let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
 
 " neosnippet
 " ----------
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <c-k>     <Plug>(neosnippet_expand_or_jump)
+smap <c-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <c-k>     <Plug>(neosnippet_expand_target)
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
@@ -441,9 +442,9 @@ augroup incsearch-keymap
     autocmd VimEnter * call s:incsearch_keymap()
 augroup END
 function! s:incsearch_keymap()
-    IncSearchNoreMap <C-f>  <Over>(incsearch-scroll-f)
-    IncSearchNoreMap <C-d>  <Over>(incsearch-scroll-b)
-    IncSearchNoreMap <C-j>  <Esc>
+    IncSearchNoreMap <c-f>  <Over>(incsearch-scroll-f)
+    IncSearchNoreMap <c-d>  <Over>(incsearch-scroll-b)
+    IncSearchNoreMap <c-j>  <Esc>
 endfunction
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
@@ -481,8 +482,8 @@ nmap P <Plug>(yankround-P)
 nmap gp <Plug>(yankround-gp)
 xmap gp <Plug>(yankround-gp)
 nmap gP <Plug>(yankround-gP)
-nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(GitGutterPrevHunk)"
-nmap <expr><C-n> yankround#is_active() ? "\<Plug>(yankround-next)" : "<SID>(GitGutterNextHunk)"
+nmap <expr><c-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(GitGutterPrevHunk)"
+nmap <expr><c-n> yankround#is_active() ? "\<Plug>(yankround-next)" : "<SID>(GitGutterNextHunk)"
 let g:yankround_use_region_hl = 1
 
 " vim-auto-save
@@ -557,8 +558,8 @@ nnoremap <silent><Leader>gf :Gitv!<CR>
 
 " vim-gitgutter
 " -------------
-nnoremap <silent><SID>(GitGutterPrevHunk) :<C-u>GitGutterPrevHunk<CR>zz
-nnoremap <silent><SID>(GitGutterNextHunk) :<C-u>GitGutterNextHunk<CR>zz
+nnoremap <silent><SID>(GitGutterPrevHunk) :<c-u>GitGutterPrevHunk<CR>zz
+nnoremap <silent><SID>(GitGutterNextHunk) :<c-u>GitGutterNextHunk<CR>zz
 let g:gitgutter_sign_column_always = 1
 nmap <c-a> <Plug>GitGutterStageHunk
 nmap <c-x> <Plug>GitGutterRevertHunk
@@ -566,15 +567,15 @@ nmap <c-x> <Plug>GitGutterRevertHunk
 " Ruby and Rails
 " ==============
 " unite-rails
-nnoremap <silent> [unite]rc :<C-u>Unite rails/controller<CR>
-nnoremap <silent> [unite]rm :<C-u>Unite rails/model<CR>
-nnoremap <silent> [unite]rv :<C-u>Unite rails/view<CR>
-nnoremap <silent> [unite]rh :<C-u>Unite rails/helper<CR>
-nnoremap <silent> [unite]rd :<C-u>Unite rails/db<CR>
-nnoremap <silent> [unite]rj :<C-u>Unite rails/javascript<CR>
-nnoremap <silent> [unite]rs :<C-u>Unite rails/stylesheet<CR>
-nnoremap <silent> [unite]rr :<C-u>Unite rails/route<CR>
-nnoremap <silent> [unite]rg :<C-u>Unite rails/gemfile<CR>
+nnoremap <silent> [unite]rc :<c-u>Unite rails/controller<CR>
+nnoremap <silent> [unite]rm :<c-u>Unite rails/model<CR>
+nnoremap <silent> [unite]rv :<c-u>Unite rails/view<CR>
+nnoremap <silent> [unite]rh :<c-u>Unite rails/helper<CR>
+nnoremap <silent> [unite]rd :<c-u>Unite rails/db<CR>
+nnoremap <silent> [unite]rj :<c-u>Unite rails/javascript<CR>
+nnoremap <silent> [unite]rs :<c-u>Unite rails/stylesheet<CR>
+nnoremap <silent> [unite]rr :<c-u>Unite rails/route<CR>
+nnoremap <silent> [unite]rg :<c-u>Unite rails/gemfile<CR>
 " neocomplete-rsense.vim
 let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
 " vim-seeing-is-believing
@@ -630,7 +631,7 @@ augroup END
 
 function! s:map_emmet()
   " expand neosnippet snippet if possible, falling back to emmet expansion
-  imap <buffer> <expr> <C-k> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<Plug>(emmet-expand-abbr)"
+  imap <buffer> <expr> <c-k> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<Plug>(emmet-expand-abbr)"
 endfunction
 " open-browser.vim
 " ----------------
