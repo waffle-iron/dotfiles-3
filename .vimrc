@@ -404,14 +404,15 @@ let g:neosnippet#snippets_directory='~/.vim/snippet'
 
 " Detect filetype
 augroup filetypedetect
-  autocmd!  BufEnter *rb call s:LoadRailsSnippet()
+  autocmd!  BufEnter *_test.rb NeoSnippetSource ~/.vim/rails.test.snip
+  autocmd!  BufEnter *rb       call s:LoadRailsSnippet()
 augroup END
 
 function! s:LoadRailsSnippet()
   " get current directory's path
   let s:current_file_path = expand("%:p:h")
 
-  " Ignore if path is in app directory
+  " Ignore if path is not in app directory
   if ( s:current_file_path !~ "app/")
     return
   elseif ( s:current_file_path =~ "app/models" )
@@ -426,11 +427,6 @@ function! s:LoadRailsSnippet()
     NeoSnippetSource ~/.vim/snippet/rails.asset.snip
   endif
 endfunction
-
-autocmd User Rails.view*                 NeoSnippetSource ~/.vim/snippet/ruby.rails.view.snip
-autocmd User Rails.controller*           NeoSnippetSource ~/.vim/snippet/ruby.rails.controller.snip
-autocmd User Rails/db/migrate/*          NeoSnippetSource ~/.vim/snippet/ruby.rails.migrate.snip
-autocmd User Rails/config/routes.rb      NeoSnippetSource ~/.vim/snippet/ruby.rails.route.snip
 
 " incsearch.vim
 " -------------
