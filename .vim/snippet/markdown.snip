@@ -1,22 +1,30 @@
 snippet link
-abbr [link][]
 options word
     [${1}]()
 
-snippet emphasis1
-abbr *emphasis*
+snippet image
+options word
+    ![${1}]()
+
+snippet code
+options head
+    \`\`\`${1}
+    \`\`\`
+
+snippet italic
+abbr    *italic*
 options word
     *${1}*
 
-snippet emphasis2
-abbr _emphasis_
-options word
-    _${1}_${2}
-
-snippet strong1
-abbr **strong**
+snippet bold
+abbr    **bold**
 options word
     **${1}**${2}
+
+snippet strikethrough
+abbr    ~~strikethrough~~
+options word
+    ~~${1}~~
 
 snippet h3
 abbr    ###
@@ -38,8 +46,7 @@ abbr    ###
 options word
     ######${1}
 
-snippet codeblock
-abbr code block
+snippet code
 options head
     \`\`\`${1}
     \`\`\`
