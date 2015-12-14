@@ -32,6 +32,9 @@ alias sfr='open -a "Safari"'
 alias chrome='open -a "Google Chrome"'
 alias blog='cd ~/Dropbox/jekyll/yoshitaka/ && vi'
 
+# Unalias aliases by external programs
+unalias gs
+
 # Atom
 # Use the same process even if already opened
 alias atom="open -a Atom"
