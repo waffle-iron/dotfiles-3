@@ -1,3 +1,27 @@
+snippet erb-code
+options word
+alias   -
+    <% ${1} %>
+
+snippet erb-variable
+options word
+alias   =
+    <%= ${1} %>
+
+snippet erb-comment
+options word
+alias #
+    <%# ${1} %>
+
+snippet if
+options word
+    <% if ${1} %>
+
+snippet end
+options word
+    <% end %>${1}
+
+# Fron html.snip
 snippet doctype
 options word
     <!DOCTYPE html>
