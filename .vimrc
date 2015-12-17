@@ -174,7 +174,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'Shougo/unite-outline'
-NeoBundle 'basyura/unite-rails'
+NeoBundle 'garymh/unite-rails'
 " vimfiler
 NeoBundle 'Shougo/vimfiler'
 " neocomplete.vim
@@ -563,14 +563,15 @@ nmap <c-x> <Plug>GitGutterRevertHunk
 " Ruby and Rails
 " ==============
 " unite-rails
-nnoremap <silent> [unite]rc :<c-u>Unite rails/controller<CR>
+nnoremap <silent> [unite]rr :<c-u>Unite rails/route<CR>
 nnoremap <silent> [unite]rm :<c-u>Unite rails/model<CR>
 nnoremap <silent> [unite]rv :<c-u>Unite rails/view<CR>
+nnoremap <silent> [unite]rc :<c-u>Unite rails/controller<CR>
 nnoremap <silent> [unite]rh :<c-u>Unite rails/helper<CR>
-nnoremap <silent> [unite]rd :<c-u>Unite rails/db<CR>
-nnoremap <silent> [unite]rj :<c-u>Unite rails/javascript<CR>
+nnoremap <silent> [unite]rt :<c-u>Unite rails/test<CR>
 nnoremap <silent> [unite]rs :<c-u>Unite rails/stylesheet<CR>
-nnoremap <silent> [unite]rr :<c-u>Unite rails/route<CR>
+nnoremap <silent> [unite]rj :<c-u>Unite rails/javascript<CR>
+nnoremap <silent> [unite]rd :<c-u>Unite rails/db<CR>
 nnoremap <silent> [unite]rg :<c-u>Unite rails/gemfile<CR>
 " neocomplete-rsense.vim
 let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
