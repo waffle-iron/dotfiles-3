@@ -224,6 +224,7 @@ NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-bundler'
+NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-endwise'
 " g S : split / g J : join
 NeoBundle 'AndrewRadev/splitjoin.vim'
