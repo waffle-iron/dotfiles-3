@@ -540,6 +540,7 @@ nnoremap <silent><Leader>t :TagbarToggle<CR>
 " -------------
 nnoremap <silent><Leader>gb :Gblame<CR>
 nnoremap <silent><Leader>gc :Gcommit -v<CR>
+nnoremap <silent><Leader>gC :Gcommit -v --amend<CR>
 nnoremap <silent><Leader>gd :Gdiff<CR>
 " Checkout current file
 nnoremap <silent><Leader>gx :Gread<CR>
