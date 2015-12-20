@@ -64,9 +64,10 @@ map s <Nop>
 " Set <Leader>
 let g:mapleader = "\<Space>"
 " Escape
-noremap  <c-j> <Esc>
-noremap! <c-j> <Esc>
-cnoremap <c-j> <Esc>
+noremap  <c-j>  <Esc>
+noremap! <c-j>  <Esc>
+cnoremap <c-j>  <Esc>
+noremap  r<c-j> r<Esc>
 " Go and Back
 inoremap <c-f> <Right>
 inoremap <c-b> <Left>
