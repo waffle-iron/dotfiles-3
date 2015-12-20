@@ -463,13 +463,11 @@ let g:syntastic_warning_symbol = '⚠'
 highlight SyntasticErrorSign ctermbg=000
 let g:syntastic_loc_list_height=5
 let g:syntastic_mode_map = {
-      \ 'mode': 'active',
-      \ 'active_filetypes' : [],
-      \ 'passive_filetypes' : [] }
+      \ 'mode': 'passive',
+      \ 'active_filetypes' : ['ruby', 'javascript', 'scss']}
 let g:syntastic_scss_checkers	    = ['scss_lint']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_ruby_checkers 	    = ['rubocop']
-let g:syntastic_ruby_rubocop_exec   = '$HOME/.rbenv/shims/ruby'
 nnoremap <silent><Leader>e :Errors<CR>
 nnoremap <silent><Leader>c :lclose<CR>
 
