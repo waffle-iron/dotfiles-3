@@ -466,9 +466,10 @@ let g:syntastic_mode_map = {
       \ 'mode': 'active',
       \ 'active_filetypes' : [],
       \ 'passive_filetypes' : [] }
-let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_scss_checkers	    = ['scss_lint']
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_ruby_checkers 	    = ['rubocop']
+let g:syntastic_ruby_rubocop_exec   = '$HOME/.rbenv/shims/ruby'
 nnoremap <silent><Leader>e :Errors<CR>
 nnoremap <silent><Leader>c :lclose<CR>
 
@@ -566,24 +567,24 @@ nmap <c-x> <Plug>GitGutterRevertHunk
 " Ruby and Rails
 " ==============
 " unite-rails
-nnoremap <silent> [unite]ra :<C-u>Unite rails/asset<CR>
-nnoremap <silent> [unite]rb :<C-u>Unite rails/bundle<CR>
-nnoremap <silent> [unite]rB :<C-u>Unite rails/bundled_gem<CR>
-nnoremap <silent> [unite]rc :<C-u>Unite rails/controller<CR>
-nnoremap <silent> [unite]rC :<C-u>Unite rails/config<CR>
-nnoremap <silent> [unite]rd :<C-u>Unite rails/db<CR>
-nnoremap <silent> [unite]rg :<C-u>Unite rails/generate<CR>
-nnoremap <silent> [unite]rG :<C-u>Unite rails/gemfile<CR>
-nnoremap <silent> [unite]rh :<C-u>Unite rails/helper<CR>
-nnoremap <silent> [unite]rj :<C-u>Unite rails/javascript<CR>
-nnoremap <silent> [unite]rl :<C-u>Unite rails/log<CR>
-nnoremap <silent> [unite]rL :<C-u>Unite rails/lib<CR>
-nnoremap <silent> [unite]rm :<C-u>Unite rails/model<CR>
-nnoremap <silent> [unite]rM :<C-u>Unite rails/mailer<CR>
-nnoremap <silent> [unite]rr :<C-u>Unite rails/route<CR>
-nnoremap <silent> [unite]rs :<C-u>Unite rails/stylesheet<CR>
-nnoremap <silent> [unite]rt :<C-u>Unite rails/test<CR>
-nnoremap <silent> [unite]rv :<C-u>Unite rails/view<CR>
+nnoremap <silent> [unite]ra :<c-u>Unite rails/asset<CR>
+nnoremap <silent> [unite]rb :<c-u>Unite rails/bundle<CR>
+nnoremap <silent> [unite]rB :<c-u>Unite rails/bundled_gem<CR>
+nnoremap <silent> [unite]rc :<c-u>Unite rails/controller<CR>
+nnoremap <silent> [unite]rC :<c-u>Unite rails/config<CR>
+nnoremap <silent> [unite]rd :<c-u>Unite rails/db<CR>
+nnoremap <silent> [unite]rg :<c-u>Unite rails/generate<CR>
+nnoremap <silent> [unite]rG :<c-u>Unite rails/gemfile<CR>
+nnoremap <silent> [unite]rh :<c-u>Unite rails/helper<CR>
+nnoremap <silent> [unite]rj :<c-u>Unite rails/javascript<CR>
+nnoremap <silent> [unite]rl :<c-u>Unite rails/log<CR>
+nnoremap <silent> [unite]rL :<c-u>Unite rails/lib<CR>
+nnoremap <silent> [unite]rm :<c-u>Unite rails/model<CR>
+nnoremap <silent> [unite]rM :<c-u>Unite rails/mailer<CR>
+nnoremap <silent> [unite]rr :<c-u>Unite rails/route<CR>
+nnoremap <silent> [unite]rs :<c-u>Unite rails/stylesheet<CR>
+nnoremap <silent> [unite]rt :<c-u>Unite rails/test<CR>
+nnoremap <silent> [unite]rv :<c-u>Unite rails/view<CR>
 " neocomplete-rsense.vim
 let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
 " vim-seeing-is-believing
