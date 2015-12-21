@@ -566,13 +566,11 @@ nmap <c-x> <Plug>GitGutterRevertHunk
 " ==============
 " unite-rails
 nnoremap <silent> [unite]ra :<c-u>Unite rails/asset<CR>
-nnoremap <silent> [unite]rb :<c-u>Unite rails/bundle<CR>
-nnoremap <silent> [unite]rB :<c-u>Unite rails/bundled_gem<CR>
+nnoremap <silent> [unite]rb :<c-u>Unite rails/bundled_gem<CR>
 nnoremap <silent> [unite]rc :<c-u>Unite rails/controller<CR>
 nnoremap <silent> [unite]rC :<c-u>Unite rails/config<CR>
 nnoremap <silent> [unite]rd :<c-u>Unite rails/db<CR>
-nnoremap <silent> [unite]rg :<c-u>Unite rails/generate<CR>
-nnoremap <silent> [unite]rG :<c-u>Unite rails/gemfile<CR>
+nnoremap <silent> [unite]rg :<c-u>Unite rails/gemfile<CR>
 nnoremap <silent> [unite]rh :<c-u>Unite rails/helper<CR>
 nnoremap <silent> [unite]rj :<c-u>Unite rails/javascript<CR>
 nnoremap <silent> [unite]rl :<c-u>Unite rails/log<CR>
