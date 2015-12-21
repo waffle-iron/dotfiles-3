@@ -1,10 +1,18 @@
-AppCops:
-  Excludes:
-    - 'Gemfile'
-    - 'db/schema.rb'
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - '**/Gemfile'
+    - '**/Gemfile.lock'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bundle_bin/*'
+    - 'bin/*'
+    - 'vendor/**/*'
   DisplayCopNames: true
-
-#################### Style ####################
+  RunRailsCops: true
 
 # Enable Japanese comments
 Style/AsciiComments:
@@ -26,31 +34,3 @@ Style/SingleLineBlockParams:
 # Allow multiple spaces before args
 Style/SingleSpaceBeforeFirstArg:
   Enabled: false
-
-# Use double quotes
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
-  Exclude:
-    - '**/Gemfile'
-
-Style/TrailingComma:
-  EnforcedStyleForMultiline: comma
-
-#################### Lint ####################
-
-
-#################### Metrics ####################
-
-Metrics/AbcSize:
-  Max: 30
-
-Metrics/LineLength:
-  Max: 160
-  Exclude:
-    - "db/migrate/*.rb"
-
-Metrics/MethodLength:
-  Max: 20
-  Exclude:
-    - "db/migrate/*.rb"
-
