@@ -19,18 +19,17 @@
 [color]
   ui = auto
 [alias]
-  a  = add
-  c  = commit -v
-  cm = commit
-  o  = checkout
-  co = checkout
-  d  = diff
-  s  = status
-  st = status
-  br = branch
-  p  = push
-  pl = !git pull && git submodule update --init
+  a	= add
+  b  	= branch
+  c  	= commit -v
+  cm 	= commit
+  co 	= checkout
+  d  	= diff
   graph = log --graph --date=short --pretty='%C(yellow)%h%Creset %C(cyan bold)%d%Creset %s %Cgreen[%cd]%Creset' --decorate
+  l	= graph
+  p  	= push
+  pl 	= !git pull && git submodule update --init
+  s  	= status
 [push]
   default = simple
 [init]
