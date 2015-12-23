@@ -180,7 +180,7 @@ NeoBundle 'Shougo/neosnippet'
 " unite.vim
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'kmnk/vim-unite-giti'
+NeoBundle 'ystkme/vim-unite-giti'
 NeoBundle 'garymh/unite-rails'
 " yankround
 NeoBundle 'LeafCage/yankround.vim'
@@ -451,6 +451,7 @@ function! s:unite_hooks.giti_status()
   nnoremap <silent><buffer><expr>a unite#do_action('add')
   nnoremap <silent><buffer><expr>A unite#do_action('add_patch')
   nnoremap <silent><buffer><expr>c unite#do_action('commit')
+  nnoremap <silent><buffer><expr>C unite#do_action('amend')
   nnoremap <silent><buffer><expr>d unite#do_action('diff')
   nnoremap <silent><buffer><expr>o unite#do_action('checkout')
   nnoremap <silent><buffer><expr>r unite#do_action('rm_cached')
