@@ -538,21 +538,22 @@ nnoremap <silent><Leader>t :TagbarToggle<CR>
 " vim-fugitive
 " -------------
 set previewheight=40 " set height of Gstatus
+nnoremap <silent><Leader>ga :Gwrite<CR>
+nnoremap <silent><Leader>gb :Gbrowse master<CR>
 nnoremap <silent><Leader>gB :Gblame<CR>
 nnoremap <silent><Leader>gc :Gcommit -v<CR>
 nnoremap <silent><Leader>gC :Gcommit -v --amend<CR>
 nnoremap <silent><Leader>gd :Gdiff<CR>
 " Checkout current file
-nnoremap <silent><Leader>gx :Gread<CR>
+nnoremap <silent><Leader>go :Gread<CR>
 nnoremap <silent><Leader>gp :Gpush<CR>
-nnoremap <silent><Leader>gS :Gstatus<CR>
-nnoremap <silent><Leader>ga :Gwrite<CR>
-nnoremap <silent><Leader>gu :Git reset HEAD %<CR>
+nnoremap <silent><Leader>gr :Git reset HEAD %<CR>
+nnoremap <silent><Leader>gs :Gstatus<CR>
 
 " gitv
 " ---
-nnoremap <silent><Leader>gv :Gitv<CR>
-nnoremap <silent><Leader>gV :Gitv!<CR>
+nnoremap <silent><Leader>gl :Gitv<CR>
+nnoremap <silent><Leader>gL :Gitv!<CR>
 
 " vim-gitgutter
 " -------------
