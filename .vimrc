@@ -104,7 +104,7 @@ nnoremap <silent><Leader>N :enew<CR>
 nnoremap <silent><c-h> :bprevious<CR>
 nnoremap <silent><c-l> :bnext<CR>
 " Close buffer and pane
-nnoremap <silent><Leader>d :bd<CR>
+nnoremap <silent><Leader>D :bd<CR>
 " Split pane
 nnoremap <silent><Leader>v :vsplit<CR>
 " Clear hilight
@@ -176,12 +176,17 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neocomplete.vim'
 " neosnippet
 NeoBundle 'Shougo/neosnippet'
+" unite.vim
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'kmnk/vim-unite-giti'
+NeoBundle 'garymh/unite-rails'
+" yankround
+NeoBundle 'LeafCage/yankround.vim'
 " incsearch.vim
 NeoBundle 'haya14busa/incsearch.vim'
 " syntastic
 NeoBundle 'scrooloose/syntastic'
-" yankround
-NeoBundle 'LeafCage/yankround.vim'
 " vim-auto-save
 NeoBundle 'vim-scripts/vim-auto-save'
 " vim-bufkill
@@ -310,54 +315,6 @@ filetype plugin indent on
 NeoBundleCheck
 " NeoBundle END
 " =============
-" Unite.vim
-" ---------
-let g:unite_enable_ignore_case = 1
-let g:unite_enable_smart_case = 1
-let g:unite_source_rec_max_cache_files = 5000
-let g:unite_source_file_mru_limit      = 200
-augroup unite
-  autocmd!
-  autocmd FileType unite nmap <buffer><c-j> <Plug>(unite_exit)
-augroup END
-" The prefix key.
-nnoremap [unite]  <Nop>
-nmap     <space>  [unite]
-
-" Directory
-nnoremap <silent> [unite]u :<c-u>call DispatchUniteFileRecAsyncOrGit()<CR>
-nnoremap <silent> [unite]b :<c-u>UniteWithBufferDir file file/new<CR>
-" history
-nnoremap <silent> [unite]h :<c-u>Unite file_mru<CR>
-" Opening buffers
-nnoremap <silent> [unite]C :<c-u>Unite buffer<CR>
-" Copy history
-nnoremap <silent> [unite]p :<c-u>Unite yankround<CR>
-" Outline
-nnoremap <silent> [unite]o :<c-u>Unite outline:. -buffer-name=search-buffer<CR>
-" Grep
-nnoremap <silent> [unite]G :<c-u>Unite grep:. -buffer-name=search-buffer<CR>
-" Tag
-nnoremap <silent> [unite]T :<c-u>Unite tag<CR>
-
-" Use 'ag' for Unite grep
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --hidden --ignore'
-  let g:unite_source_grep_recursive_opt = ''
-endif
-" Check if directory is git project
-let s:ignore_patterns = 'vendor/\|.bundle/\|\.\(gif\|jpe\?g\|png\|webp\)$'
-" let s:unite_ignore_patterns = '.\(gif\|jpe\?g\|png\|webp\)$'
-call unite#custom#source('file_rec/git', 'ignore_pattern', s:ignore_patterns)
-function! DispatchUniteFileRecAsyncOrGit()
-  " If current directory is git repo
-  if isdirectory(getcwd()."/.git")
-    Unite file_rec/git:--cached:--others:--exclude-standard
-  else
-    Unite file_rec/async
-  endif
-endfunction
 
 " vimfiler
 " --------
@@ -469,7 +426,7 @@ nnoremap <silent><Leader>c :lclose<CR>
 " -------------
 let g:auto_save = 1
 let g:auto_save_silent = 1
-
+let g:auto_save_in_insert_mode = 0
 " bufkill.vim
 " -----------
 nnoremap <c-d> :BD<CR>
