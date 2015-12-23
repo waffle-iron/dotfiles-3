@@ -451,25 +451,26 @@ endfunction
 let s:unite_hooks = {}
 function! s:unite_hooks.giti_status()
   nnoremap <silent><buffer><expr>a unite#do_action('add')
+  nnoremap <silent><buffer><expr>A unite#do_action('add_patch')
   nnoremap <silent><buffer><expr>c unite#do_action('commit')
-  nnoremap <silent><buffer><expr>C unite#do_action('checkout')
   nnoremap <silent><buffer><expr>d unite#do_action('diff')
+  nnoremap <silent><buffer><expr>o unite#do_action('checkout')
+  nnoremap <silent><buffer><expr>r unite#do_action('rm_cached')
   nnoremap <silent><buffer><expr>u unite#do_action('unstage')
 endfunction
 function! s:unite_hooks.giti_log()
-  nnoremap <silent><buffer><expr>v unite#do_action('view')
   nnoremap <silent><buffer><expr>d unite#do_action('diff')
   nnoremap <silent><buffer><expr>r unite#do_action('revert')
-  nnoremap <silent><buffer><expr>C unite#do_action('checkout')
-  nnoremap <silent><buffer><expr>D unite#do_action('vimdiff')
+  nnoremap <silent><buffer><expr>o unite#do_action('checkout')
   nnoremap <silent><buffer><expr>R unite#do_action('reset')
-endfunction"}}}
+  nnoremap <silent><buffer><expr>v unite#do_action('view')
+endfunction
 function! s:unite_hooks.giti_branch()
   nnoremap <silent><buffer><expr>d unite#do_action('delete')
   nnoremap <silent><buffer><expr>D unite#do_action('delete_force')
   nnoremap <silent><buffer><expr>rd unite#do_action('delete_remote')
   nnoremap <silent><buffer><expr>rD unite#do_action('delete_remote_force')
-endfunction"}}}
+endfunction
 function! s:unite_hooks.giti_branch_all()
   call self.giti_branch()
 endfunctio
