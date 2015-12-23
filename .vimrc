@@ -281,19 +281,6 @@ NeoBundle 'kannokanno/previm', {
       \ "autoload": {"filetypes":['markdown']}
       \ }
 
-" Gist
-NeoBundleLazy 'lambdalisue/vim-gista', {
-      \ 'depends': [
-      \    'Shougo/unite.vim',
-      \    'tyru/open-browser.vim',
-      \ ],
-      \ 'autoload': {
-      \    'commands': ['Gista'],
-      \    'mappings': '<Plug>(gista-',
-      \    'unite_sources': 'gista',
-      \}}
-let g:gista#github_user = 'ystkme'
-
 " Appearance
 " ==========
 NeoBundle 'sheerun/vim-polyglot'
