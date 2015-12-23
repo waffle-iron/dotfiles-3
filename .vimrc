@@ -180,7 +180,7 @@ NeoBundle 'Shougo/neosnippet'
 " unite.vim
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'ystkme/vim-unite-giti'
+NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle 'garymh/unite-rails'
 " yankround
 NeoBundle 'LeafCage/yankround.vim'
