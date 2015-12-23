@@ -310,7 +310,7 @@ let g:vimfiler_enable_auto_cd = 1
 let g:vimfiler_tree_leaf_icon = ' '
 let g:vimfiler_tree_opened_icon = '▾'
 let g:vimfiler_tree_closed_icon = '▸'
-" close vimfiler automatically when there are only vimfiler open
+" close vimfiler automatically when only vimfiler opening
 augroup vimfiler
   autocmd!
   autocmd BufEnter * if (winnr('$') == 1 && &filetype ==# 'vimfiler') | q | endif
@@ -491,6 +491,7 @@ nnoremap <silent><Leader>c :lclose<CR>
 let g:auto_save = 1
 let g:auto_save_silent = 1
 let g:auto_save_in_insert_mode = 0
+
 " bufkill.vim
 " -----------
 nnoremap <c-d> :BD<CR>
@@ -554,7 +555,7 @@ nnoremap <silent><Leader>gs :Gstatus<CR>
 
 " vimagit
 " -------
-nnoremap <silent><Leader>gg :Magit<CR> 
+nnoremap <silent><Leader>gg :Magit<CR>
 
 " gitv
 " ---
@@ -599,8 +600,10 @@ augroup END
 " JavaScript
 " ==========
 " vim-better-javascript-completion
+" --------------------------------
 let g:vimjs#casesensitive = 0
 let g:vimjs#smartcomplete = 1
+
 " cosco.vim
 " ---------
 augroup cosco
@@ -624,11 +627,11 @@ augroup emmet
   autocmd!
   autocmd FileType html,eruby,css,sass,scss call s:map_emmet()
 augroup END
-
 function! s:map_emmet()
   " expand neosnippet snippet if possible, falling back to emmet expansion
   imap <buffer> <expr> <c-k> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<Plug>(emmet-expand-abbr)"
 endfunction
+
 " open-browser.vim
 " ----------------
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
@@ -669,6 +672,7 @@ let g:indentLine_faster = 1
 let g:indentLine_char = '¦'
 let g:indentLine_color_term = 232
 nnoremap <silent><Leader>i :IndentLinesToggle<CR>
+
 " vim-airline
 " -------
 let g:airline#extensions#tabline#enabled  = 1
