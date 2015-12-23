@@ -170,12 +170,6 @@ NeoBundle 'Shougo/vimproc.vim', {
     \    },
     \ }
 
-" unite.vim
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'garymh/unite-rails'
 " vimfiler
 NeoBundle 'Shougo/vimfiler'
 " neocomplete.vim
@@ -471,23 +465,10 @@ let g:syntastic_ruby_checkers 	    = ['rubocop']
 nnoremap <silent><Leader>e :Errors<CR>
 nnoremap <silent><Leader>c :lclose<CR>
 
-" yankround
-" ---------
-nmap p <Plug>(yankround-p)
-xmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap gp <Plug>(yankround-gp)
-xmap gp <Plug>(yankround-gp)
-nmap gP <Plug>(yankround-gP)
-nmap <expr><c-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(GitGutterPrevHunk)"
-nmap <expr><c-n> yankround#is_active() ? "\<Plug>(yankround-next)" : "<SID>(GitGutterNextHunk)"
-let g:yankround_use_region_hl = 1
-
 " vim-auto-save
 " -------------
 let g:auto_save = 1
 let g:auto_save_silent = 1
-let g:auto_save_in_insert_mode = 0
 
 " bufkill.vim
 " -----------
@@ -538,16 +519,16 @@ nnoremap <silent><Leader>t :TagbarToggle<CR>
 
 " vim-fugitive
 " -------------
-nnoremap <silent><Leader>gb :Gblame<CR>
-nnoremap <silent><Leader>gc :Gcommit -v<CR>
-nnoremap <silent><Leader>gC :Gcommit -v --amend<CR>
-nnoremap <silent><Leader>gd :Gdiff<CR>
+nnoremap <silent><Leader>fb :Gblame<CR>
+nnoremap <silent><Leader>fc :Gcommit -v<CR>
+nnoremap <silent><Leader>fC :Gcommit -v --amend<CR>
+nnoremap <silent><Leader>fd :Gdiff<CR>
 " Checkout current file
-nnoremap <silent><Leader>gx :Gread<CR>
-nnoremap <silent><Leader>gp :Gpush<CR>
-nnoremap <silent><Leader>gs :Gstatus<CR>
-nnoremap <silent><Leader>ga :Gwrite<CR>
-nnoremap <silent><Leader>gu :Git reset HEAD %<CR>
+nnoremap <silent><Leader>fx :Gread<CR>
+nnoremap <silent><Leader>fp :Gpush<CR>
+nnoremap <silent><Leader>fs :Gstatus<CR>
+nnoremap <silent><Leader>fa :Gwrite<CR>
+nnoremap <silent><Leader>fu :Git reset HEAD %<CR>
 
 " gitv
 " ---
@@ -564,23 +545,6 @@ nmap <c-x> <Plug>GitGutterRevertHunk
 
 " Ruby and Rails
 " ==============
-" unite-rails
-nnoremap <silent> [unite]ra :<c-u>Unite rails/asset<CR>
-nnoremap <silent> [unite]rb :<c-u>Unite rails/bundled_gem<CR>
-nnoremap <silent> [unite]rc :<c-u>Unite rails/controller<CR>
-nnoremap <silent> [unite]rC :<c-u>Unite rails/config<CR>
-nnoremap <silent> [unite]rd :<c-u>Unite rails/db<CR>
-nnoremap <silent> [unite]rg :<c-u>Unite rails/gemfile<CR>
-nnoremap <silent> [unite]rh :<c-u>Unite rails/helper<CR>
-nnoremap <silent> [unite]rj :<c-u>Unite rails/javascript<CR>
-nnoremap <silent> [unite]rl :<c-u>Unite rails/log<CR>
-nnoremap <silent> [unite]rL :<c-u>Unite rails/lib<CR>
-nnoremap <silent> [unite]rm :<c-u>Unite rails/model<CR>
-nnoremap <silent> [unite]rM :<c-u>Unite rails/mailer<CR>
-nnoremap <silent> [unite]rr :<c-u>Unite rails/route<CR>
-nnoremap <silent> [unite]rs :<c-u>Unite rails/stylesheet<CR>
-nnoremap <silent> [unite]rt :<c-u>Unite rails/test<CR>
-nnoremap <silent> [unite]rv :<c-u>Unite rails/view<CR>
 " neocomplete-rsense.vim
 let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
 " vim-seeing-is-believing
@@ -696,6 +660,7 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_section_y=''
+
 " USER
 " ====
 " dash from vim
@@ -711,6 +676,7 @@ function! s:dash(...)
   call system(printf("open dash://'%s'", word))
 endfunction
 command! -nargs=* Dash call <SID>dash(<f-args>)
+nnoremap <silent><Leader>d :Dash<CR>
 
 " STYLE
 " =====
@@ -718,4 +684,3 @@ syntax on
 colorscheme gotham
 " Make comment italic
 highlight Comment cterm=italic gui=italic
-
