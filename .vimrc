@@ -585,7 +585,7 @@ nnoremap <silent><Leader>t :TagbarToggle<CR>
 
 " vim-fugitive
 " -------------
-let g:fugitive_git_executable = executable('hub') ? 'hub' : 'git'
+set previewheight=40 " set height of Gstatus
 nnoremap <silent><Leader>gB :Gblame<CR>
 nnoremap <silent><Leader>gc :Gcommit -v<CR>
 nnoremap <silent><Leader>gC :Gcommit -v --amend<CR>
