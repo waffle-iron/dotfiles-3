@@ -569,8 +569,8 @@ nnoremap <silent><Leader>fu :Git reset HEAD %<CR>
 
 " gitv
 " ---
-nnoremap <silent><Leader>gl :Gitv<CR>
-nnoremap <silent><Leader>gf :Gitv!<CR>
+nnoremap <silent><Leader>gv :Gitv<CR>
+nnoremap <silent><Leader>gV :Gitv!<CR>
 
 " vim-gitgutter
 " -------------
