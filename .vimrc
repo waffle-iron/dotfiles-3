@@ -148,14 +148,15 @@ augroup disableAutoComment
   autocmd FileType markdown setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup END
 
+" ==============
 " NeoBundle FROM
 " ==============
- if has('vim_starting')
-   if &compatible
-     set nocompatible " Be iMproved
-   endif
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
- endif
+if has('vim_starting')
+  if &compatible
+    set nocompatible " Be iMproved
+  endif
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -202,22 +203,19 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
-
-" Substite with ':S/{pattern}/{string}/[flags]', Replace with'/c' options
-" crs: snake_case / crm: MixedCase / crc: camelCase / crs: snake_case / cru: UPPER_CASE
+" Change text
 NeoBundle 'tpope/vim-abolish'
-" ae : entire content / ie : excluding empty lines
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-sleuth'
-NeoBundle 'tyru/open-browser.vim'
 
 " Document
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
+NeoBundle 'tyru/open-browser.vim'
 
 " Ruby and Rails
 " ==============
@@ -298,7 +296,6 @@ let g:gista#github_user = 'ystkme'
 
 " Appearance
 " ==========
-" Includes ruby, es6, slim, html5 etc..
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/AfterColors.vim'
 " vim-better-whitespace
@@ -313,6 +310,7 @@ call neobundle#end()
 " Required:
 filetype plugin indent on
 NeoBundleCheck
+" =============
 " NeoBundle END
 " =============
 
@@ -597,7 +595,6 @@ let s:switch_definition = {
 " tagbar
 " ------
 nnoremap <silent><Leader>t :TagbarToggle<CR>
-" let g:tagbar_sort = 0
 
 " vim-fugitive
 " -------------
@@ -713,6 +710,8 @@ augroup markdown
   autocmd markdown FileType markdown hi! def link markdownItalic LineNr
 augroup END
 
+" Appearance
+" ==========
 " vim-better-whitespace
 " ---------------------
 let g:better_whitespace_filetypes_blacklist = ['unite', 'vimfiler']
@@ -743,6 +742,8 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_section_y=''
+let g:airline#extensions#syntastic#enabled = 0
+let g:airline#extensions#whitespace#checks = []
 
 " USER
 " ====
