@@ -414,7 +414,6 @@ function! DispatchUniteFileRecAsyncOrGit()
 endfunction
 
 " unite-giti
-let g:giti_git_command = executable('hub') ? 'hub' : 'git'
 nnoremap [unite]gs :Unite giti/status -vertical<CR>
 nnoremap [unite]gl :Unite giti/log -vertical<CR>
 nnoremap [unite]gb :Unite giti/branch_all -vertical<CR>
