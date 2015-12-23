@@ -40,6 +40,7 @@ set showmatch                       " Jump to matched pair when bleckets inserte
 set matchtime=1
 set hidden                          " Enable opening files while unsaved
 set switchbuf=useopen               " Behavior for switching buffers
+set splitright                      " New buffer show up right
 
 set wildmenu                        " Turn on wildmenu
 set wildmode=longest:full,full
@@ -202,6 +203,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
+NeoBundle 'jreybert/vimagit'
 " Change text
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'kana/vim-textobj-entire'
@@ -550,6 +552,10 @@ nnoremap <silent><Leader>gp :Gpush<CR>
 nnoremap <silent><Leader>gr :Git reset HEAD %<CR>
 nnoremap <silent><Leader>gs :Gstatus<CR>
 
+" vimagit
+" -------
+nnoremap <silent><Leader>gg :Magit<CR> 
+
 " gitv
 " ---
 nnoremap <silent><Leader>gl :Gitv<CR>
@@ -566,6 +572,7 @@ nmap <c-x> <Plug>GitGutterRevertHunk
 " Ruby and Rails
 " ==============
 " neocomplete-rsense.vim
+" ----------------------
 let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
 " vim-seeing-is-believing
 " -----------------------
