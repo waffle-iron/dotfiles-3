@@ -12,7 +12,7 @@ AllCops:
     - 'bin/*'
     - 'vendor/**/*'
   DisplayCopNames: true
-  RunRailsCops: true
+  # RunRailsCops: true
 
 # Enable Japanese comments
 Style/AsciiComments:
