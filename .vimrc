@@ -392,7 +392,7 @@ augroup unite
   autocmd FileType unite nmap <buffer><c-j> <Plug>(unite_exit)
 augroup END
 call unite#custom#profile('default', 'context', {
-  \ 'vertical':	 'vertical',
+  \ 'direction': 'botright',
   \ 'winwidth':  '100',
   \ })
 " The prefix key.
@@ -400,15 +400,13 @@ nnoremap [unite]  <Nop>
 nmap     <space>  [unite]
 " Directory
 nnoremap <silent> [unite]u :<c-u>call DispatchUniteFileRecAsyncOrGit()<CR>
-nnoremap <silent> [unite]b :<c-u>UniteWithBufferDir file file/new<CR>
+nnoremap <silent> [unite]b :<c-u>UniteWithBufferDir file file/new -vertical<CR>
 " history
-nnoremap <silent> [unite]h :<c-u>Unite file_mru<CR>
+nnoremap <silent> [unite]h :<c-u>Unite file_mru -vertical<CR>
 " Opening buffers
-nnoremap <silent> [unite]C :<c-u>Unite buffer<CR>
+nnoremap <silent> [unite]C :<c-u>Unite buffer -vertical<CR>
 " Grep
-nnoremap <silent> [unite]g :<c-u>Unite grep:. -buffer-name=search-buffer<CR>
-" Tag
-nnoremap <silent> [unite]T :<c-u>Unite tag<CR>
+nnoremap <silent> [unite]G :<c-u>Unite grep:. -buffer-name=search-buffer -vertical<CR>
 
 " Use 'ag'(the_silver_searcher) for Unite grep
 if executable('ag')
@@ -424,33 +422,79 @@ call unite#custom#source('file_rec/git', 'ignore_pattern', s:ignore_patterns)
 function! DispatchUniteFileRecAsyncOrGit()
   " If current directory is git repo
   if isdirectory(getcwd()."/.git")
-    Unite file_rec/git:--cached:--others:--exclude-standard
+    Unite file_rec/git:--cached:--others:--exclude-standard -vertical
   else
-    Unite file_rec/async
+    Unite file_rec/async -vertical
   endif
 endfunction
 
+" unite-giti
+let g:giti_git_command = executable('hub') ? 'hub' : 'git'
+nnoremap [unite]gs :Unite giti/status -vertical<CR>
+nnoremap [unite]gl :Unite giti/log -vertical<CR>
+nnoremap [unite]gb :Unite giti/branch_all -vertical<CR>
+
+augroup UniteCommand
+  autocmd!
+  autocmd FileType unite call <SID>unite_settings()
+augroup END
+
+function! s:unite_settings()
+  for source in unite#get_current_unite().sources
+    let source_name = substitute(source.name, '[-/]', '_', 'g')
+    if !empty(source_name) && has_key(s:unite_hooks, source_name)
+      call s:unite_hooks[source_name]()
+    endif
+  endfor
+endfunction
+
+let s:unite_hooks = {}
+function! s:unite_hooks.giti_status()
+  nnoremap <silent><buffer><expr>a unite#do_action('add')
+  nnoremap <silent><buffer><expr>c unite#do_action('commit')
+  nnoremap <silent><buffer><expr>C unite#do_action('checkout')
+  nnoremap <silent><buffer><expr>d unite#do_action('diff')
+  nnoremap <silent><buffer><expr>u unite#do_action('unstage')
+endfunction
+function! s:unite_hooks.giti_log()
+  nnoremap <silent><buffer><expr>v unite#do_action('view')
+  nnoremap <silent><buffer><expr>d unite#do_action('diff')
+  nnoremap <silent><buffer><expr>r unite#do_action('revert')
+  nnoremap <silent><buffer><expr>C unite#do_action('checkout')
+  nnoremap <silent><buffer><expr>D unite#do_action('vimdiff')
+  nnoremap <silent><buffer><expr>R unite#do_action('reset')
+endfunction"}}}
+function! s:unite_hooks.giti_branch()
+  nnoremap <silent><buffer><expr>d unite#do_action('delete')
+  nnoremap <silent><buffer><expr>D unite#do_action('delete_force')
+  nnoremap <silent><buffer><expr>rd unite#do_action('delete_remote')
+  nnoremap <silent><buffer><expr>rD unite#do_action('delete_remote_force')
+endfunction"}}}
+function! s:unite_hooks.giti_branch_all()
+  call self.giti_branch()
+endfunctio
+
 " unite-rails
-nnoremap <silent> [unite]ra :<c-u>Unite rails/asset<CR>
-nnoremap <silent> [unite]rb :<c-u>Unite rails/bundled_gem<CR>
-nnoremap <silent> [unite]rc :<c-u>Unite rails/controller<CR>
-nnoremap <silent> [unite]rC :<c-u>Unite rails/config<CR>
-nnoremap <silent> [unite]rd :<c-u>Unite rails/db<CR>
-nnoremap <silent> [unite]rg :<c-u>Unite rails/gemfile<CR>
-nnoremap <silent> [unite]rh :<c-u>Unite rails/helper<CR>
-nnoremap <silent> [unite]rj :<c-u>Unite rails/javascript<CR>
-nnoremap <silent> [unite]rl :<c-u>Unite rails/log<CR>
-nnoremap <silent> [unite]rL :<c-u>Unite rails/lib<CR>
-nnoremap <silent> [unite]rm :<c-u>Unite rails/model<CR>
-nnoremap <silent> [unite]rM :<c-u>Unite rails/mailer<CR>
-nnoremap <silent> [unite]rr :<c-u>Unite rails/route<CR>
-nnoremap <silent> [unite]rs :<c-u>Unite rails/stylesheet<CR>
-nnoremap <silent> [unite]rt :<c-u>Unite rails/test<CR>
-nnoremap <silent> [unite]rv :<c-u>Unite rails/view<CR>
+nnoremap <silent> [unite]ra :<c-u>Unite rails/asset -vertical<CR>
+nnoremap <silent> [unite]rb :<c-u>Unite rails/bundled_gem -vertical<CR>
+nnoremap <silent> [unite]rc :<c-u>Unite rails/controller -vertical<CR>
+nnoremap <silent> [unite]rC :<c-u>Unite rails/config -vertical<CR>
+nnoremap <silent> [unite]rd :<c-u>Unite rails/db -vertical<CR>
+nnoremap <silent> [unite]rg :<c-u>Unite rails/gemfile -vertical<CR>
+nnoremap <silent> [unite]rh :<c-u>Unite rails/helper -vertical<CR>
+nnoremap <silent> [unite]rj :<c-u>Unite rails/javascript -vertical<CR>
+nnoremap <silent> [unite]rl :<c-u>Unite rails/log -vertical<CR>
+nnoremap <silent> [unite]rL :<c-u>Unite rails/lib -vertical<CR>
+nnoremap <silent> [unite]rm :<c-u>Unite rails/model -vertical<CR>
+nnoremap <silent> [unite]rM :<c-u>Unite rails/mailer -vertical<CR>
+nnoremap <silent> [unite]rr :<c-u>Unite rails/route -vertical<CR>
+nnoremap <silent> [unite]rs :<c-u>Unite rails/stylesheet -vertical<CR>
+nnoremap <silent> [unite]rt :<c-u>Unite rails/test -vertical<CR>
+nnoremap <silent> [unite]rv :<c-u>Unite rails/view -vertical<CR>
 
 " yankround
 " ---------
-nnoremap <silent> [unite]p :<c-u>Unite yankround<CR>
+nnoremap <silent> [unite]p :<c-u>Unite yankround -vertical<CR>
 nmap p <Plug>(yankround-p)
 xmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
@@ -556,16 +600,17 @@ nnoremap <silent><Leader>t :TagbarToggle<CR>
 
 " vim-fugitive
 " -------------
-nnoremap <silent><Leader>fb :Gblame<CR>
-nnoremap <silent><Leader>fc :Gcommit -v<CR>
-nnoremap <silent><Leader>fC :Gcommit -v --amend<CR>
-nnoremap <silent><Leader>fd :Gdiff<CR>
+let g:fugitive_git_executable = executable('hub') ? 'hub' : 'git'
+nnoremap <silent><Leader>gB :Gblame<CR>
+nnoremap <silent><Leader>gc :Gcommit -v<CR>
+nnoremap <silent><Leader>gC :Gcommit -v --amend<CR>
+nnoremap <silent><Leader>gd :Gdiff<CR>
 " Checkout current file
-nnoremap <silent><Leader>fx :Gread<CR>
-nnoremap <silent><Leader>fp :Gpush<CR>
-nnoremap <silent><Leader>fs :Gstatus<CR>
-nnoremap <silent><Leader>fa :Gwrite<CR>
-nnoremap <silent><Leader>fu :Git reset HEAD %<CR>
+nnoremap <silent><Leader>gx :Gread<CR>
+nnoremap <silent><Leader>gp :Gpush<CR>
+nnoremap <silent><Leader>gS :Gstatus<CR>
+nnoremap <silent><Leader>ga :Gwrite<CR>
+nnoremap <silent><Leader>gu :Git reset HEAD %<CR>
 
 " gitv
 " ---
