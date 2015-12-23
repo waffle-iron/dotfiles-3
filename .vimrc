@@ -180,7 +180,6 @@ NeoBundle 'Shougo/neosnippet'
 " unite.vim
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle 'garymh/unite-rails'
 " yankround
 NeoBundle 'LeafCage/yankround.vim'
@@ -412,53 +411,6 @@ function! DispatchUniteFileRecAsyncOrGit()
     Unite file_rec/async -vertical
   endif
 endfunction
-
-" unite-giti
-nnoremap [unite]gs :Unite giti/status -vertical<CR>
-nnoremap [unite]gl :Unite giti/log -vertical<CR>
-nnoremap [unite]gb :Unite giti/branch_all -vertical<CR>
-
-augroup UniteCommand
-  autocmd!
-  autocmd FileType unite call <SID>unite_settings()
-augroup END
-
-function! s:unite_settings()
-  for source in unite#get_current_unite().sources
-    let source_name = substitute(source.name, '[-/]', '_', 'g')
-    if !empty(source_name) && has_key(s:unite_hooks, source_name)
-      call s:unite_hooks[source_name]()
-    endif
-  endfor
-endfunction
-
-let s:unite_hooks = {}
-function! s:unite_hooks.giti_status()
-  nnoremap <silent><buffer><expr>a unite#do_action('add')
-  nnoremap <silent><buffer><expr>A unite#do_action('add_patch')
-  nnoremap <silent><buffer><expr>c unite#do_action('commit')
-  nnoremap <silent><buffer><expr>C unite#do_action('amend')
-  nnoremap <silent><buffer><expr>d unite#do_action('diff')
-  nnoremap <silent><buffer><expr>o unite#do_action('checkout')
-  nnoremap <silent><buffer><expr>r unite#do_action('rm_cached')
-  nnoremap <silent><buffer><expr>u unite#do_action('unstage')
-endfunction
-function! s:unite_hooks.giti_log()
-  nnoremap <silent><buffer><expr>d unite#do_action('diff')
-  nnoremap <silent><buffer><expr>r unite#do_action('revert')
-  nnoremap <silent><buffer><expr>o unite#do_action('checkout')
-  nnoremap <silent><buffer><expr>R unite#do_action('reset')
-  nnoremap <silent><buffer><expr>v unite#do_action('view')
-endfunction
-function! s:unite_hooks.giti_branch()
-  nnoremap <silent><buffer><expr>d unite#do_action('delete')
-  nnoremap <silent><buffer><expr>D unite#do_action('delete_force')
-  nnoremap <silent><buffer><expr>rd unite#do_action('delete_remote')
-  nnoremap <silent><buffer><expr>rD unite#do_action('delete_remote_force')
-endfunction
-function! s:unite_hooks.giti_branch_all()
-  call self.giti_branch()
-endfunctio
 
 " unite-rails
 nnoremap <silent> [unite]ra :<c-u>Unite rails/asset -vertical<CR>
