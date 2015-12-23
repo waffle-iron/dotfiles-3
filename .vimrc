@@ -381,6 +381,86 @@ function! s:LoadRailsSnippet()
   endif
 endfunction
 
+" Unite.vim
+" ---------
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+let g:unite_source_rec_max_cache_files = 5000
+let g:unite_source_file_mru_limit      = 200
+augroup unite
+  autocmd!
+  autocmd FileType unite nmap <buffer><c-j> <Plug>(unite_exit)
+augroup END
+call unite#custom#profile('default', 'context', {
+  \ 'vertical':	 'vertical',
+  \ 'winwidth':  '100',
+  \ })
+" The prefix key.
+nnoremap [unite]  <Nop>
+nmap     <space>  [unite]
+" Directory
+nnoremap <silent> [unite]u :<c-u>call DispatchUniteFileRecAsyncOrGit()<CR>
+nnoremap <silent> [unite]b :<c-u>UniteWithBufferDir file file/new<CR>
+" history
+nnoremap <silent> [unite]h :<c-u>Unite file_mru<CR>
+" Opening buffers
+nnoremap <silent> [unite]C :<c-u>Unite buffer<CR>
+" Grep
+nnoremap <silent> [unite]g :<c-u>Unite grep:. -buffer-name=search-buffer<CR>
+" Tag
+nnoremap <silent> [unite]T :<c-u>Unite tag<CR>
+
+" Use 'ag'(the_silver_searcher) for Unite grep
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --hidden'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+" Check if directory is git project
+let s:ignore_patterns = 'vendor/\|.bundle/\|\.\(gif\|jpe\?g\|png\|webp\)$'
+
+" let s:unite_ignore_patterns = '.\(gif\|jpe\?g\|png\|webp\)$'
+call unite#custom#source('file_rec/git', 'ignore_pattern', s:ignore_patterns)
+function! DispatchUniteFileRecAsyncOrGit()
+  " If current directory is git repo
+  if isdirectory(getcwd()."/.git")
+    Unite file_rec/git:--cached:--others:--exclude-standard
+  else
+    Unite file_rec/async
+  endif
+endfunction
+
+" unite-rails
+nnoremap <silent> [unite]ra :<c-u>Unite rails/asset<CR>
+nnoremap <silent> [unite]rb :<c-u>Unite rails/bundled_gem<CR>
+nnoremap <silent> [unite]rc :<c-u>Unite rails/controller<CR>
+nnoremap <silent> [unite]rC :<c-u>Unite rails/config<CR>
+nnoremap <silent> [unite]rd :<c-u>Unite rails/db<CR>
+nnoremap <silent> [unite]rg :<c-u>Unite rails/gemfile<CR>
+nnoremap <silent> [unite]rh :<c-u>Unite rails/helper<CR>
+nnoremap <silent> [unite]rj :<c-u>Unite rails/javascript<CR>
+nnoremap <silent> [unite]rl :<c-u>Unite rails/log<CR>
+nnoremap <silent> [unite]rL :<c-u>Unite rails/lib<CR>
+nnoremap <silent> [unite]rm :<c-u>Unite rails/model<CR>
+nnoremap <silent> [unite]rM :<c-u>Unite rails/mailer<CR>
+nnoremap <silent> [unite]rr :<c-u>Unite rails/route<CR>
+nnoremap <silent> [unite]rs :<c-u>Unite rails/stylesheet<CR>
+nnoremap <silent> [unite]rt :<c-u>Unite rails/test<CR>
+nnoremap <silent> [unite]rv :<c-u>Unite rails/view<CR>
+
+" yankround
+" ---------
+nnoremap <silent> [unite]p :<c-u>Unite yankround<CR>
+nmap p <Plug>(yankround-p)
+xmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <expr><c-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(GitGutterPrevHunk)"
+nmap <expr><c-n> yankround#is_active() ? "\<Plug>(yankround-next)" : "<SID>(GitGutterNextHunk)"
+let g:yankround_use_region_hl = 1
+
 " incsearch.vim
 " -------------
 map /  <Plug>(incsearch-forward)
