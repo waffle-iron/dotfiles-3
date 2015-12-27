@@ -479,8 +479,7 @@ let g:syntastic_warning_symbol = '⚠'
 highlight SyntasticErrorSign ctermbg=000
 let g:syntastic_loc_list_height=5
 let g:syntastic_mode_map = {
-      \ 'mode': 'passive',
-      \ 'active_filetypes' : ['ruby', 'javascript', 'scss']}
+      \ 'mode': 'passive'}
 let g:syntastic_scss_checkers	    = ['scss_lint']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_ruby_checkers 	    = ['rubocop']
