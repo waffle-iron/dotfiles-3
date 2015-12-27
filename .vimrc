@@ -483,7 +483,8 @@ let g:syntastic_mode_map = {
 let g:syntastic_scss_checkers	    = ['scss_lint']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_ruby_checkers 	    = ['rubocop']
-nnoremap <silent><Leader>e :Errors<CR>
+nnoremap <silent><Leader>e :SyntasticToggleMode<CR>
+nnoremap <silent><Leader>E :Errors<CR>
 nnoremap <silent><Leader>c :lclose<CR>
 
 " vim-auto-save
