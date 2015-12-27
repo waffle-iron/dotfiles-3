@@ -344,6 +344,7 @@ let g:neosnippet#snippets_directory='~/.vim/snippet'
 " Detect filetype
 augroup filetypedetect
   autocmd!  BufEnter *_test.rb NeoSnippetSource ~/.vim/snippet/rails.test.snip
+  autocmd!  BufEnter routes.rb NeoSnippetSource ~/.vim/snippet/rails.route.snip
   autocmd!  BufEnter *rb       call s:LoadRailsSnippet()
 augroup END
 
