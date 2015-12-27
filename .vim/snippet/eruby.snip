@@ -17,6 +17,14 @@ snippet if
 options word
     <% if ${1} %>
 
+snippet unless
+options word
+  <% unless ${1} %>
+
+snippet else
+options word
+	<% else %>${1}
+
 snippet each 
 options word
     each do |${1}|
