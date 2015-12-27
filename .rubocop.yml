@@ -34,3 +34,7 @@ Style/SingleLineBlockParams:
 # Allow multiple spaces before args
 Style/SingleSpaceBeforeFirstArg:
   Enabled: false
+
+# Use double quotes
+StringLiterals:
+  EnforcedStyle: double_quotes
