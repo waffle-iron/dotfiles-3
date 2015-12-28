@@ -68,7 +68,7 @@ let g:mapleader = "\<Space>"
 noremap  <c-j>  <Esc>
 noremap! <c-j>  <Esc>
 cnoremap <c-j>  <Esc>
-noremap  r<c-j> r<Esc>
+nnoremap  r<c-j> r<Esc>
 " Go and Back
 inoremap <c-f> <Right>
 inoremap <c-b> <Left>
