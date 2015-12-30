@@ -23,7 +23,7 @@ set ttyfast
 set laststatus=2                    " Always show status line
 set ruler                           " Show cursor position
 set number                          " Show line number
-set wrap                            " Wrap the lines longer than window width
+set nowrap                          " Wrap the lines longer than window width
 set display=lastline                " Show the last lines as long as possible
 
 set hlsearch                        " Hilight the searched words
