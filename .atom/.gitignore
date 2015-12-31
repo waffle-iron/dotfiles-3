@@ -1,8 +1,0 @@
-storage/
-packages/
-compile-cache
-dev
-projects.cson
-.apm
-.npm
-.node-gyp
