@@ -1,12 +1,6 @@
 [core]
-  excludesfile = /Users/seiyayoshitaka/.gitignore_global
+  excludesfile = $HOME/.gitignore_global
   editor = vim -c \"set fenc=utf-8\"
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path = 
-[mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
 [user]
   name = ystkme
   email = bloom6445@gmail.com
@@ -19,17 +13,18 @@
 [color]
   ui = auto
 [alias]
-  a	= add
+  a		= add
   b  	= branch
   c  	= commit -v
-  cm 	= commit
+  ca 	= commit --amend
   co 	= checkout
   d  	= diff
-  graph = log --graph --date=short --pretty='%C(yellow)%h%Creset %C(cyan bold)%d%Creset %s %Cgreen[%cd]%Creset' --decorate
-  l	= graph
+  l		= log --graph --date=short --pretty='%C(yellow)%h%Creset %C(cyan bold)%d%Creset %s %Cgreen[%cd]%Creset' --decorate
   p  	= push
   pl 	= !git pull && git submodule update --init
+  rb  = rebase
   s  	= status
+  st  = stash
 [push]
   default = simple
 [init]

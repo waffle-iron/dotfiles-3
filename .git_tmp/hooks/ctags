@@ -1,0 +1,2 @@
+rm .git/tags
+/usr/local/bin/ctags --tag-relative --recurse --sort=yes  --append=no --exclude=.git --exclude=log --exclude=vendor --exclude=node_modules -f .git/tags
