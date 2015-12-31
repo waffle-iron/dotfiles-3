@@ -1,7 +1,0 @@
-" BASIC SETTINGS
-set ignorecase
-
-" KEY SETTINGS
-imap <C-j> <Esc>
-nmap <C-w> :w<cr>
-nmap <C-m> <cr>
