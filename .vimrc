@@ -203,7 +203,6 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
-NeoBundle 'jreybert/vimagit'
 " Change text
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'kana/vim-textobj-entire'
@@ -550,10 +549,6 @@ nnoremap <silent><Leader>go :Gread<CR>
 nnoremap <silent><Leader>gp :Gpush<CR>
 nnoremap <silent><Leader>gr :Git reset HEAD %<CR>
 nnoremap <silent><Leader>gs :Gstatus<CR>
-
-" vimagit
-" -------
-nnoremap <silent><Leader>gg :Magit<CR>
 
 " gitv
 " ---
