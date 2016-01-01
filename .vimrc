@@ -285,7 +285,6 @@ NeoBundle 'kannokanno/previm', {
 " Appearance
 " ==========
 NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'vim-scripts/AfterColors.vim'
 " vim-better-whitespace
 NeoBundle 'ntpeters/vim-better-whitespace'
 " vim-airline
