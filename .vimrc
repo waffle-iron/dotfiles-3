@@ -86,6 +86,7 @@ vnoremap j gj
 vnoremap gj j
 vnoremap k gk
 vnoremap gk k
+vnoremap <Leader>s :sort<CR>
 " Yank until end of line
 nnoremap Y y$
 " Jump to matched pairs **Use 'map'**
