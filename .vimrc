@@ -553,8 +553,7 @@ augroup END
 
 " Add pair words
 if !exists('loaded_matchit')
-  " matchitを有効化
-  runtime macros/matchit.vim
+  runtime macros/matchit.vim " enable matchit
 endif
 let b:match_ignorecase = 1
 augroup matchit
@@ -616,7 +615,6 @@ nnoremap <silent><Leader>m :InstantMarkdonwPreview<CR>
 " previm
 " ------
 let g:previm_show_header = 0
-
 let g:vim_markdown_folding_disabel = 1
 augroup markdown
   autocmd!
