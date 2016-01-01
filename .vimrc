@@ -288,8 +288,6 @@ NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/AfterColors.vim'
 " vim-better-whitespace
 NeoBundle 'ntpeters/vim-better-whitespace'
-" Yggdroot/indentLine
-NeoBundle 'Yggdroot/indentLine'
 " vim-airline
 NeoBundle 'bling/vim-airline'
 NeoBundle 'whatyouhide/vim-gotham'
@@ -666,13 +664,6 @@ augroup END
 " vim-better-whitespace
 " ---------------------
 let g:better_whitespace_filetypes_blacklist = ['unite', 'vimfiler']
-" indentLine
-" Disable by default
-let g:indentLine_enabled = 0
-let g:indentLine_faster = 1
-let g:indentLine_char = '¦'
-let g:indentLine_color_term = 232
-nnoremap <silent><Leader>i :IndentLinesToggle<CR>
 
 " vim-airline
 " -------
