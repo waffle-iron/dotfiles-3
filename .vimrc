@@ -219,7 +219,6 @@ NeoBundle 'tyru/open-browser.vim'
 
 " Ruby and Rails
 " ==============
-NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-rake'
@@ -503,33 +502,6 @@ map <silent>sc <Plug>(operator-surround-replace)
 " --------------
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 vmap <c-m> <Plug>(EasyAlign)
-
-" switch.vim
-" ----------
-nnoremap ! :Switch<CR>
-let s:switch_definition = {
-      \ '*': [
-      \   ['is', 'are']
-      \ ],
-      \ 'ruby,eruby,haml,slim' : [
-      \   ['if', 'unless'],
-      \   ['while', 'until'],
-      \   ['.blank?', '.present?'],
-      \   ['include', 'extend'],
-      \   ['class', 'module'],
-      \   ['.inject', '.delete_if'],
-      \   ['.map', '.map!'],
-      \   ['attr_accessor', 'attr_reader', 'attr_writer'],
-      \ ],
-      \ 'ruby.application_template' : [
-      \   ['yes?', 'no?'],
-      \   ['lib', 'initializer', 'file', 'vendor', 'rakefile'],
-      \   ['controller', 'model', 'view', 'migration', 'scaffold'],
-      \ ],
-      \ 'erb,html,php' : [
-      \   { '<!--\([a-zA-Z0-9 /]\+\)--></\(div\|ul\|li\|a\)>' : '</\2><!--\1-->' },
-      \ ]
-      \ }
 
 " tagbar
 " ------
