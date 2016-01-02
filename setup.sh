@@ -6,13 +6,20 @@ if [ ! -L ~/.zprezto -a -d ~/dotfiles/prezto ]; then
 fi
 
 DOT_FILES=(
+  .git_tmp
+  .peco
+  .vim
+  .zsh
+  .prezto
+  .csscomb.json
   .ctags
   .editorconfig
   .gemrc
   .gitconfig
   .gitignore_global
   .irbrc
-  .peco
+  .jsbeautifyrc
+  .jshintrc
   .pryrc
   .rubocop.yml
   .sass-lint.yml
@@ -20,13 +27,13 @@ DOT_FILES=(
   .tigrc
   .tmux
   .tmux.conf
-  .vim
   .vimrc
   .zlogin
   .zlogout
   .zpreztorc
   .zshenv
-  .zshrc)
+  .zshrc
+  )
 
 for file in ${DOT_FILES[@]}
 do
