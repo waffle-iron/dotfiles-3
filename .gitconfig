@@ -13,8 +13,9 @@
 [color]
   ui = auto
 [alias]
-  a		= add
+  a	= add
   b  	= branch
+  br    = browse
   c  	= commit -v
   ca 	= commit --amend
   co 	= checkout
@@ -22,9 +23,10 @@
   l		= log --graph --date=short --pretty='%C(yellow)%h%Creset %C(cyan bold)%d%Creset %s %Cgreen[%cd]%Creset' --decorate
   p  	= push
   pl 	= !git pull && git submodule update --init
-  rb  = rebase
+  mg    = merge
+  rb    = rebase
   s  	= status
-  st  = stash
+  st    = stash
 [push]
   default = simple
 [init]
