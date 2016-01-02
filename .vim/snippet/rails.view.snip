@@ -1,3 +1,20 @@
+# HTTP method
+snippet method
+options word
+  method: ${1}
+
+snippet post
+options word
+  post${1}
+
+snippet delete
+options word
+  delete${1}
+
+snippet collection
+options word
+  collection ${1}
+
 snippet check_box
 options word
   check_box ${1}
@@ -10,10 +27,17 @@ snippet confirm
 options word
   confirm: ${1}
 
+snippet csrf_meta_tags
+options word
+  csrf_meta_tags${1}
+
 snippet data
 options word
-	data: ${1}
+  data: ${1}
 
+snippet div_for
+options word
+  div_for ${1}
 snippet email_field
 options word
   email_field :${1}
@@ -30,6 +54,10 @@ snippet file_field
 options word
   file_field ${1}
 
+snippet javascript_include_tag
+options word
+  javascript_include_tag ${1}
+
 snippet label
 options word
   label ${1}
@@ -38,9 +66,10 @@ snippet link_to
 options word
   link_to ${1}
 
-snippet method
+snippet media
 options word
-  method: ${1}
+  media: ${1}
+
 
 snippet password_field
 options word
@@ -53,6 +82,10 @@ options word
 snippet render
 options word
   render ${1}
+
+snippet stylesheet_link_tag
+options word
+  stylesheet_link_tag ${1}
 
 snippet submit
 options word
@@ -70,7 +103,10 @@ snippet text-field-tag
 options word
   text_field_tag ${1}
 
-
 snippet url
 options word
   url: ${1}
+
+snippet yield
+options word
+  yield${1}

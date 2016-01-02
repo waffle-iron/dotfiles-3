@@ -1,6 +1,10 @@
 snippet add_index
 options word
-	add_index :${1}
+  add_index :${1}
+
+snippet case_sensitive
+options word
+  case_sensitive: ${1}
 
 snippet dependent
 options word
@@ -10,26 +14,61 @@ snippet destroy
 options word
   destroy
 
+snippet foreing_key
+options word
+  foreing_key${1}
+snippet format
+options word
+  format: ${1}
+
 snippet has_one
-options word 
+options word
   has_one ${1}
 
 snippet has_many
-options word 
+options word
   has_many ${1}
 
 snippet has_and_belongs_to_many
-options word 
+options word
   has_and_belongs_to_many ${1}
 
+snippet if
+options word
+  if: ${1}
+
+snippet in
+options word
+  in: ${1}
+
+snippet length
+options word
+  lenght :${1}
+
+snippet maximum
+options word
+  maximum: ${1}
+
+snippet minimum
+options word
+  minimum: ${1}
+
 snippet validates
-options word 
+options word
   validates ${1}
 
 snippet presence
 options word
-  presence: :${1}
+  presence: ${1}
 
 snippet update_attribute
 options word
   update_attribute(:${1})
+
+snippet uniqueness
+options word
+  uniqueness: ${1}
+
+snippet with
+options word
+  with: ${1}
