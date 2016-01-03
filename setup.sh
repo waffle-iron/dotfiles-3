@@ -9,8 +9,8 @@ DOT_FILES=(
   .git_tmp
   .peco
   .vim
-  .zsh
-  .prezto
+  .bashrc
+  .bash_profile
   .csscomb.json
   .ctags
   .editorconfig
@@ -20,6 +20,7 @@ DOT_FILES=(
   .irbrc
   .jsbeautifyrc
   .jshintrc
+  .profile
   .pryrc
   .rubocop.yml
   .sass-lint.yml
@@ -28,11 +29,6 @@ DOT_FILES=(
   .tmux
   .tmux.conf
   .vimrc
-  .zlogin
-  .zlogout
-  .zpreztorc
-  .zshenv
-  .zshrc
   )
 
 for file in ${DOT_FILES[@]}
