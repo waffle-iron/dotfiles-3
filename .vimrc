@@ -209,7 +209,7 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-smartinput'
-NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-sleuth'
 
 " Document
