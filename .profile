@@ -1,5 +1,5 @@
 # Prompt
-export PS1='\[\e[0;35m\]\w\[\e[0;32m\]$(__git_ps1) \[\e[0;36m\]$\[\e[m\] '
+export PS1='\[\e[0;32m\]\w\[\e[0;36m\]$(__git_ps1) \[\e[0;35m\]$\[\e[m\] '
 
 # TERM environment
 export TERM=xterm-256color-italic
