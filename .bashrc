@@ -31,5 +31,13 @@ peco-select-history() {
 }
 bind -x '"\C-r": peco-select-history'
 
+# git-completion
+if [ -f $HOME/.git-completion.bash ]; then
+  source $HOME/.git-completion.bash
+  __git_complete g __git_main
+fi
+
 # gibo
-source $HOME/.gibo-completion.bash
+if [ -f $HOME/.gibo-completion.bash ]; then
+  source $HOME/.gibo-completion.bash
+fi
