@@ -389,7 +389,7 @@ nnoremap <silent> [unite]h :<c-u>Unite file_mru -vertical<CR>
 " Opening buffers
 nnoremap <silent> [unite]C :<c-u>Unite buffer -vertical<CR>
 " Grep
-nnoremap <silent> [unite]G :<c-u>Unite grep:. -buffer-name=search-buffer -vertical<CR>
+nnoremap <silent> [unite]G :<c-u>Unite grep: -buffer-name=search-buffer -vertical<CR>
 
 " Use 'ag'(the_silver_searcher) for Unite grep
 if executable('ag')
