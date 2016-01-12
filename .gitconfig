@@ -2,14 +2,16 @@
   excludesfile = $HOME/.gitignore_global
   editor = vim -c \"set fenc=utf-8\"
 [user]
-  name = ystkme
+  name = yoshitakame
   email = bloom6445@gmail.com
+[credential]
+  helper = osxkeychain
 [filter "lfs"]
   clean = git lfs clean %f
   smudge = git lfs smudge %f
   required = true
 [github]
-  user = ystkme
+  user = yoshitakame
 [color]
   ui = auto
 [alias]
