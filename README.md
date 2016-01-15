@@ -4,4 +4,4 @@
 
 * `$ chmod +x setup.sh`
 
-* `$ setup.sh`  
+* `$ ./setup.sh`  
