@@ -12,7 +12,9 @@ AllCops:
     - 'bin/*'
     - 'vendor/**/*'
   DisplayCopNames: true
-  RunRailsCops: true
+
+Rails:
+  Enabled: true
 
 LineLength:
   Max: 100
@@ -38,9 +40,12 @@ Style/IndentationConsistency:
 Style/SingleLineBlockParams:
   Enabled: false
 
-# Allow multiple spaces before args
-Style/SingleSpaceBeforeFirstArg:
-  Enabled: false
+# Put comma after last item of multiline arguments and array/hash
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
 
 # Use double quotes
 StringLiterals:
