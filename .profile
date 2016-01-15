@@ -4,9 +4,6 @@ export PS1='\[\e[0;32m\]\w\[\e[0;36m\]$(__git_ps1) \[\e[0;35m\]$\[\e[m\] '
 # TERM environment
 export TERM=xterm-256color-italic
 
-# editor
-export PATH=/usr/local/bin:$PATH
-
 # locale
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -21,7 +18,7 @@ if [ -f $HOME/.git-completion.sh ]; then
 fi
 
 # PATH
-export PATH=$PATH:$HOME/bin
+export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 
 # rbenv config
