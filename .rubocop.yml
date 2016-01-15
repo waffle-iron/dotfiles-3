@@ -12,10 +12,17 @@ AllCops:
     - 'bin/*'
     - 'vendor/**/*'
   DisplayCopNames: true
-  # RunRailsCops: true
+  RunRailsCops: true
+
+LineLength:
+  Max: 100
 
 # Enable Japanese comments
 Style/AsciiComments:
+  Enabled: false
+
+# Allow nested style like `ActiveSupport::TestCase`
+Style/ClassAndModuleChildren:
   Enabled: false
 
 # Allow class with no document
