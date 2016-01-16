@@ -36,7 +36,6 @@ set shiftround                      " Round indent to multiple of 'shiftwidth'
 set ambiwidth=double                " Use twice the width of ASCII characters
 set pumheight=10                    " Height for completion
 set matchpairs& matchpairs+=<:>     " Add to pair matches
-set showmatch                       " Jump to matched pair when bleckets inserted
 set matchtime=1
 set hidden                          " Enable opening files while unsaved
 set switchbuf=useopen               " Behavior for switching buffers
