@@ -284,8 +284,7 @@ NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'ntpeters/vim-better-whitespace'
 " vim-airline
 NeoBundle 'bling/vim-airline'
-NeoBundle 'whatyouhide/vim-gotham'
-
+NeoBundle 'nanotech/jellybeans.vim'
 call neobundle#end()
 " Required:
 filetype plugin indent on
@@ -634,7 +633,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 set guifont=Inconsolate\ Regular\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
-let g:airline_theme='gotham'
+let g:airline_theme='jellybeans'
 let g:airline_left_sep = '⮀'
 let g:airline_right_sep = '⮂'
 let g:airline#extensions#tabline#left_sep = '⮀'
@@ -668,6 +667,8 @@ nnoremap <silent><Leader>d :Dash<CR>
 " STYLE
 " =====
 syntax on
-colorscheme gotham
+colorscheme jellybeans
+highlight Normal ctermbg=NONE
+highlight	Visual ctermbg=Black
 " Make comment italic
 highlight Comment cterm=italic gui=italic
