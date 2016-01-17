@@ -264,9 +264,6 @@ NeoBundle "cakebaker/scss-syntax.vim"
 NeoBundleLazy 'cakebaker/scss-syntax.vim', {
       \ "autoload": {"filetypes":['sass','scss']}
       \ }
-NeoBundleLazy 'gorodinskiy/vim-coloresque', {
-      \ "autoload": {"filetypes":['css','sass','scss']}
-      \ }
 NeoBundleLazy 'KabbAmine/vCoolor.vim', {
       \ "autoload": {"filetypes":['css','sass','scss']}
       \ }
