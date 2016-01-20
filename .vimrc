@@ -39,7 +39,7 @@ set matchpairs& matchpairs+=<:>     " Add to pair matches
 set matchtime=1
 set hidden                          " Enable opening files while unsaved
 set switchbuf=useopen               " Behavior for switching buffers
-set splitright                      " New buffer show up right
+set splitbelow                      " New buffer show up right
 
 set wildmenu                        " Turn on wildmenu
 set wildmode=longest:full,full
@@ -107,7 +107,7 @@ nnoremap <silent><c-l> :bnext<CR>
 " Close buffer and pane
 nnoremap <silent><Leader>D :bd<CR>
 " Split pane
-nnoremap <silent><Leader>v :vsplit<CR>
+nnoremap <silent><Leader>v :split<CR>
 " Clear hilight
 nnoremap <silent><Leader>l :nohl<CR>
 " Copy the opening file's path
