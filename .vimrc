@@ -578,7 +578,7 @@ augroup END
 " emmet-vim
 " ---------
 let g:user_emmet_install_global = 0
-autocmd FileType html,eruby,css,sass,scss,liquid EmmetInstall
+autocmd FileType html,eruby,slim,css,sass,scss,liquid EmmetInstall
 let g:user_emmet_settings = {
   \ 'variables': {
   \ 'lang' : 'ja'
@@ -586,7 +586,7 @@ let g:user_emmet_settings = {
 \}
 augroup emmet
   autocmd!
-  autocmd FileType html,eruby,css,sass,scss call s:map_emmet()
+  autocmd FileType html,eruby,slim,css,sass,scss call s:map_emmet()
 augroup END
 function! s:map_emmet()
   " expand neosnippet snippet if possible, falling back to emmet expansion
