@@ -494,6 +494,13 @@ nnoremap <c-d> :BD<CR>
 map <silent>sa <Plug>(operator-surround-append)
 map <silent>sd <Plug>(operator-surround-delete)
 map <silent>sr <Plug>(operator-surround-replace)
+let g:operator#surround#blocks = {
+  \ '-' : [
+  \	{ 'block' : [" ", " "], 'motionwise' : ['char'], 'keys' : ['s'] },
+  \ ],
+  \ 'markdown' : [
+  \	{ 'block' : ["```\n", "\n```"], 'motionwise' : ['line'], 'keys' : ['.'] },
+  \ ] }
 
 " vim-easy-align
 " --------------
