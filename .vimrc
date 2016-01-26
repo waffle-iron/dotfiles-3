@@ -197,8 +197,6 @@ NeoBundle 'rhysd/vim-operator-surround'
 NeoBundle 'kana/vim-operator-user'
 " vim-easy-align
 NeoBundle 'junegunn/vim-easy-align'
-" tagbar
-NeoBundle 'majutsushi/tagbar'
 " Git
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-fugitive'
@@ -506,10 +504,6 @@ let g:operator#surround#blocks = {
 " --------------
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 vmap <c-m> <Plug>(EasyAlign)
-
-" tagbar
-" ------
-nnoremap <silent><Leader>t :TagbarToggle<CR>
 
 " vim-fugitive
 " -------------
