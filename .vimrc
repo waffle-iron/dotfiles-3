@@ -295,7 +295,9 @@ NeoBundleCheck
 
 " vimfiler
 " --------
-nnoremap <silent><c-e> :VimFiler -explorer -winwidth=25 -toggle<CR>
+" open automatically on startup
+autocmd VimEnter * if &filetype !=# 'gitcommit' | VimFiler -explorer -no-focus -winwidth=25 | endif
+nnoremap <silent><c-e> :VimFiler -explorer -no-focus -winwidth=25 -toggle<CR>
 let g:vimfiler_safe_mode_by_default = 0
 let g:vimfiler_enable_auto_cd = 1
 let g:vimfiler_tree_leaf_icon = ' '
@@ -370,8 +372,8 @@ augroup unite
   autocmd FileType unite nmap <buffer><c-j> <Plug>(unite_exit)
 augroup END
 call unite#custom#profile('default', 'context', {
-  \ 'direction': 'botright',
-  \ 'winwidth':  '100',
+  \ 'direction': 'belowright',
+  \ 'winwidth':  '90',
   \ })
 " The prefix key.
 nnoremap [unite]  <Nop>
