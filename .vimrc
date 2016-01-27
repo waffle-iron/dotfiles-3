@@ -108,6 +108,10 @@ nnoremap <silent><c-l> :bnext<CR>
 nnoremap <silent><Leader>v :vsplit<CR>
 " Clear hilight
 nnoremap <silent><Leader>l :nohl<CR>
+" Close quickfix
+nnoremap <silent><Leader>c :cclose<CR>
+" Open quickfix again
+nnoremap <silent><Leader>C :copen<CR>
 " Copy the opening file's path
 nnoremap <silent><Leader>y :let @+=expand("%:p")<CR>
 
@@ -226,6 +230,11 @@ NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
       \ 'insert' : 1,
       \ 'autoload': {'filetypes': ['ruby']}
       \ }
+NeoBundle 'tpope/vim-dispatch'
+" vim-rspec
+NeoBundleLazy 'thoughtbot/vim-rspec', {
+      \ 'autoload': {'filetypes': ['ruby']}
+	    \ }
 " vim-seeing-is-believing
 NeoBundleLazy 'hwartig/vim-seeing-is-believing', {
       \ 'autoload': {
@@ -474,7 +483,6 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_ruby_checkers 	    = ['rubocop']
 nnoremap <silent><Leader>e :SyntasticToggleMode<CR>
 nnoremap <silent><Leader>E :Errors<CR>
-nnoremap <silent><Leader>c :lclose<CR>
 
 " vim-auto-save
 " -------------
@@ -537,6 +545,22 @@ nmap <c-x> <Plug>GitGutterRevertHunk
 " neocomplete-rsense.vim
 " ----------------------
 let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
+
+" vim-rspec
+" ---------
+" run nearest line's spec
+nnoremap <Leader>tn :call RunNearestSpec()<CR>
+nnoremap <Leader>tc :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>tl :call RunLastSpec()<CR>
+nnoremap <Leader>ta :call RunAllSpecs()<CR>
+let g:rspec_command = 'Dispatch bundle exec rspec {spec}'
+let g:dispatch_quickfix_height = 30
+let g:dispatch_tmux_height = 3
+" let s:bundle = neobundle#get('vim-rspec')
+" function! s:bundle.hooks.on_source(bundle)
+"    let g:rspec_command = 'Dispatch! bundle exec rspec {spec}'
+" endfunction
+
 " vim-seeing-is-believing
 " -----------------------
 augroup sib
