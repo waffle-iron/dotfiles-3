@@ -104,10 +104,8 @@ nnoremap <silent><Leader>N :enew<CR>
 " Move between buffers
 nnoremap <silent><c-h> :bprevious<CR>
 nnoremap <silent><c-l> :bnext<CR>
-" Close buffer and pane
-nnoremap <silent><Leader>D :bd<CR>
 " Split pane
-nnoremap <silent><Leader>v :split<CR>
+nnoremap <silent><Leader>v :vsplit<CR>
 " Clear hilight
 nnoremap <silent><Leader>l :nohl<CR>
 " Copy the opening file's path
@@ -372,21 +370,20 @@ augroup unite
   autocmd FileType unite nmap <buffer><c-j> <Plug>(unite_exit)
 augroup END
 call unite#custom#profile('default', 'context', {
-  \ 'direction': 'belowright',
-  \ 'winwidth':  '90',
+  \ 'winwidth':  '90'
   \ })
 " The prefix key.
 nnoremap [unite]  <Nop>
 nmap     <space>  [unite]
 " Directory
 nnoremap <silent> [unite]u :<c-u>call DispatchUniteFileRecAsyncOrGit()<CR>
-nnoremap <silent> [unite]b :<c-u>UniteWithBufferDir file file/new -vertical<CR>
+nnoremap <silent> [unite]b :<c-u>UniteWithBufferDir file file/new<CR>
 " history
-nnoremap <silent> [unite]h :<c-u>Unite file_mru -vertical<CR>
+nnoremap <silent> [unite]h :<c-u>Unite file_mru<CR>
 " Opening buffers
-nnoremap <silent> [unite]C :<c-u>Unite buffer -vertical<CR>
+nnoremap <silent> [unite]C :<c-u>Unite buffer<CR>
 " Grep
-nnoremap <silent> [unite]G :<c-u>Unite grep: -buffer-name=search-buffer -vertical<CR>
+nnoremap <silent> [unite]G :<c-u>Unite grep: -buffer-name=search-buffer<CR>
 
 " Use 'ag'(the_silver_searcher) for Unite grep
 if executable('ag')
@@ -402,33 +399,33 @@ call unite#custom#source('file_rec/git', 'ignore_pattern', s:ignore_patterns)
 function! DispatchUniteFileRecAsyncOrGit()
   " If current directory is git repo
   if isdirectory(getcwd()."/.git")
-    Unite file_rec/git:--cached:--others:--exclude-standard -vertical
+    Unite file_rec/git:--cached:--others:--exclude-standard
   else
-    Unite file_rec/async -vertical
+    Unite file_rec/async
   endif
 endfunction
 
 " unite-rails
-nnoremap <silent> [unite]ra :<c-u>Unite rails/asset -vertical<CR>
-nnoremap <silent> [unite]rb :<c-u>Unite rails/bundled_gem -vertical<CR>
-nnoremap <silent> [unite]rc :<c-u>Unite rails/controller -vertical<CR>
-nnoremap <silent> [unite]rC :<c-u>Unite rails/config -vertical<CR>
-nnoremap <silent> [unite]rd :<c-u>Unite rails/db -vertical<CR>
-nnoremap <silent> [unite]rg :<c-u>Unite rails/gemfile -vertical<CR>
-nnoremap <silent> [unite]rh :<c-u>Unite rails/helper -vertical<CR>
-nnoremap <silent> [unite]rj :<c-u>Unite rails/javascript -vertical<CR>
-nnoremap <silent> [unite]rl :<c-u>Unite rails/log -vertical<CR>
-nnoremap <silent> [unite]rL :<c-u>Unite rails/lib -vertical<CR>
-nnoremap <silent> [unite]rm :<c-u>Unite rails/model -vertical<CR>
-nnoremap <silent> [unite]rM :<c-u>Unite rails/mailer -vertical<CR>
-nnoremap <silent> [unite]rr :<c-u>Unite rails/route -vertical<CR>
-nnoremap <silent> [unite]rs :<c-u>Unite rails/stylesheet -vertical<CR>
-nnoremap <silent> [unite]rt :<c-u>Unite rails/spec -vertical<CR>
-nnoremap <silent> [unite]rv :<c-u>Unite rails/view -vertical<CR>
+nnoremap <silent> [unite]ra :<c-u>Unite rails/asset<CR>
+nnoremap <silent> [unite]rb :<c-u>Unite rails/bundled_gem<CR>
+nnoremap <silent> [unite]rc :<c-u>Unite rails/controller<CR>
+nnoremap <silent> [unite]rC :<c-u>Unite rails/config<CR>
+nnoremap <silent> [unite]rd :<c-u>Unite rails/db<CR>
+nnoremap <silent> [unite]rg :<c-u>Unite rails/gemfile<CR>
+nnoremap <silent> [unite]rh :<c-u>Unite rails/helper<CR>
+nnoremap <silent> [unite]rj :<c-u>Unite rails/javascript<CR>
+nnoremap <silent> [unite]rl :<c-u>Unite rails/log<CR>
+nnoremap <silent> [unite]rL :<c-u>Unite rails/lib<CR>
+nnoremap <silent> [unite]rm :<c-u>Unite rails/model<CR>
+nnoremap <silent> [unite]rM :<c-u>Unite rails/mailer<CR>
+nnoremap <silent> [unite]rr :<c-u>Unite rails/route<CR>
+nnoremap <silent> [unite]rs :<c-u>Unite rails/stylesheet<CR>
+nnoremap <silent> [unite]rt :<c-u>Unite rails/spec<CR>
+nnoremap <silent> [unite]rv :<c-u>Unite rails/view<CR>
 
 " yankround
 " ---------
-nnoremap <silent> [unite]p :<c-u>Unite yankround -vertical<CR>
+nnoremap <silent> [unite]p :<c-u>Unite yankround<CR>
 nmap p <Plug>(yankround-p)
 xmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
