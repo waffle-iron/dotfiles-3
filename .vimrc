@@ -545,6 +545,16 @@ let g:gitgutter_sign_column_always = 1
 nmap <c-a> <Plug>GitGutterStageHunk
 nmap <c-x> <Plug>GitGutterRevertHunk
 
+" vim-smartinput
+" --------------
+call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
+call smartinput#define_rule({
+\   'at': '[^#]\%#',
+\   'char': '{',
+\   'input': '{<Space><Space>}<Left><Left>',
+\   'filetype': ['ruby', 'slim'],
+\ })
+
 " Ruby and Rails
 " ==============
 " neocomplete-rsense.vim
