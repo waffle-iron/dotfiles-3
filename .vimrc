@@ -63,6 +63,11 @@ map Q <Nop>
 map s <Nop>
 " Set <Leader>
 let g:mapleader = "\<Space>"
+" Escape
+noremap  <c-j>  <Esc>
+noremap! <c-j>  <Esc>
+cnoremap <c-j>  <Esc>
+nnoremap  r<c-j> r<Esc>
 " Go and Back
 inoremap <c-f> <Right>
 inoremap <c-b> <Left>
@@ -371,7 +376,7 @@ let g:unite_source_rec_max_cache_files = 5000
 let g:unite_source_file_mru_limit      = 200
 augroup unite
   autocmd!
-  autocmd FileType unite nmap <buffer><c-[> <Plug>(unite_exit)
+  autocmd FileType unite nmap <buffer><c-j> <Plug>(unite_exit)
 augroup END
 call unite#custom#profile('default', 'context', {
   \ 'winwidth':  '90'
@@ -452,6 +457,7 @@ augroup END
 function! s:incsearch_keymap()
     IncSearchNoreMap <c-f>  <Over>(incsearch-scroll-f)
     IncSearchNoreMap <c-d>  <Over>(incsearch-scroll-b)
+    IncSearchNoreMap <c-j>  <Esc>
 endfunction
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
