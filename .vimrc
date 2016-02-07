@@ -194,6 +194,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'vim-scripts/vim-auto-save'
 " vim-bufkill
 NeoBundle 'vim-scripts/bufkill.vim'
+NeoBundle 'vim-scripts/BufOnly.vim'
 " vim-operator-surround
 NeoBundle 'rhysd/vim-operator-surround'
 NeoBundle 'kana/vim-operator-user'
@@ -494,6 +495,10 @@ let g:auto_save_in_insert_mode = 0
 " -----------
 nnoremap <c-d> :BD<CR>
 
+" BufOnly.vim
+" -----------
+nnoremap <Leader>d :BufOnly<CR>
+
 " vim-operator-surround
 " ---------------------
 map <silent>sa <Plug>(operator-surround-append)
@@ -713,7 +718,7 @@ function! s:dash(...)
   call system(printf("open dash://'%s'", word))
 endfunction
 command! -nargs=* Dash call <SID>dash(<f-args>)
-nnoremap <silent><Leader>d :Dash<CR>
+nnoremap <silent><Leader>D :Dash<CR>
 
 " STYLE
 " =====
