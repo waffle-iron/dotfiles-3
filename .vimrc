@@ -507,13 +507,14 @@ map <silent>sr <Plug>(operator-surround-replace)
 let g:operator#surround#blocks =
   \ {
   \   '-' : [
-  \	    { 'block' : [" ", " "], 'motionwise' : ['char', 'line', 'block'], 'keys' : ['s'] },
+  \	    { 'block' : [" ", " "], 'motionwise' : ['char', 'line', 'block'], 'keys' : ['s'] }
   \   ],
   \   'ruby' : [
   \     { 'block' : ["{ ", " }"], 'motionwise' : ['char'], 'keys' : ['{', '}']}
   \   ],
   \   'markdown' : [
-  \	    { 'block' : ["```\n", "\n```"], 'motionwise' : ['line'], 'keys' : ['`'] },
+  \	    { 'block' : ["```\n", "\n```"],       'motionwise' : ['line'], 'keys' : ['`'] },
+  \	    { 'block' : ["---\ntitle: ", "\n---"], 'motionwise' : ['line'], 'keys' : ['-'] }
   \   ],
   \ }
 
