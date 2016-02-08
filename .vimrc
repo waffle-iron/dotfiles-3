@@ -204,19 +204,19 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
-" Change text
+" Utilities
+NeoBundle 'danro/rename.vim'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-sleuth'
-
+NeoBundle 'tyru/open-browser.vim'
 " Document
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
-NeoBundle 'tyru/open-browser.vim'
 
 " Ruby and Rails
 " ==============
