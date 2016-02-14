@@ -114,6 +114,13 @@ nnoremap <silent><Leader>c :cclose<CR>
 nnoremap <silent><Leader>C :copen<CR>
 " Copy the opening file's path
 nnoremap <silent><Leader>y :let @+=expand("%:p")<CR>
+" Command
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
 
 " FileType
 " ===========
@@ -416,6 +423,7 @@ function! DispatchUniteFileRecAsyncOrGit()
 endfunction
 
 " unite-rails
+" -----------
 nnoremap <silent> [unite]ra :<c-u>Unite rails/asset<CR>
 nnoremap <silent> [unite]rb :<c-u>Unite rails/bundled_gem<CR>
 nnoremap <silent> [unite]rc :<c-u>Unite rails/controller<CR>
@@ -456,7 +464,7 @@ augroup incsearch-keymap
     autocmd VimEnter * call s:incsearch_keymap()
 augroup END
 function! s:incsearch_keymap()
-    IncSearchNoreMap <c-f>  <Over>(incsearch-scroll-f)
+    IncSearchNoreMap <c-k>  <Over>(incsearch-scroll-f)
     IncSearchNoreMap <c-d>  <Over>(incsearch-scroll-b)
     IncSearchNoreMap <c-j>  <Esc>
 endfunction
@@ -493,11 +501,11 @@ let g:auto_save_in_insert_mode = 0
 
 " bufkill.vim
 " -----------
-nnoremap <c-d> :BD<CR>
+nnoremap <Leader>d :BD<CR>
 
 " BufOnly.vim
 " -----------
-nnoremap <Leader>d :BufOnly<CR>
+nnoremap <Leader>z :BufOnly<CR>
 
 " vim-operator-surround
 " ---------------------
@@ -726,6 +734,6 @@ nnoremap <silent><Leader>D :Dash<CR>
 syntax on
 colorscheme jellybeans
 highlight Normal ctermbg=NONE
-highlight	Visual ctermbg=Black
+highlight Visual ctermbg=Black
 " Make comment italic
 highlight Comment cterm=italic gui=italic
