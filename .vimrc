@@ -633,8 +633,11 @@ augroup END
 let g:user_emmet_install_global = 0
 autocmd FileType html,eruby,css,sass,scss,liquid EmmetInstall
 let g:user_emmet_settings = {
+  \ 'html' : {
+  \   'quote_char': "'"
+  \ },
   \ 'variables': {
-  \ 'lang' : 'ja'
+  \   'lang' : 'ja'
   \ }
 \}
 augroup emmet
