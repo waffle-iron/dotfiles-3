@@ -522,7 +522,9 @@ let g:operator#surround#blocks =
   \   ],
   \   'markdown' : [
   \	    { 'block' : ["```\n", "\n```"],       'motionwise' : ['line'], 'keys' : ['`'] },
-  \	    { 'block' : ["---\ntitle: ", "\n---"], 'motionwise' : ['line'], 'keys' : ['-'] }
+  \	    { 'block' : ["---\ntitle: ", "\n---"], 'motionwise' : ['line'], 'keys' : ['-'] },
+  \	    { 'block' : ["{% highlight %}\n", "\n{% endhighlight %}"],
+  \			'motionwise' : ['line'], 'keys' : ['{'] }
   \   ],
   \ }
 
@@ -633,9 +635,6 @@ augroup END
 let g:user_emmet_install_global = 0
 autocmd FileType html,eruby,css,sass,scss,liquid EmmetInstall
 let g:user_emmet_settings = {
-  \ 'html' : {
-  \   'quote_char': "'"
-  \ },
   \ 'variables': {
   \   'lang' : 'ja'
   \ }
