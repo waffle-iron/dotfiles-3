@@ -137,7 +137,7 @@ augroup fileTypeSettings
   autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
   autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType eruby      setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType erb	      setlocal sw=2 sts=2 ts=2 et
   autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType slim       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
@@ -566,7 +566,7 @@ call smartinput#define_rule({
 \   'at': '[^#]\%#',
 \   'char': '{',
 \   'input': '{<Space><Space>}<Left><Left>',
-\   'filetype': ['ruby', 'slim'],
+\   'filetype': ['ruby', 'eruby', 'slim'],
 \ })
 
 " Ruby and Rails
