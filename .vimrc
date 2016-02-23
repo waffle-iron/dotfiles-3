@@ -190,7 +190,7 @@ NeoBundle 'Shougo/neosnippet'
 " unite.vim
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'basyura/unite-rails'
+NeoBundle 'yoshitakame/unite-rails'
 " yankround
 NeoBundle 'LeafCage/yankround.vim'
 " incsearch.vim
@@ -438,7 +438,8 @@ nnoremap <silent> [unite]rm :<c-u>Unite rails/model<CR>
 nnoremap <silent> [unite]rM :<c-u>Unite rails/mailer<CR>
 nnoremap <silent> [unite]rr :<c-u>Unite rails/route<CR>
 nnoremap <silent> [unite]rs :<c-u>Unite rails/stylesheet<CR>
-nnoremap <silent> [unite]rt :<c-u>Unite rails/spec<CR>
+nnoremap <silent> [unite]rS :<c-u>Unite rails/spec<CR>
+nnoremap <silent> [unite]rt :<c-u>Unite rails/test<CR>
 nnoremap <silent> [unite]rv :<c-u>Unite rails/view<CR>
 
 " yankround
