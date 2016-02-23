@@ -298,7 +298,8 @@ NeoBundle 'ntpeters/vim-better-whitespace'
 " vim-indent-guide
 NeoBundle 'nathanaelkane/vim-indent-guides'
 " vim-airline
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'nanotech/jellybeans.vim'
 call neobundle#end()
 " Required:
