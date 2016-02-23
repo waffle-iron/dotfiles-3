@@ -231,6 +231,8 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'skalnik/vim-vroom'
 " g S : split / g J : join
 NeoBundle 'AndrewRadev/splitjoin.vim'
 " necomplete-rsense.vim
@@ -238,7 +240,6 @@ NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
       \ 'insert' : 1,
       \ 'autoload': {'filetypes': ['ruby']}
       \ }
-NeoBundle 'tpope/vim-dispatch'
 " vim-rspec
 NeoBundleLazy 'thoughtbot/vim-rspec', {
       \ 'autoload': {'filetypes': ['ruby']}
@@ -579,6 +580,12 @@ call smartinput#define_rule({
 
 " Ruby and Rails
 " ==============
+" vim-vroom
+let g:vroom_use_dispatch = 1
+let g:vroom_map_keys = 0
+nnoremap <Leader>t :call vroom#RunTestFile()<CR>
+nnoremap <Leader>T :call vroom#RunLastTest()<CR>
+
 " neocomplete-rsense.vim
 " ----------------------
 let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
@@ -586,10 +593,10 @@ let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
 " vim-rspec
 " ---------
 " run nearest line's spec
-nnoremap <Leader>tn :call RunNearestSpec()<CR>
-nnoremap <Leader>tc :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>tl :call RunLastSpec()<CR>
-nnoremap <Leader>ta :call RunAllSpecs()<CR>
+nnoremap <Leader>sn :call RunNearestSpec()<CR>
+nnoremap <Leader>sc :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>sl :call RunLastSpec()<CR>
+nnoremap <Leader>sa :call RunAllSpecs()<CR>
 let g:rspec_command = 'Dispatch bundle exec rspec {spec}'
 let g:dispatch_quickfix_height = 30
 let g:dispatch_tmux_height = 3
