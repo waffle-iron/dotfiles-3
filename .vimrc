@@ -523,10 +523,14 @@ let g:operator#surround#blocks =
   \     { 'block' : ["{ ", " }"], 'motionwise' : ['char'], 'keys' : ['{', '}']}
   \   ],
   \   'markdown' : [
-  \	    { 'block' : ["```\n", "\n```"],       'motionwise' : ['line'], 'keys' : ['`'] },
-  \	    { 'block' : ["---\ntitle: ", "\n---"], 'motionwise' : ['line'], 'keys' : ['-'] },
-  \	    { 'block' : ["{% highlight %}\n", "\n{% endhighlight %}"],
-  \			'motionwise' : ['line'], 'keys' : ['{'] }
+  \	    { 'block' : ["```\n", "\n```"],            'motionwise' : ['line'], 'keys' : ['`'] },
+  \	    { 'block' : ["```bash\n",  "\n```"],       'motionwise' : ['line'], 'keys' : ['b'] },
+  \	    { 'block' : ["```html\n",  "\n```"],       'motionwise' : ['line'], 'keys' : ['h'] },
+  \	    { 'block' : ["```javascript\n",  "\n```"], 'motionwise' : ['line'], 'keys' : ['j'] },
+  \	    { 'block' : ["```ruby\n",  "\n```"],       'motionwise' : ['line'], 'keys' : ['r'] },
+  \	    { 'block' : ["```scss\n", "\n```"],        'motionwise' : ['line'], 'keys' : ['sc'] },
+  \	    { 'block' : ["```swift\n", "\n```"],       'motionwise' : ['line'], 'keys' : ['sw'] },
+  \	    { 'block' : ["---\ntitle: ", "\n---"],     'motionwise' : ['line'], 'keys' : ['-'] },
   \   ],
   \ }
 
