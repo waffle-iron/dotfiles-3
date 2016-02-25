@@ -232,6 +232,7 @@ NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'sunaku/vim-ruby-minitest'
 NeoBundle 'skalnik/vim-vroom'
 " g S : split / g J : join
 NeoBundle 'AndrewRadev/splitjoin.vim'
@@ -580,15 +581,20 @@ call smartinput#define_rule({
 
 " Ruby and Rails
 " ==============
+" neocomplete-rsense.vim
+" ----------------------
+let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
+
+" vim-ruby-minitest
+" -----------------
+set completefunc=syntaxcomplete#Complete
+
 " vim-vroom
+" ---------
 let g:vroom_use_dispatch = 1
 let g:vroom_map_keys = 0
 nnoremap <Leader>t :call vroom#RunTestFile()<CR>
 nnoremap <Leader>T :call vroom#RunLastTest()<CR>
-
-" neocomplete-rsense.vim
-" ----------------------
-let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
 
 " vim-rspec
 " ---------
@@ -650,8 +656,11 @@ autocmd FileType html,eruby,css,sass,scss,liquid EmmetInstall
 let g:user_emmet_settings = {
   \ 'variables': {
   \   'lang' : 'ja'
+  \ },
+  \ 'html': {
+  \   'quote_char': "'"
   \ }
-\}
+\ }
 augroup emmet
   autocmd!
   autocmd FileType html,eruby,css,sass,scss call s:map_emmet()
@@ -710,7 +719,6 @@ let g:airline#extensions#tabline#enabled  = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-set guifont=Inconsolate\ Regular\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
 let g:airline_theme='jellybeans'
