@@ -1,0 +1,9 @@
+" Case-insensitive searching.
+set ignorecase
+" Case-sensitive if expression contains a capital letter.
+set smartcase
+" Use the system pasteboard
+set pasteboard
+
+" Return
+inoremap <c-m> <cr>
