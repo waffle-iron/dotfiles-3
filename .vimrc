@@ -383,6 +383,7 @@ let g:unite_source_rec_max_cache_files = 5000
 let g:unite_source_file_mru_limit      = 200
 augroup unite
   autocmd!
+  autocmd FileType unite nmap <buffer><c-[> <Plug>(unite_exit)
 augroup END
 call unite#custom#profile('default', 'context', {
   \ 'winwidth':  '90'
