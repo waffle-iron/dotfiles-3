@@ -40,3 +40,5 @@ Session.vim
 # tmux plugins
 .tmux
 .atom/**/**
+
+.idea
