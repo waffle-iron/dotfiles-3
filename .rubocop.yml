@@ -40,12 +40,7 @@ Style/IndentationConsistency:
 Style/SingleLineBlockParams:
   Enabled: false
 
-# Use double quotes
 Style/StringLiterals:
   EnforcedStyle: double_quotes
-
-# Put comma after last item of multiline arguments and array/hash
-Style/TrailingCommaInArguments:
-  EnforcedStyleForMultiline: comma
-TrailingCommaInLiteral:
-  EnforcedStyleForMultiline: comma
+  Exclude:
+    - 'test/**/*'
