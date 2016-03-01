@@ -7,7 +7,7 @@ options indent
     <html>
         <head>
             <meta http-equiv="content-type" content="text/html; charset=utf-8">
-            <title>${1}</title>
+            <title>${0}</title>
         </head>
     </html>
 
@@ -15,40 +15,40 @@ snippet head
 options indent
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <title>${1}</title>
+        <title>${0}</title>
     </head>
 
 snippet link
 alias   css
-    <link rel="stylesheet" href="${1}.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="${0}.css" type="text/css" media="screen" charset="utf-8">
 
 snippet script
 alias   javascript
-    <script${1}></script>
+    <script${0}></script>
 
 snippet comment
 options word
 alias   com
-    <!-- ${1} -->
+    <!-- ${0} -->
 
 snippet value
 options word
-    value="${1}"
+    value="${0}"
 snippet name
 options word
-    name="${1}"
+    name="${0}"
 snippet type
 options word
-    type="${1}"
+    type="${0}"
 snippet src
 options word
-    src="${1}"
+    src="${0}"
 snippet size
 options word
-    size="${1}"
+    size="${0}"
 snippet style
 options word
-    style="${1}"
+    style="${0}"
 
 snippet br
 options word

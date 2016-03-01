@@ -2,50 +2,50 @@ snippet comment
 options word
 alias   com
   #--------------------------------------
-  #  ${1}
+  #  ${0}
   #--------------------------------------
 
 snippet Array
 options word
-  Array.new(${1})
+  Array.new(${0})
 
 snippet Hash
 options word
-  Hash.new(${1})
+  Hash.new(${0})
 
 snippet Rational
 options word
-  Rational(${1})
+  Rational(${0})
 
 snippet initialize
 options word
 abbr    initialize()
-  initialize(${1})
+  initialize(${0})
 
 snippet attr_reader
 options word
-  attr_reader :${1}
+  attr_reader :${0}
 
 snippet attr_writer
 options word
-  attr_writer :${1}
+  attr_writer :${0}
 
 snippet attr_accessor
 options word
-  attr_accessor :${1}
+  attr_accessor :${0}
 
 snippet while
 options word
-  while ${1}
+  while ${0}
 
 snippet require
 options word
-  require ${1}
+  require ${0}
 
 snippet file_open
 options word
 alias   open
-  File.open(${1})
+  File.open(${0})
 
 snippet     match_japanese
 options     word
