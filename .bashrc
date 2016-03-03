@@ -16,6 +16,7 @@ alias vi='vim'
 alias op='open'
 alias so='source'
 alias g='git'
+alias tigs='tig status'
 alias ctags="/usr/local/bin/ctags"
 alias ctags-rails="/usr/local/bin/ctags -R -f .tags --exclude=.git --exclude=log --exclude=app/assets --exclude=vendor"
 alias rb='ruby'

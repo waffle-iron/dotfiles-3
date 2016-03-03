@@ -1,0 +1,17 @@
+# 水平分割した時のサイズ
+set split-view-height = 80%
+
+# main viewの左にコミットidを表示uる
+set main-view = id date author commit-title:graph=yes,refs=yes
+
+# `commit -v`uる
+bind status C !git commit --verbose
+bind status A !git commit --amend --verbose
+
+bind generic <Ctrl-G> view-grep
+bind generic <Ctrl-F> scroll-page-down
+bind status  a refresh
+bind generic g move-first-line
+bind main    G move-last-line
+bind diff    G move-last-line
+bind generic G move-last-line
