@@ -716,7 +716,7 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
-let g:airline_theme='raven'
+let g:airline_theme='tomorrow'
 let g:airline_left_sep = '⮀'
 let g:airline_right_sep = '⮂'
 let g:airline#extensions#tabline#left_sep = '⮀'
@@ -750,6 +750,7 @@ nnoremap <silent><Leader>D :Dash<CR>
 " STYLE
 " =====
 syntax on
+set background=dark
 colorscheme iceberg
 highlight Normal ctermbg=NONE
 highlight Visual ctermbg=Black
