@@ -16,6 +16,9 @@ AllCops:
 Rails:
   Enabled: true
 
+Metrics/AbcSize:
+  Enabled: false
+
 Metrics/LineLength:
   Max: 100
 
