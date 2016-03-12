@@ -32,7 +32,7 @@
 [push]
   default = simple
 [init]
-  templatedir = .git_tmp
+  templatedir = ~/.git_tmp
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
