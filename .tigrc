@@ -4,6 +4,9 @@ set split-view-height = 80%
 # main viewの左にコミットidを表示uる
 set main-view = id date author commit-title:graph=yes,refs=yes
 
+set refresh-mode = periodic
+set refresh-interval = 5
+
 # `commit -v`uる
 bind status C !git commit --verbose
 bind status A !git commit --amend --verbose
