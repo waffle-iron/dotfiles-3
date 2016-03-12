@@ -44,6 +44,6 @@ Style/SingleLineBlockParams:
   Enabled: false
 
 Style/StringLiterals:
-  EnforcedStyle: double_quotes
+  EnforcedStyle: single_quotes
   Exclude:
     - 'test/**/*'
