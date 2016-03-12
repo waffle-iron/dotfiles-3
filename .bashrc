@@ -20,6 +20,7 @@ alias tigs='tig status'
 alias ctags="/usr/local/bin/ctags"
 alias ctags-rails="/usr/local/bin/ctags -R -f .tags --exclude=.git --exclude=log --exclude=app/assets --exclude=vendor"
 alias rb='ruby'
+alias b='bundle'
 alias be='bundle exec'
 alias br='bundle exec ruby'
 alias blog='cd ~/Dropbox/jekyll/yoshitaka/ && vi'
