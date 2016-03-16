@@ -21,6 +21,8 @@ Metrics/AbcSize:
 
 Metrics/LineLength:
   Max: 100
+  Exclude:
+    - 'test/**/*'
 
 # Enable Japanese comments
 Style/AsciiComments:
