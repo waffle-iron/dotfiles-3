@@ -651,9 +651,6 @@ autocmd FileType html,eruby,css,sass,scss,liquid EmmetInstall
 let g:user_emmet_settings = {
   \ 'variables': {
   \   'lang' : 'ja'
-  \ },
-  \ 'html': {
-  \   'quote_char': "'"
   \ }
 \ }
 augroup emmet
