@@ -102,6 +102,7 @@ nnoremap <silent><c-h> :bprevious<CR>
 nnoremap <silent><c-l> :bnext<CR>
 " Split pane
 nnoremap <silent><Leader>v :vsplit<CR>
+nnoremap <silent><Leader>V :split<CR>
 " Clear hilight
 nnoremap <silent><Leader>l :nohl<CR>
 " Close quickfix
@@ -232,11 +233,6 @@ NeoBundle 'sunaku/vim-ruby-minitest'
 NeoBundle 'skalnik/vim-vroom'
 " g S : split / g J : join
 NeoBundle 'AndrewRadev/splitjoin.vim'
-" necomplete-rsense.vim
-NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
-      \ 'insert' : 1,
-      \ 'autoload': {'filetypes': ['ruby']}
-      \ }
 " vim-rspec
 NeoBundleLazy 'thoughtbot/vim-rspec', {
       \ 'autoload': {'filetypes': ['ruby']}
@@ -299,6 +295,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'cocopon/iceberg.vim'
+NeoBundle 'joshdick/onedark.vim'
+NeoBundle 'joshdick/airline-onedark.vim'
 call neobundle#end()
 " Required:
 filetype plugin indent on
@@ -576,10 +574,6 @@ call smartinput#define_rule({
 
 " Ruby and Rails
 " ==============
-" neocomplete-rsense.vim
-" ----------------------
-let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
-
 " vim-ruby-minitest
 " -----------------
 set completefunc=syntaxcomplete#Complete
@@ -700,8 +694,8 @@ let g:better_whitespace_filetypes_blacklist = ['unite', 'vimfiler']
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=236
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
 let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
 
@@ -713,7 +707,7 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
-let g:airline_theme='tomorrow'
+let g:airline_theme='onedark'
 let g:airline_left_sep = '⮀'
 let g:airline_right_sep = '⮂'
 let g:airline#extensions#tabline#left_sep = '⮀'
@@ -747,9 +741,8 @@ nnoremap <silent><Leader>D :Dash<CR>
 " STYLE
 " =====
 syntax on
-set background=dark
-colorscheme iceberg
+colorscheme onedark
 highlight Normal ctermbg=NONE
-highlight Visual ctermbg=Black
+hi Search ctermbg=105
 " Make comment italic
 highlight Comment cterm=italic gui=italic
