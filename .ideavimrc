@@ -1,0 +1,21 @@
+"検索対象をハイライト ハイライトを消す場合は:noh[l]
+set hlsearch
+
+"スクロール時に表示を10行確保
+set scrolloff=10
+
+" plugin
+set vim-surround
+
+"インサートモードで bash 風キーマップ
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$<Right>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+inoremap <C-h> <BS>
+inoremap <C-d> <Del>
+inoremap <C-k> <C-o>D<Right>
+inoremap <C-u> <C-o>d^
+inoremap <C-w> <C-o>db
