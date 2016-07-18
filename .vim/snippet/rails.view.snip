@@ -38,6 +38,7 @@ options word
 snippet div_for
 options word
   div_for ${0}
+
 snippet email_field
 options word
   email_field :${0}
@@ -48,7 +49,7 @@ options word
 
 snippet form_for
 options word
-  form_for(${0})
+  form_for ${0}
 
 snippet file_field
 options word
@@ -101,11 +102,15 @@ options word
 
 snippet text_field
 options word
-  text_field(${0})
+  text_field :${0}
 
 snippet text-field-tag
 options word
-  text_field_tag(${0})
+  text_field_tag :${0}
+
+snippet text_area
+options word
+  text_area :${0}
 
 snippet time_ago_in_words
 options word

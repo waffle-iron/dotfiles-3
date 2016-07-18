@@ -264,6 +264,7 @@ NeoBundleLazy 'moll/vim-node', {
 " Markup
 " ======
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'posva/vim-vue'
 NeoBundleLazy 'hail2u/vim-css3-syntax', {
       \ "autoload": {"filetypes":['css']}
       \ }
@@ -310,6 +311,7 @@ NeoBundleCheck
 " open automatically on startup
 autocmd VimEnter * if &filetype !=# 'gitcommit' | VimFiler -explorer -no-focus -winwidth=25 | endif
 nnoremap <silent><c-e> :VimFiler -explorer -no-focus -winwidth=25 -toggle<CR>
+let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 let g:vimfiler_enable_auto_cd = 1
 let g:vimfiler_tree_leaf_icon = ' '
@@ -329,8 +331,10 @@ let g:neocomplete#enable_smart_case = 1
 if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
+let g:neocomplete#force_omni_input_patterns.ruby =
+      \ '[^. *\t]\.\w*\|\h\w*::'
+let g:neocomplete#force_omni_input_patterns.javascript =
+      \ '\h\w*\|[^. \t]\.\w*'
 
 " neosnippet
 " ----------

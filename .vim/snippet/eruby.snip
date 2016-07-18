@@ -54,6 +54,14 @@ options indent
       <title>${0}</title>
   </head>
 
+snippet label
+options word
+  <label>${0}</label>
+
+snippet textarea
+options word
+  <textarea>${0}</textarea>
+
 snippet inclusion
 options word
   inclusion: ${0}
@@ -64,7 +72,7 @@ options word
 
 snippet link
 alias   css
-  <link rel="stylesheet" href="${0}.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="${0}.css">
 
 snippet only_integer
 options word
