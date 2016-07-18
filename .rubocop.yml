@@ -13,9 +13,6 @@ AllCops:
     - 'vendor/**/*'
   DisplayCopNames: true
 
-Rails:
-  Enabled: true
-
 Metrics/AbcSize:
   Enabled: false
 
